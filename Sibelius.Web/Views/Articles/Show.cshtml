@@ -1,0 +1,31 @@
+﻿@model  Sibelius.Web.Models.Article
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>@Model.Title</h3>
+        <h4>@Model.Section</h4>
+        <p>Por @Model.Author</p>
+        
+        <div class="col-md-8">
+            <p class="article-text-intro">
+                @Model.Intro                
+            </p>
+            <hr />
+            <p class="article-text">
+                @Html.Raw(Model.Html)
+            </p>
+        </div> 
+        <div class="col-md-4">
+            <img class="img-responsive" src="@Model.ImageUrl" />
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    @Html.Raw(Model.HtmlImageFooter)
+                </div>
+            </div>
+        </div>       
+    </div>
+    
+</div>
