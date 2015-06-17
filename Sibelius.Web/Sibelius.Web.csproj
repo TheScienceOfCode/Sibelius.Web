@@ -164,9 +164,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Behavior\ArticleBehavior.cs" />
+    <Compile Include="Behavior\ContestBehavior.cs" />
     <Compile Include="Behavior\CourseBehavior.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminArticlesController.cs" />
+    <Compile Include="Controllers\AdminContestsController.cs" />
     <Compile Include="Controllers\AdminCoursesController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
@@ -179,6 +181,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\Contest.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -255,6 +258,10 @@
     <Content Include="Views\AdminArticles\Edit.cshtml" />
     <Content Include="Views\AdminArticles\Delete.cshtml" />
     <Content Include="Views\Articles\Show.cshtml" />
+    <Content Include="Views\AdminContests\Index.cshtml" />
+    <Content Include="Views\AdminContests\Create.cshtml" />
+    <Content Include="Views\AdminContests\Edit.cshtml" />
+    <Content Include="Views\AdminContests\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
