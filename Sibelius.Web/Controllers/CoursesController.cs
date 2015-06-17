@@ -14,7 +14,7 @@ namespace Sibelius.Web.Controllers
         // GET: Class
         public ActionResult Index()
         {
-            return View(courseBehavior.GetAll());
+            return View(courseBehavior.GetVisible());
         }
 
         public ActionResult Show(string id)

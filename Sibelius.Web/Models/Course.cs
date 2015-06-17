@@ -21,5 +21,6 @@ namespace Sibelius.Web.Models
         public bool Active { get; set; }
         public bool CurrentlyUpdated { get; set; }
         public string Language { get; set; }
+        public bool Visible { get; set; }
     }
 }

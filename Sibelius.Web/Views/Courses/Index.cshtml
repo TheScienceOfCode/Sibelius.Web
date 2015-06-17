@@ -4,24 +4,30 @@
     ViewBag.Title = "Cursos";
 }
 <br />
-<div class="row well">
-    @foreach (var course in Model.Where(c => c.Active))
-    {
-        <div class="col-md-6">
-            @Html.Partial("_CourseBrowser", course)
-        </div>
-    }
-</div>
+@if (Model.Count(c => c.Active) > 0)
+{
+    <div class="row well">
+        @foreach (var course in Model.Where(c => c.Active))
+        {
+            <div class="col-md-6">
+                @Html.Partial("_CourseBrowser", course)
+            </div>
+        }
+    </div>
+}
 
-<div class="row">
+@if (Model.Count(c => !c.Active) > 0)
+{
+    <div class="row">
 
-    <h3>Cursos anteriores</h3>
-    <hr />
+        <h3>Cursos anteriores</h3>
+        <hr />
 
-    @foreach (var course in Model.Where(c => !c.Active))
-    {
-        <div class="col-md-6">
-            @Html.Partial("_CourseBrowser", course)
-        </div>
-    }
-</div>
+        @foreach (var course in Model.Where(c => !c.Active))
+        {
+            <div class="col-md-6">
+                @Html.Partial("_CourseBrowser", course)
+            </div>
+        }
+    </div>
+}

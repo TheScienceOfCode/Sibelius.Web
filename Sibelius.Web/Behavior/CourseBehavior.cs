@@ -27,6 +27,11 @@ namespace Sibelius.Web.Behavior
             return unit.Courses;
         }
 
+        public IEnumerable<Course> GetVisible()
+        {
+            return unit.Courses.Where(c => c.Visible == true).OrderByDescending(c => c.Year).ThenByDescending(c => c.Semester);
+        }
+
         public void Update(Course course)
         {
             unit.Courses.Update(course);

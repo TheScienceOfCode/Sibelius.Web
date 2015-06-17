@@ -194,7 +194,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="MongoRepository.chm" />
     <None Include="Properties\PublishProfiles\thescienceofcode - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\thescienceofcode - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

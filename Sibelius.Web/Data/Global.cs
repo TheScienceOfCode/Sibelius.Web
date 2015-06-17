@@ -7,6 +7,6 @@ namespace Sibelius.Web.Data
 {
     public static class Global
     {
-        public const string Connection = "mongodb://localhost/tsoc";
+        public static readonly string Connection = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");/*"mongodb://localhost/tsoc";*/
     }
 }
