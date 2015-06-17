@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - The Science of Code</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -30,11 +30,21 @@
         @RenderBody()
         <br />
         <footer>
-            <div class="row well">
-                (CC) 2013 - @DateTime.Now.Year - The Science of Code
-                <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-                    <img alt="Licencia Creative Commons" style="border-width:0; float: right" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
-                </a>
+            <hr />
+            <div class="row">
+                <div class="col-xs-12">
+                    <a class="btn btn-primary" href="https://github.com/TheScienceOfCode/Sibelius.Web" target="_blank"><i class="fa fa-github"></i> Source code</a>
+                    <a class="btn btn-primary" href="http://facebook.com/TheScienceOfCode" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a class="btn btn-primary" href="https://twitter.com/ScienceOfCode" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+                        <img alt="Licencia Creative Commons" style="border-width:0; float: right" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h5><i class="fa fa-cc"></i> 2013 - @DateTime.Now.Year - THE SCIENCE OF CODE. </h5>
+                </div>
             </div>
         </footer>
     </div>
