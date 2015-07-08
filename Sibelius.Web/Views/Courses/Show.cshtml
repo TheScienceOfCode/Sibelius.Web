@@ -3,24 +3,70 @@
     ViewBag.Title = Model.Title;
 }
 
-<div class="course-info">
-    <div class="row well">
-        <div class="col-sm-8 col-sm-6">
-            <h3>@Model.Title <span class="badge">@Model.Year - @Model.Semester</span> </h3>
-            <h4>@Model.Subtitle</h4>
-            <p class="text-justify">
-                @Model.Intro
-            </p>
-            <h4>Profesor:</h4> @Model.Professor
-        </div>
-        <div class="col-sm-4 col-sm-6">
-            <img class="img-responsive" src="@Model.ImageUrl" />
-        </div>
+<div class="row course-info">   
+    <div class="col-xs-12">
+        <h3>@Model.Title <span class="badge">@Model.Year - @Model.Semester</span> </h3>
+        <h4>@Model.Subtitle</h4>
+    </div>
+    <div class="col-sm-8">        
+        <p class="text-justify">
+            @Model.Intro
+        </p>
+        <b>Universidad:</b> @Model.University <br />
+        <b>Profesor(es):</b> @Model.Professor <br /> <br /><br />
+    </div>
+    <div class="col-sm-4 hidden-xs">
+        <img class="img-responsive" src="@Model.ImageUrl" />
+    </div>
+</div>
+<br />
+<div class="row" id="fixed-menu">
+    <div class="col-xs-12">
+        <a class="btn btn-primary" data-toggle="#course-content"> <span class="glyphicon glyphicon-folder-open">&nbsp;</span> Contenido</a>
+        <a class="btn btn-primary" data-toggle="#course-diqus"> <span class="glyphicon glyphicon-comment">&nbsp;</span> Discusión</a>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-8">
-        @Html.Raw(Model.Html)
+    <div id="course-content" style="display:none;" data-hide-me="true">
+        <div class="col-md-8">
+            @Html.Raw(Model.Html)
+        </div>
+    </div>
+
+    <div id="course-diqus" style="display:none;" data-hide-me="true">
+        <div class="col-md-8">
+            <h3>Discusión</h3>
+            <h5>¡Haga sus preguntas aquí!</h5>
+            @if (!Model.Active)
+            {
+                <div class="alert alert-warning">
+                    <span class="glyphicon glyphicon-info-sign">&nbsp;</span>
+                    Este curso ya no está activo.
+                    Aunque puede preguntar en esta discusión, es posible que en un curso activo reciba mejores respuestas.
+                </div>
+            }
+            <div id="disqus_thread"></div>
+        </div>
     </div>
 </div>
+
+
+
+@section scripts{
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'thescienceofcode';
+        var disqus_identifier = '@Model.Id';
+        var disqus_title = '@Model.Title - @Model.Year - @Model.Semester';
+        var disqus_url = 'http://thescienceofcode.azurewebsites.net/Courses/Show/@Model.Id';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+}

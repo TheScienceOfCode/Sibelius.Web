@@ -45,3 +45,8 @@ textarea {
 
 .article-text-intro {
 }
+
+.fixed {
+    position:fixed; top:58px;
+    z-index: 10;
+}
