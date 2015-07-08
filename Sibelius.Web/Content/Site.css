@@ -63,6 +63,10 @@ textarea {
 }
 
 @media (max-width: 767px) {
+    .hidden-xs-fixed {
+        float: none;
+        font-size: xx-small;
+    }
     .fixed .hidden-xs-fixed {
         display: none;
     }
