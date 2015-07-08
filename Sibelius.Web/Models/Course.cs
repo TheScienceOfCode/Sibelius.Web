@@ -18,6 +18,8 @@ namespace Sibelius.Web.Models
         public string Intro { get; set; }
         public string ImageUrl { get; set; }
         public string Html { get; set; }
+        public string BibHtml { get; set; }
+        public string ToolsHtml { get; set; }
         public bool Active { get; set; }
         public bool CurrentlyUpdated { get; set; }
         public string Language { get; set; }

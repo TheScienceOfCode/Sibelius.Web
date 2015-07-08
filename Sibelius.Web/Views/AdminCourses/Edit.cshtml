@@ -88,6 +88,22 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.BibHtml, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.BibHtml, new { @class = "form-control", rows = 5 })
+                @Html.ValidationMessageFor(model => model.BibHtml, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ToolsHtml, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.ToolsHtml, new { @class = "form-control", rows = 5 })
+                @Html.ValidationMessageFor(model => model.ToolsHtml, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Language, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Language, new { htmlAttributes = new { @class = "form-control" } })
