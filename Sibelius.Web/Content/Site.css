@@ -46,7 +46,24 @@ textarea {
 .article-text-intro {
 }
 
+.pre-fixed{
+    float:right;
+}
 .fixed {
     position:fixed; top:58px;
     z-index: 10;
+}
+.fixed-container {
+    padding: 0;
+}
+
+#fixed-menu-empty {
+    height: 34px;
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .fixed .hidden-xs-fixed {
+        display: none;
+    }
 }

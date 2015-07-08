@@ -3,12 +3,12 @@
     ViewBag.Title = Model.Title;
 }
 
-<div class="row course-info">   
+<div class="row course-info">
     <div class="col-xs-12">
         <h3>@Model.Title <span class="badge">@Model.Year - @Model.Semester</span> </h3>
         <h4>@Model.Subtitle</h4>
     </div>
-    <div class="col-sm-8">        
+    <div class="col-sm-8">
         <p class="text-justify">
             @Model.Intro
         </p>
@@ -21,10 +21,16 @@
 </div>
 <br />
 <div class="row" id="fixed-menu">
-    <div class="col-xs-12">
-        <a class="btn btn-primary" data-toggle="#course-content"> <span class="glyphicon glyphicon-folder-open">&nbsp;</span> Contenido</a>
-        <a class="btn btn-primary" data-toggle="#course-diqus"> <span class="glyphicon glyphicon-comment">&nbsp;</span> Discusión</a>
+    <div class="container body-content fixed-container">
+        <div class="col-xs-12">
+            <div class="btn-group btn-group-justified">
+                <a class="btn btn-primary" data-toggle="#course-content"> <span class="glyphicon glyphicon-folder-open"></span> <span class="hidden-xs-fixed">&nbsp; Contenido</span></a>
+                <a class="btn btn-primary" data-toggle="#course-diqus"> <span class="glyphicon glyphicon-comment"></span> <span class="hidden-xs-fixed">&nbsp; Discusión</span></a>
+            </div>
+        </div>
     </div>
+</div>
+<div class="row" id="fixed-menu-empty">
 </div>
 
 <div class="row">
