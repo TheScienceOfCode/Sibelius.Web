@@ -1,21 +1,24 @@
 ﻿@model Sibelius.Web.Models.Course
 
 <div class="course-info">
-    <div class="row ">
-        <div class="col-sm-8 col-xs-6">
-            <h3>@Model.Title <span class="badge">@Model.Year - @Model.Semester</span> </h3>
-            <h4>@Model.Subtitle</h4>
-            <a class="btn btn-primary" href="~/Courses/Show/@Model.Id">
-                Ver curso
-                @if (Model.CurrentlyUpdated)
-                {
-                    <span class="badge">Actualizado</span>
-                }
-            </a>
+    <div class="row">
+        <div class="col-xs-8">
+            <h3>@Model.Title</h3>
+            <h4>@Model.Subtitle</h4>  
+            <h5>Semestre @Model.Year - @Model.Semester</h5>
+            <div class="btn-group-justified">
+                <a class="btn btn-primary" href="~/Courses/Show/@Model.Id">
+                    <span class="glyphicon glyphicon-folder-open">&nbsp;</span> Ver curso                          
+                     @if (Model.CurrentlyUpdated) 
+                     { 
+                         <span class="badge">Actualizado</span>
+                    }
+                </a>
+            </div>
         </div>
-        <div class="col-sm-4 col-xs-6">
+        <div class="col-xs-4">
             <img class="img-responsive" src="@Model.ImageUrl" />
-        </div>
+        </div>        
     </div>
 </div>
 

@@ -3,7 +3,7 @@ var fixed_menu = -1;
 var fixed_status = false;
 $(function () {
     if ($('#fixed-menu').offset() == undefined) return;
-    fixed_menu = $('#fixed-menu').offset().top - 50;
+    fixed_menu = $('#fixed-menu').offset().top - 30;
     $(window).scroll(function () {
         if ($(window).scrollTop() > fixed_menu) {
             if (fixed_status) return;
@@ -52,7 +52,7 @@ $(function () {
             current.addClass('active');
             $(element).fadeIn('fast', function () {
                 $('html, body').animate({
-                    scrollTop: fixed_menu - 20
+                    scrollTop: fixed_menu - 40
                 });
             });
         });       

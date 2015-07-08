@@ -13,7 +13,8 @@
             @Model.Intro
         </p>
         <b>Universidad:</b> @Model.University <br />
-        <b>Profesor(es):</b> @Model.Professor <br /> <br /><br />
+        <b>Profesor(es):</b> @Model.Professor <br />
+        <b>Semestre:</b> @Model.Year - @Model.Semester <br /><br />
     </div>
     <div class="col-sm-4 hidden-xs">
         <img class="img-responsive" src="@Model.ImageUrl" />
@@ -24,8 +25,21 @@
     <div class="container body-content fixed-container">
         <div class="col-xs-12">
             <div class="btn-group btn-group-justified">
-                <a class="btn btn-primary" data-toggle="#course-content"> <span class="glyphicon glyphicon-folder-open"></span> <span class="hidden-xs-fixed">&nbsp; Contenido</span></a>
-                <a class="btn btn-primary" data-toggle="#course-diqus"> <span class="glyphicon glyphicon-comment"></span> <span class="hidden-xs-fixed">&nbsp; Discusión</span></a>
+                <a class="btn btn-primary" data-toggle="#course-content"> 
+                    <span class="glyphicon glyphicon-th-list"></span>
+                    <br class="visible-xs"/> <span class="hidden-xs-fixed">&nbsp; Contenido</span>
+                </a>
+                <a class="btn btn-primary" data-toggle="#course-diqus"> 
+                    <span class="glyphicon glyphicon-comment"></span> 
+                    <br class="visible-xs" /> <span class="hidden-xs-fixed">&nbsp; Discusión</span>
+               </a>
+                <a class="btn btn-primary" data-toggle="#course-bib"> 
+                    <span class="glyphicon glyphicon-book"></span> 
+                    <br class="visible-xs" /> <span class="hidden-xs-fixed">&nbsp; Bibliografía</span></a>
+                <a class="btn btn-primary" data-toggle="#course-tools"> 
+                    <span class="glyphicon glyphicon-cog"></span> 
+                    <br class="visible-xs" /> <span class="hidden-xs-fixed">&nbsp; Herramientas</span>
+                </a>
             </div>
         </div>
     </div>
@@ -36,12 +50,14 @@
 <div class="row">
     <div id="course-content" style="display:none;" data-hide-me="true">
         <div class="col-md-8">
+            <h3>Contenido</h3>
+
             @Html.Raw(Model.Html)
         </div>
     </div>
 
     <div id="course-diqus" style="display:none;" data-hide-me="true">
-        <div class="col-md-8">
+        <div class="col-xs-12">
             <h3>Discusión</h3>
             <h5>¡Haga sus preguntas aquí!</h5>
             @if (!Model.Active)
@@ -49,10 +65,24 @@
                 <div class="alert alert-warning">
                     <span class="glyphicon glyphicon-info-sign">&nbsp;</span>
                     Este curso ya no está activo.
-                    Aunque puede preguntar en esta discusión, es posible que en un curso activo reciba mejores respuestas.
+                    Aunque puede preguntar en esta discusión, es posible que en un curso activo pueda interactuar con más personas.
                 </div>
             }
             <div id="disqus_thread"></div>
+        </div>
+    </div>
+
+    <div id="course-bib" style="display:none;" data-hide-me="true">
+        <div class="col-md-8">
+            <h3>Bibliografía</h3>
+            @Html.Raw(Model.BibHtml)
+        </div>
+    </div>
+
+    <div id="course-tools" style="display:none;" data-hide-me="true">
+        <div class="col-md-8">
+            <h3>Herramientas</h3>
+            @Html.Raw(Model.ToolsHtml)
         </div>
     </div>
 </div>
