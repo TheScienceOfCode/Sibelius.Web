@@ -5,6 +5,7 @@ body {
     font-family: 'Open Sans';
     /*font-size:18px;*/
     color: #585858;
+    line-height: 1.6;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -38,8 +39,9 @@ textarea {
 
 .article-text, .article-text-intro{
     text-align: justify;
+    font-size: 16px;
+    line-height: 1.8;
 }
 
-.article-text-intro{
-    font-size: 18px;
+.article-text-intro {
 }
