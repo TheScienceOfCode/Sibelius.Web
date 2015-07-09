@@ -1,33 +1,26 @@
 ﻿@model IEnumerable<Sibelius.Web.Models.Article>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Admin Articles";
 }
 
-<h2>Index</h2>
+<h2>Admin Articles</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a class="btn btn-primary" href="~/AdminArticles/Create">
+        <span class="glyphicon glyphicon-plus"> </span>
+    </a>
 </p>
-<table class="table">
+<table class="table table-striped table-responsive" >
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Section)
-        </th>        
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
+        </th>  
         <th>
             @Html.DisplayNameFor(model => model.Tags)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Language)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Portrait)
@@ -44,23 +37,21 @@
             @Html.DisplayFor(modelItem => item.Section)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Tags)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Language)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Portrait)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id  }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id  })
+            <a class="btn btn-primary btn-sm" href="~/Articles/Show/@item.Id">
+                <span class="glyphicon glyphicon-share"></span>
+            </a>
+            <a class="btn btn-primary btn-sm" href="~/AdminArticles/Edit/@item.Id">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            <a class="btn btn-default  btn-sm" href="~/AdminArticles/Delete/@item.Id">
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>
         </td>
     </tr>
 }
