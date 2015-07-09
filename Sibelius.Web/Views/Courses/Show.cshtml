@@ -8,13 +8,13 @@
         <h3>@Model.Title <span class="badge">@Model.Year - @Model.Semester</span> </h3>
         <h4>@Model.Subtitle</h4>
     </div>
-    <div class="col-sm-8">
-        <p class="text-justify">
+    <div class="col-sm-8 ">
+        <p class="text-justify hidden-xs">
             @Model.Intro
         </p>
         <b>Universidad:</b> @Model.University <br />
         <b>Profesor(es):</b> @Model.Professor <br />
-        <b>Semestre:</b> @Model.Year - @Model.Semester <br /><br /><br /><br />
+        <b>Semestre:</b> @Model.Year - @Model.Semester <br />
     </div>
     <div class="col-sm-4 hidden-xs">
         <img class="img-responsive" src="@Model.ImageUrl" />
