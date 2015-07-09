@@ -34,8 +34,13 @@ $(function () {
     });
 });
 
+var called = false;
 $(function () {
     $('a[data-toggle]').click(function () {
+        if (!called) {
+            called = true;
+            $('[data-showable="true"]').addClass('min-h-content');
+        }
         var current = $(this);
         var show = true;
         if (current.hasClass('active')) {

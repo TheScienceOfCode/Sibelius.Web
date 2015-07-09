@@ -39,6 +39,10 @@ textarea {
     margin-top:0px;
 }
 
+.min-h-content {
+    min-height: 2000px;
+}
+
 .article-text, .article-text-intro, .article-text ul li{
     text-align: justify;
     font-size: 16px;
