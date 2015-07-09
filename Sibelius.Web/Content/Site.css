@@ -6,6 +6,8 @@ body {
     /*font-size:18px;*/
     color: #585858;
     line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.8;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -37,7 +39,7 @@ textarea {
     margin-top:0px;
 }
 
-.article-text, .article-text-intro{
+.article-text, .article-text-intro, .article-text ul li{
     text-align: justify;
     font-size: 16px;
     line-height: 1.8;
