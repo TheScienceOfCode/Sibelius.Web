@@ -49,17 +49,16 @@ $(function () {
         }
 
         $('a[data-toggle]').removeClass('active');
+        $('html, body').animate({
+            scrollTop: fixed_menu - 40
+        });
         $.when($('[data-hide-me="true"]').fadeOut('fast')).then(function () {
             if (!show)
                 return;
 
             var element = current.attr('data-toggle');
             current.addClass('active');
-            $(element).fadeIn('fast', function () {
-                $('html, body').animate({
-                    scrollTop: fixed_menu - 40
-                });
-            });
+            $(element).fadeIn('fast');
         });       
     });
 });
