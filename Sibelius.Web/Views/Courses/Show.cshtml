@@ -96,13 +96,21 @@
         var disqus_identifier = '@Model.Id';
         var disqus_title = '@Model.Title - @Model.Year - @Model.Semester';
         var disqus_url = 'http://thescienceofcode.azurewebsites.net/Courses/Show/@Model.Id';
+        var disqus_ready = false;
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
+        $(function () {
+            $('a[data-toggle="#course-diqus"]').click(function(){
+                (function () {
+                    if (disqus_ready) return;
+                    disqus_ready = true;
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            });
+        });
+       
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 }
