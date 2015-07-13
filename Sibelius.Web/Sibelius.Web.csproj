@@ -261,6 +261,7 @@
     <Content Include="Views\AdminContests\Create.cshtml" />
     <Content Include="Views\AdminContests\Edit.cshtml" />
     <Content Include="Views\AdminContests\Delete.cshtml" />
+    <Content Include="Views\Home\Privacy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -26,6 +26,17 @@ namespace Sibelius.Web.Controllers
             return View(result);
         }
 
+        public ActionResult Privacy()
+        {
+            return View();
+        }
+
+        public JsonResult LegalAccept()
+        {
+            Session["legal"] = true;
+            return Json("ok");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

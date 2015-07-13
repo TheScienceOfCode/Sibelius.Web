@@ -24,6 +24,14 @@
             </div>
         </div>
     </div>
+    @{var legal = HttpContext.Current.Session["legal"];}
+    @if (legal == null || (bool)legal != true) { 
+    <div id="legal-info" class="alert alert-info text-center">
+        Nos obligan a molestarte con la obviedad de que este sitio usa cookies
+        <a class="btn btn-sm btn-info" href="~/Home/Privacy">Más información</a> 
+        <a class="btn btn-sm btn-info" id="legal-accept" data-url="@Url.Content("~/Home/LegalAccept")">Cerrar</a>
+    </div>
+    }
     <div class="container body-content">
         @RenderBody()
         <br />
@@ -38,7 +46,7 @@
                         <img alt="Licencia Creative Commons" style="border-width:0; float: right" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
                     </a>
                 </div>
-            </div>
+            </div>            
             <div class="row">
                 <div class="col-xs-12">
                     <h5><i class="fa fa-cc"></i> 2013 - @DateTime.Now.Year - THE SCIENCE OF CODE. </h5>
