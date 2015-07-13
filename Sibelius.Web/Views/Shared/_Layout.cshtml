@@ -24,11 +24,14 @@
             </div>
         </div>
     </div>
+    @{var legal = HttpContext.Current.Session["legal"];}
+    @if (legal == null || (bool)legal != true) { 
     <div id="legal-info" class="alert alert-info text-center">
         Nos obligan a molestarte con la obviedad de que este sitio usa cookies
         <a class="btn btn-sm btn-info" href="~/Home/Privacy">Más información</a> 
         <a class="btn btn-sm btn-info" id="legal-accept" data-url="@Url.Content("~/Home/LegalAccept")">Cerrar</a>
     </div>
+    }
     <div class="container body-content">
         @RenderBody()
         <br />
