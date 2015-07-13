@@ -63,5 +63,16 @@ $(function () {
     });
 });
 
-
+$(function () {
+    $('#legal-accept').click(function () {
+        $.ajax({
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            url: $('#legal-accept').data('url'),
+            success: function (response) {                
+                if(response == 'ok') $('#legal-info').fadeOut('fast');
+            }
+        });
+    });
+});
 
