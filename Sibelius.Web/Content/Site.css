@@ -99,3 +99,7 @@ textarea {
     margin: 0;
     z-index: 10;
 }
+
+#course-body .btn {
+    margin-bottom: 5px;
+}
