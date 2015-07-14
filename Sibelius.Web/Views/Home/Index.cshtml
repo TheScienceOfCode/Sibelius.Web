@@ -8,6 +8,7 @@
         Sibelius.Web.Models.Article first = Model["0"];
         Sibelius.Web.Models.Article second = Model["1"];
         Sibelius.Web.Models.Article third = Model["2"];
+        Sibelius.Web.Models.Article fourth = Model["3"];
     }
     <div class="col-sm-8">
 
@@ -55,6 +56,13 @@
                 <h3><a href="~/Articles/Show/@third.Id">@third.Title</a></h3>
                 <h4>@third.Section</h4>
                 <p>Por @third.Author</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3><a href="~/Articles/Show/@fourth.Id">@fourth.Title</a></h3>
+                <h4>@fourth.Section</h4>
+                <p>Por @fourth.Author</p>
             </div>
         </div>
     </div>
