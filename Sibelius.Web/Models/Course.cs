@@ -17,6 +17,7 @@ namespace Sibelius.Web.Models
         public string University { get; set; }
         public string Intro { get; set; }
         public string ImageUrl { get; set; }
+        public string HtmlImageFooter { get; set; }
         public string Html { get; set; }
         public string BibHtml { get; set; }
         public string ToolsHtml { get; set; }
