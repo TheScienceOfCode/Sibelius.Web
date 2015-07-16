@@ -18,6 +18,11 @@
     </div>
     <div class="col-sm-4 hidden-xs">
         <img class="img-responsive" src="@Model.ImageUrl" />
+        <div class="panel panel-default">
+            <div class="panel-body text-center">
+                @Html.Raw(Model.HtmlImageFooter)
+            </div>
+        </div>
     </div>
 </div>
 <br />
