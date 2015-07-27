@@ -12,12 +12,14 @@ namespace Sibelius.Web.Data
         public MongoRepository<Course> Courses;
         public MongoRepository<Article> Articles;
         public MongoRepository<Contest> Contests;
+        public MongoRepository<Post> Posts;
 
         public UnitOfWork()
         {
             Courses = new MongoRepository<Course>(Global.Connection);
             Articles = new MongoRepository<Article>(Global.Connection);
             Contests = new MongoRepository<Contest>(Global.Connection);
+            Posts = new MongoRepository<Post>(Global.Connection);
         }
     }
 }

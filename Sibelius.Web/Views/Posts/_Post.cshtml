@@ -1,0 +1,44 @@
+﻿@model Sibelius.Web.Models.Post
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>@Model.Title <span class="badge">@Model.Section</span> </h4>
+                <h5>@Model.Author</h5>
+            </div>
+            <div class="panel-body">
+                <p>
+                    @Html.Raw(Model.IntroHtml)
+                </p>
+                @if (Model.Html != null)
+                {
+                    <hr />
+                    @Html.Raw(Model.Html)
+                }
+                else
+                {
+                    <a href="~/Posts/Show/@Model.Id" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        Ver más...
+                    </a>
+                }
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h6>
+                            Tags: @Model.Tags <br />
+                            Post!: @Model.Date.ToShortDateString()
+                        </h6>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="fb-like" data-href="http://thescienceofcode.azurewebsites.net/Posts/Show/@Model.Id" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+                    </div>
+                    <div class="col-sm-4" style="padding-top: 8px;">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thescienceofcode.azurewebsites.net/Posts/Show/@Model.Id" data-via="ScienceOfCode">Tweet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

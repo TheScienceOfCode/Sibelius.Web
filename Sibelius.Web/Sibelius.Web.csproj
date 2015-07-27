@@ -164,13 +164,16 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Behavior\PostBehavior.cs" />
     <Compile Include="Behavior\ArticleBehavior.cs" />
     <Compile Include="Behavior\ContestBehavior.cs" />
     <Compile Include="Behavior\CourseBehavior.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminPostsController.cs" />
     <Compile Include="Controllers\AdminArticlesController.cs" />
     <Compile Include="Controllers\AdminContestsController.cs" />
     <Compile Include="Controllers\AdminCoursesController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -181,6 +184,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Contest.cs" />
     <Compile Include="Models\Course.cs" />
@@ -264,6 +268,13 @@
     <Content Include="Views\AdminContests\Edit.cshtml" />
     <Content Include="Views\AdminContests\Delete.cshtml" />
     <Content Include="Views\Home\Privacy.cshtml" />
+    <Content Include="Views\AdminPosts\Create.cshtml" />
+    <Content Include="Views\AdminPosts\Delete.cshtml" />
+    <Content Include="Views\AdminPosts\Edit.cshtml" />
+    <Content Include="Views\AdminPosts\Index.cshtml" />
+    <Content Include="Views\Posts\Index.cshtml" />
+    <Content Include="Views\Posts\Show.cshtml" />
+    <Content Include="Views\Posts\_Post.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
