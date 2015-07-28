@@ -13,7 +13,7 @@ namespace Sibelius.Web.Controllers
 
         public ActionResult Index()
         {
-            var posts = postBehavior.GetAll();
+            var posts = postBehavior.GetAll().OrderByDescending(p => p.Date);
             return View(posts);
         }
 
