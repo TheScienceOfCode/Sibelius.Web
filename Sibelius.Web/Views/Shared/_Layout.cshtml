@@ -6,7 +6,9 @@
     <title>@ViewBag.Title - The Science of Code</title>
     @Styles.Render("~/Content/css")
 </head>
-<body>
+@{ ViewBag.bodyclass = ViewBag.bodyclass == null ? "light-body" : ViewBag.bodyclass;}
+
+<body class="@ViewBag.bodyclass">
     <div id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -21,8 +23,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("CURSOS", "Index", "Courses")</li>
-                    <li>@Html.ActionLink("POSTS!", "Index", "Posts")</li>
+                    <li>
+                        <a href="~/Courses">CURSOS</a>
+                    <li>
+                        <a href="~/Posts"><small><span class="glyphicon glyphicon-flash"></span></small>POSTS</a>
+                    </li>
                 </ul>
             </div>
         </div>
