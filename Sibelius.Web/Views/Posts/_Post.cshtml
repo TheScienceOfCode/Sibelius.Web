@@ -17,10 +17,12 @@
                 }
                 else
                 {
-                    <a href="~/Posts/Show/@Model.Id" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-plus"></span>
-                        Ver más...
-                    </a>
+                    <div class="btn-group-justified btn-group-sm">
+                        <a href="~/Posts/Show/@Model.Id" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            Ver más...
+                        </a>
+                    </div>
                 }
             </div>
             <div class="panel-footer">
@@ -28,7 +30,7 @@
                     <div class="col-sm-4">
                         <h6>
                             Tags: @Model.Tags <br />
-                            Post!: @Model.Date.ToShortDateString()
+                            Posteado: @Model.Date.ToShortDateString()
                         </h6>
                     </div>
                     <div class="col-sm-4">

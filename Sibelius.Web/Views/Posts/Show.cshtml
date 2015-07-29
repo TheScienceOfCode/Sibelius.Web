@@ -1,15 +1,20 @@
 ﻿@model Sibelius.Web.Models.Post
 @{
     ViewBag.Title = Model.Title;
+    ViewBag.bodyclass = "dark-body";
 }
 <br />
 <div class="col-md-8">
     @Html.Partial("_Post", Model)
     <div class="row">
         <div class="col-xs-12">
-            <h3>Discusión</h3>
-            <h5>¡Haga sus comentarios o preguntas aquí!</h5>
-            <div id="disqus_thread"></div>
+            <div class="panel">
+                <div class="panel-body">
+                    <h3>Discusión</h3>
+                    <h5>¡Haga sus comentarios o preguntas aquí!</h5>
+                    <div id="disqus_thread"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
