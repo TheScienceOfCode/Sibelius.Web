@@ -4,7 +4,26 @@
     string indexActive = !curUrl.Contains("SECTION") && !curUrl.Contains("SHOW") ? "active" : "";
 }
 
-<div class="list-group">
+<div class="btn-group-justified btn-group visible-xs visible-sm">
+    <a class="btn btn-primary" data-toggle="collapse" data-target="#posts-menu-sm">
+        SECCIONES <span class="caret"></span>
+    </a>
+</div>
+
+<div class="list-group hidden-md hidden-lg collapse" id="posts-menu-sm">
+    <a href="~/Posts" class="list-group-item @indexActive">
+        <small><span class="glyphicon glyphicon-flash"></span></small>POSTS
+    </a>
+    @foreach (var item in Model)
+    {
+        string activeClass = curUrl.Contains(item.Title.ToUpper()) ? "active" : "";
+        <a href="~/Posts/Section?name=@item.Title" class="list-group-item @activeClass">
+            @item.Title
+        </a>
+    }
+</div>
+
+<div class="list-group hidden-xs hidden-sm" id="posts-menu">
     <a href="~/Posts" class="list-group-item @indexActive">
         <small><span class="glyphicon glyphicon-flash"></span></small>POSTS
         <span class="hidden-xs"><small><br />Todos los Posts!</small></span>
@@ -13,7 +32,7 @@
     {
         string activeClass = curUrl.Contains(item.Title.ToUpper()) ? "active" : "";
         <a href="~/Posts/Section?name=@item.Title" class="list-group-item @activeClass">
-            @item.Title <span class="hidden-xs"><small><br />@item.Subtitle</small></span>
+            @item.Title <br /><small>@item.Subtitle</small>
         </a>
     }
 </div>
