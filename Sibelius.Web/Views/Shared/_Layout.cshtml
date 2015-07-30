@@ -6,7 +6,12 @@
     <title>@ViewBag.Title - The Science of Code</title>
     @Styles.Render("~/Content/css")
 </head>
-@{ ViewBag.bodyclass = ViewBag.bodyclass == null ? "light-body" : ViewBag.bodyclass;}
+@{ 
+    ViewBag.bodyclass = ViewBag.bodyclass == null ? "light-body" : ViewBag.bodyclass;
+    string curUrl = Request.Url.AbsoluteUri.ToUpper();
+    string coursesClass = curUrl.Contains("COURSES") ? "class=active" : "";
+    string postsClass = curUrl.Contains("POSTS") ? "class=active" : "";
+}
 
 <body class="@ViewBag.bodyclass">
     <div id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
@@ -23,9 +28,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>
+                    <li @coursesClass>
                         <a href="~/Courses">CURSOS</a>
-                    <li>
+                    </li>
+                    <li @postsClass>
                         <a href="~/Posts"><small><span class="glyphicon glyphicon-flash"></span></small>POSTS</a>
                     </li>
                 </ul>

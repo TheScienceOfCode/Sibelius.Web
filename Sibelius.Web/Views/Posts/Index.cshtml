@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Posts";
     ViewBag.bodyclass = "dark-body";
+    int count = 0;
 }
 
 <br />
@@ -12,30 +13,39 @@
         {
             item.Html = null;
             @Html.Partial("_Post", item)
+            if (count++ == 0)
+            {
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Posts -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-1426867402604645"
+                                 data-ad-slot="2889385216"
+                                 data-ad-format="auto"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
         }
-    </div>
-    <div class="col-md-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h4 class="panel-title">¿Qué es esto?</h4>
-            </div>
-            <div class="panel-body text-justify">
-                Nos gusta compartir artículos, pero también pequeños enlaces y tutoriales,
-                así que decidimos crear esta sección denominada <b><small><span class="glyphicon glyphicon-flash"></span></small>POSTS</b> donde
-                encontrarás contenidos cortos sobre computación.
+        </div>
+        <div class="col-md-4 hidden-sm hidden-xs">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">¿Qué es esto?</h4>
+                </div>
+                <div class="panel-body text-justify">
+                    Nos gusta compartir artículos, pero también pequeños enlaces y tutoriales,
+                    así que decidimos crear esta sección denominada <b><small><span class="glyphicon glyphicon-flash"></span></small>POSTS</b> donde
+                    encontrarás contenidos cortos sobre computación.
+                </div>
             </div>
         </div>
-        <div class="row">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- Posts -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-1426867402604645"
-                 data-ad-slot="2889385216"
-                 data-ad-format="auto"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
         </div>
-    </div>
-</div>
