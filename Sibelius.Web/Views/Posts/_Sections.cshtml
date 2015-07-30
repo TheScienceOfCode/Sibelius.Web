@@ -1,0 +1,23 @@
+﻿@model IEnumerable < Sibelius.Web.Models.PostSection>
+@{
+    string curUrl = Request.Url.AbsoluteUri.ToUpper();
+    string indexActive = !curUrl.Contains("SECTION") && !curUrl.Contains("SHOW") ? "active" : "";
+}
+
+<div class="list-group">
+    <a href="~/Posts" class="list-group-item @indexActive">
+        <small><span class="glyphicon glyphicon-flash"></span></small>POSTS
+        <span class="hidden-xs"><small><br />Todos los Posts!</small></span>
+    </a>
+    @foreach (var item in Model)
+    {
+        string activeClass = curUrl.Contains(item.Title.ToUpper()) ? "active" : "";
+        <a href="~/Posts/Section?name=@item.Title" class="list-group-item @activeClass">
+            @item.Title <span class="hidden-xs"><small><br />@item.Subtitle</small></span>
+        </a>
+    }
+</div>
+<div class="well hidden-sm hidden-xs text-center">
+    <h2><span class="glyphicon glyphicon-flash"></span>POSTS</h2>
+    <h5>THE SCIENCE OF CODE</h5>
+</div>
