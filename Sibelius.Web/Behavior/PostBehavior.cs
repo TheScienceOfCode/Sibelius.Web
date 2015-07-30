@@ -38,5 +38,10 @@ namespace Sibelius.Web.Behavior
         }
         #endregion
 
+
+        public List<Post> GetBySection(string section)
+        {
+            return unit.Posts.Where(p => p.Section == section).ToList();
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace Sibelius.Web.Data
         public MongoRepository<Article> Articles;
         public MongoRepository<Contest> Contests;
         public MongoRepository<Post> Posts;
+        public MongoRepository<PostSection> PostSections;
 
         public UnitOfWork()
         {
@@ -20,6 +21,7 @@ namespace Sibelius.Web.Data
             Articles = new MongoRepository<Article>(Global.Connection);
             Contests = new MongoRepository<Contest>(Global.Connection);
             Posts = new MongoRepository<Post>(Global.Connection);
+            PostSections = new MongoRepository<PostSection>(Global.Connection);
         }
     }
 }
