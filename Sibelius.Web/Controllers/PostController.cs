@@ -14,7 +14,7 @@ namespace Sibelius.Web.Controllers
 
         public ActionResult Index()
         {
-            var posts = postBehavior.GetAll().OrderByDescending(p => p.Date);
+            var posts = postBehavior.GetAll();
             ViewBag.Sections = postSectionBehavior.GetAll();
             return View(posts);
         }
