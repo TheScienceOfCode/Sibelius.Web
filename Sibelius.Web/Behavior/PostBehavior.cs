@@ -24,7 +24,7 @@ namespace Sibelius.Web.Behavior
 
         public IEnumerable<Post> GetAll()
         {
-            return unit.Posts;
+            return unit.Posts.OrderByDescending(p => p.Date);
         }
 
         public void Update(Post post)
@@ -41,7 +41,7 @@ namespace Sibelius.Web.Behavior
 
         public List<Post> GetBySection(string section)
         {
-            return unit.Posts.Where(p => p.Section == section).ToList();
+            return unit.Posts.Where(p => p.Section == section).OrderByDescending(p => p.Date).ToList();
         }
     }
 }
