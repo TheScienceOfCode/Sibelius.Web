@@ -283,6 +283,7 @@
     <Content Include="Views\AdminPostSections\Edit.cshtml" />
     <Content Include="Views\AdminPostSections\Index.cshtml" />
     <Content Include="Views\Posts\_Sections.cshtml" />
+    <Content Include="tsoc.appcache" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
