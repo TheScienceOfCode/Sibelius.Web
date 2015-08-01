@@ -5,18 +5,7 @@
 }
 <br />
 <div class="col-md-4">
-    @Html.Partial("_Sections", (IEnumerable<Sibelius.Web.Models.PostSection>)ViewBag.Sections)
-    <br />
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- Post show -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-1426867402604645"
-         data-ad-slot="3668114410"
-         data-ad-format="auto"></ins>
-    <script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    @Html.Partial("_Sections", (IEnumerable<Sibelius.Web.Models.PostSection>)ViewBag.Sections)    
 </div>
 <div class="col-md-8">
     @Html.Partial("_Post", Model)
