@@ -116,7 +116,7 @@ textarea {
     z-index: 10;
 }
 
-#course-body .btn {
+/*#course-body*/ .btn {
     margin-bottom: 5px;
 }
 
