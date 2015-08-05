@@ -1,6 +1,8 @@
 ﻿@model  Sibelius.Web.Models.Article
 @{
     ViewBag.Title = Model.Title;
+    ViewBag.MetaDescription = Model.Title;
+    ViewBag.MetaKeywords = Model.Tags;
 }
 
 <div class="row">
