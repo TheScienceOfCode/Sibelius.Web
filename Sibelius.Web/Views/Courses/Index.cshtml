@@ -5,6 +5,18 @@
     ViewBag.MetaDescription = "Cursos presenciales y virtuales sobre computación";
     ViewBag.MetaKeywords = "computación, software, programación, desarrollo, tutoriales, cursos";
 }
+<br />
+@if (Model.Count(c => c.Active) > 0)
+{
+    <div class="row well">
+        @foreach (var course in Model.Where(c => c.Active))
+        {
+            <div class="col-md-6">
+                @Html.Partial("_CourseBrowser", course)
+            </div>
+        }
+    </div>
+}
 <div class="row">
     <br />
     <div class="col-xs-12 text-center">
@@ -21,21 +33,10 @@
     </div>
 </div>
 <br />
-@if (Model.Count(c => c.Active) > 0)
-{
-    <div class="row well">
-        @foreach (var course in Model.Where(c => c.Active))
-        {
-            <div class="col-md-6">
-                @Html.Partial("_CourseBrowser", course)
-            </div>
-        }
-    </div>
-}
-
+<br />
 @if (Model.Count(c => !c.Active) > 0)
 {
-    <div class="row">
+    <div class="row well">
         <div class="col-xs-12">
             <h3>Cursos anteriores</h3>
             <hr />
@@ -46,23 +47,6 @@
                     @Html.Partial("_CourseBrowser", course)
                 </div>
             }
-        </div>
-    </div>
-
-    <br />
-    <div class="row">
-        <br />
-        <div class="col-xs-12 text-center">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- Courses adap bot -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-1426867402604645"
-                 data-ad-slot="5644375218"
-                 data-ad-format="auto"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
         </div>
     </div>
 }
