@@ -45,15 +45,7 @@
                 </ul>
             </div>
         </div>
-    </div>
-    @{var legal = HttpContext.Current.Session["legal"];}
-    @if (legal == null || (bool)legal != true) { 
-    <div id="legal-info" class="alert alert-info text-center">
-        <small>Nos obligan a molestarte con la obviedad de que este sitio usa cookies</small>
-        <a class="btn btn-sm btn-info" href="~/Home/Privacy">Más información</a> 
-        <a class="btn btn-sm btn-info" id="legal-accept" data-url="@Url.Content("~/Home/LegalAccept")">Cerrar</a>
-    </div>
-    }
+    </div>    
     <div class="container body-content">
         @RenderBody()
         <br /><br /><br />
@@ -64,15 +56,17 @@
                     <a class="btn btn-default" href="https://github.com/TheScienceOfCode/Sibelius.Web" target="_blank"><i class="fa fa-github"></i> Source code</a>
                     <a class="btn btn-default" href="http://facebook.com/TheScienceOfCode" target="_blank"><i class="fa fa-facebook"></i></a>
                     <a class="btn btn-default" href="https://twitter.com/ScienceOfCode" target="_blank"><i class="fa fa-twitter"></i></a>
-                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
-                        <img alt="Licencia Creative Commons" style="border-width:0; float: right" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
-                    </a>
+                    <a class="btn btn-default"  style="float: right" href="~/Home/Privacy">Política de privacidad</a>                    
                 </div>
             </div>  
                   
             <div class="row">
                 <div class="col-xs-12">
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+                        <img alt="Licencia Creative Commons" style="border-width:0; float: right" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+                    </a>
                     <h5><i class="fa fa-cc"></i> 2013 - @DateTime.Now.Year - THE SCIENCE OF CODE. </h5>
+                    
                     <br />
                     <br />
                     <br />
@@ -80,6 +74,15 @@
             </div>
         </footer>
     </div>
+    @{var legal = HttpContext.Current.Session["legal"];}
+    @if (legal == null || (bool)legal != true)
+    {
+        <div id="legal-info" class="alert alert-info text-center">
+            <small>Nos obligan a molestarte con la obviedad de que este sitio usa cookies</small> <br />
+            <a class="btn btn-sm btn-info" href="~/Home/Privacy">Más información</a>
+            <a class="btn btn-sm btn-info" id="legal-accept" data-url="@Url.Content("~/Home/LegalAccept")">Cerrar</a>
+        </div>
+    }
     @Scripts.Render("~/bundles/modernizr")    
     @Scripts.Render("~/bundles/jquery") 
     @Scripts.Render("~/bundles/bootstrap")
