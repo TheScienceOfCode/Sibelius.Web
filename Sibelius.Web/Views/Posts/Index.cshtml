@@ -12,7 +12,7 @@
 <br />
 <div class="row">
     <div class="col-md-4">
-        @Html.Partial("_Sections", (IEnumerable< Sibelius.Web.Models.PostSection>)ViewBag.Sections)
+        @Html.Partial("_Sections", (IEnumerable<Sibelius.Web.Models.PostSection>)ViewBag.Sections)
     </div>
     <div class="col-md-8">
         @foreach (var item in Model)
@@ -23,21 +23,86 @@
             {
                 <div class="row">
                     <div class="col-xs-12">
-                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                            <!-- Posts -->
-                            <ins class="adsbygoogle"
-                                    style="display:block"
-                                    data-ad-client="ca-pub-1426867402604645"
-                                    data-ad-slot="2889385216"
-                                    data-ad-format="auto"></ins>
-                            <script>
-                                (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
-                       <br />
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- Posts -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-1426867402604645"
+                             data-ad-slot="2889385216"
+                             data-ad-format="auto"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                        <br />
                     </div>
                 </div>
             }
         }
+
+        @if (ViewBag.Pages > 1)
+        {
+            long curpage = ViewBag.CurPage;
+            long prev = curpage - 1;
+            long next = curpage + 1;
+            long pages = ViewBag.Pages;
+            string url = ViewBag.Section == null ? "/Posts/Index?page" : string.Format("/Posts/Section?name={0}&page", ViewBag.Section);
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav>
+                        <ul class="pagination">
+                            @if (curpage == 1)
+                            {
+                                <li class="disabled">
+                                    <a aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="@url=prev" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                            }
+                            @for (int i = 1; i <= pages; ++i)
+                            {
+                                if (i == curpage)
+                                {
+                                    <li class="active">
+                                        <a>@i</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        <a href="@url=@i">@i</a>
+                                    </li>
+                                }
+                            }
+                            @if (curpage == pages)
+                            {
+                                <li class="disabled">
+                                    <a aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="disabled">
+                                    <a href="@url=next" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        }
     </div>
-    
+
+
 </div>
