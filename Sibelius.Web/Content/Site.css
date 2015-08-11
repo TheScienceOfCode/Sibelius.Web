@@ -114,6 +114,7 @@ textarea {
     z-index: 10;
     bottom: 0;
     position: fixed;
+    border-radius: 0;
 }
 
 /*#course-body*/ .btn {
@@ -136,7 +137,7 @@ textarea {
     background-color: #1f1f1f;
 }
 
-.panel, .well, .list-group {
+.panel, .well, .list-group, .pagination {
     box-shadow: 0px 3px 12px -4px #000000;
 }
 

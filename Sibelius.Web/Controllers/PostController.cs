@@ -12,10 +12,12 @@ namespace Sibelius.Web.Controllers
         PostBehavior postBehavior = new PostBehavior();
         PostSectionBehavior postSectionBehavior = new PostSectionBehavior();
 
-        public ActionResult Index()
+        public ActionResult Index(int page=1)
         {
-            var posts = postBehavior.GetAll();
+            var posts = postBehavior.GetAll(page);
             ViewBag.Sections = postSectionBehavior.GetAll();
+            ViewBag.Pages = postBehavior.GetPages();
+            ViewBag.CurPage = page;
             return View(posts);
         }
 
@@ -25,11 +27,15 @@ namespace Sibelius.Web.Controllers
             ViewBag.Sections = postSectionBehavior.GetAll();
             return View(post);
         }
+        
 
-        public ActionResult Section(string name)
+        public ActionResult Section(string name, int page=1)
         {
-            var post = postBehavior.GetBySection(name);
+            var post = postBehavior.GetBySection(name, page);
             ViewBag.Sections = postSectionBehavior.GetAll();
+            ViewBag.Pages = postBehavior.GetPages(name);
+            ViewBag.CurPage = page;
+            ViewBag.Section = name;
             return View("Index", post);
         }
     }

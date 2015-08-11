@@ -11,6 +11,8 @@ namespace Sibelius.Web.Behavior
     {
         UnitOfWork unit = new UnitOfWork();
 
+        private const int PER_PAGE = 10;
+
         #region Basic Behavior
         public void Insert(Post post)
         {
@@ -26,6 +28,15 @@ namespace Sibelius.Web.Behavior
         {
             return unit.Posts.OrderByDescending(p => p.Date);
         }
+        
+
+        public IEnumerable<Post> GetAll(int page)
+        {
+            return unit.Posts
+                .OrderByDescending(p => p.Date)
+                .Skip(PER_PAGE * (page-1))
+                .Take(PER_PAGE);
+        }
 
         public void Update(Post post)
         {
@@ -39,9 +50,23 @@ namespace Sibelius.Web.Behavior
         #endregion
 
 
-        public List<Post> GetBySection(string section)
+        public IEnumerable<Post> GetBySection(string section, int page)
         {
-            return unit.Posts.Where(p => p.Section == section).OrderByDescending(p => p.Date).ToList();
+            return unit.Posts
+                .Where(p => p.Section == section)
+                .OrderByDescending(p => p.Date)
+                .Skip(PER_PAGE * (page - 1))
+                .Take(PER_PAGE); ;
+        }
+
+        public long GetPages()
+        {
+            return (long)Math.Ceiling(unit.Posts.Count() / (double)PER_PAGE);
+        }
+
+        public long GetPages(string section)
+        {
+            return (long)Math.Ceiling(unit.Posts.Where(p => p.Section == section).Count() / (double)PER_PAGE);
         }
     }
 }
