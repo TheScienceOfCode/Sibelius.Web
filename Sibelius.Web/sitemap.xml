@@ -16,9 +16,6 @@
   <loc>http://thescienceofcode.azurewebsites.net/Posts</loc>
 </url>
 <url>
-  <loc>http://thescienceofcode.azurewebsites.net/Home/Privacy</loc>
-</url>
-<url>
   <loc>http://thescienceofcode.azurewebsites.net/Articles/Show/55aff9a8c8ec661e18847474</loc>
 </url>
 <url>
@@ -34,16 +31,19 @@
   <loc>http://thescienceofcode.azurewebsites.net/Articles/Show/54d6f2801a28752a24f8eb7e</loc>
 </url>
 <url>
+  <loc>http://thescienceofcode.azurewebsites.net/Home/Privacy</loc>
+</url>
+<url>
   <loc>http://thescienceofcode.azurewebsites.net/Courses/Show/55a41db83633a74158ce9f01</loc>
 </url>
 <url>
-  <loc>http://thescienceofcode.azurewebsites.net/Courses/Show/55abe4f1c8ec661ea0c89e5e</loc>
+  <loc>http://thescienceofcode.azurewebsites.net/Courses/Show/55b3e6928fdf852dc0a0da1c</loc>
 </url>
 <url>
   <loc>http://thescienceofcode.azurewebsites.net/Courses/Show/55a56c713e67152188bd8013</loc>
 </url>
 <url>
-  <loc>http://thescienceofcode.azurewebsites.net/Courses/Show/55b3e6928fdf852dc0a0da1c</loc>
+  <loc>http://thescienceofcode.azurewebsites.net/Courses/Show/55abe4f1c8ec661ea0c89e5e</loc>
 </url>
 <url>
   <loc>http://thescienceofcode.azurewebsites.net/Courses/Show/54d6901f1a2875359cb7f3fc</loc>
@@ -70,36 +70,63 @@
   <loc>http://thescienceofcode.azurewebsites.net/Posts/Section?name=Gamedev</loc>
 </url>
 <url>
+  <loc>http://thescienceofcode.azurewebsites.net/Posts/Section?name=Historias</loc>
+</url>
+<url>
+  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55cd337f44064a9c90977e86</loc>
+</url>
+<url>
+  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55ccdb8a44064ab6f08dd1e3</loc>
+</url>
+<url>
+  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55cb933544064a7d846190e2</loc>
+</url>
+<url>
+  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55cabd6544064a4bcc9a793d</loc>
+</url>
+<url>
+  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55ca564fc8ec6837d088ebd1</loc>
+</url>
+<url>
+  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55ca236dc8ec6637d014d10a</loc>
+</url>
+<url>
+  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55c8cc3b44064a4b2c1fa866</loc>
+</url>
+<url>
+  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55c7953044064a52d4b41870</loc>
+</url>
+<url>
   <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55bef4b444064afbc489dc3b</loc>
 </url>
 <url>
   <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55beebd144064afbc489dc34</loc>
 </url>
 <url>
-  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55be546444064a4740869cd7</loc>
-</url>
-<url>
   <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55bbd15244064b790479302a</loc>
-</url>
-<url>
-  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55bb99fa44064a7904814cfe</loc>
-</url>
-<url>
-  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55bab4fd44064a9e846e97ca</loc>
-</url>
-<url>
-  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55bab61d44064a9e846e97cb</loc>
-</url>
-<url>
-  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55ba457c44064ba034f24a00</loc>
-</url>
-<url>
-  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55b91e9244064ad3c45e181e</loc>
 </url>
 <url>
   <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55b7e44544064a6ad8055dab</loc>
 </url>
 <url>
   <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55b68f7c62e0e2156cce1660</loc>
+</url>
+<url>
+  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55be546444064a4740869cd7</loc>
+</url>
+<url>
+  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55bb99fa44064a7904814cfe</loc>
+</url>
+<url>
+  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55b91e9244064ad3c45e181e</loc>
+</url>
+<url>
+  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55ba457c44064ba034f24a00</loc>
+</url>
+<url>
+  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55bab4fd44064a9e846e97ca</loc>
+</url>
+<url>
+  <loc>http://thescienceofcode.azurewebsites.net/Posts/Show/55bab61d44064a9e846e97cb</loc>
 </url>
 </urlset>
