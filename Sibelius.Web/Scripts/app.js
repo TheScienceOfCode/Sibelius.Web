@@ -86,18 +86,3 @@ $(function () {
         });
     });
 });
-
-$(document).ready(
-    function(){
-        setTimeout(checkAds(), 5000);
-    }
-);
-
-function checkAds() {
-    var ad = document.querySelector("ins.adsbygoogle");
-    if (ad && ad.innerHTML.replace('/\s / g', "").length == 0)
-    {
-        $('#pubadv').show('slow');
-        $('.pubdiv').html('<div class="alert alert-info"><h3>¡Tú puedes ayudarnos!</h3><h4>Desactivando tu AdBlock nos apoyas para que podamos liberar más contenidos gratuitos.</h4></div>');
-    }
-}
