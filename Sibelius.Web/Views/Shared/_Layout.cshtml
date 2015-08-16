@@ -14,7 +14,7 @@
     <title>@ViewBag.Title - The Science of Code</title>
     @Styles.Render("~/Content/css")
 </head>
-@{ 
+@{
     ViewBag.bodyclass = ViewBag.bodyclass == null ? "light-body" : ViewBag.bodyclass;
     string curUrl = Request.Url.AbsoluteUri.ToUpper();
     string coursesClass = curUrl.Contains("COURSES") ? "class=active" : "";
@@ -45,7 +45,7 @@
                 </ul>
             </div>
         </div>
-    </div>    
+    </div>
     <div class="container body-content">
         @RenderBody()
         <br /><br /><br />
@@ -56,17 +56,17 @@
                     <a class="btn btn-default" href="https://github.com/TheScienceOfCode/Sibelius.Web" target="_blank"><i class="fa fa-github"></i> Source code</a>
                     <a class="btn btn-default" href="http://facebook.com/TheScienceOfCode" target="_blank"><i class="fa fa-facebook"></i></a>
                     <a class="btn btn-default" href="https://twitter.com/ScienceOfCode" target="_blank"><i class="fa fa-twitter"></i></a>
-                    <a class="btn btn-default"  style="float: right" href="~/Home/Privacy">Privacidad</a>                    
+                    <a class="btn btn-default" style="float: right" href="~/Home/Privacy">Privacidad</a>
                 </div>
-            </div>  
-                  
+            </div>
+
             <div class="row">
                 <div class="col-xs-12">
                     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
                         <img alt="Licencia Creative Commons" style="border-width:0; float: right" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
                     </a>
                     <h5><i class="fa fa-cc"></i> 2013 - @DateTime.Now.Year - THE SCIENCE OF CODE. </h5>
-                    
+
                     <br />
                     <br />
                     <br />
@@ -83,10 +83,11 @@
             <a class="btn btn-sm btn-info" id="legal-accept" data-url="@Url.Content("~/Home/LegalAccept")">Cerrar</a>
         </div>
     }
-    @Scripts.Render("~/bundles/modernizr")    
-    @Scripts.Render("~/bundles/jquery") 
+   
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/app")    
+    @Scripts.Render("~/bundles/app")
     <link href='//fonts.googleapis.com/css?family=News+Cycle:400,700' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
@@ -121,5 +122,18 @@
         ga('create', 'UA-59510259-1', 'auto');
         ga('send', 'pageview');
     </script>
+
+    @{var pubadv = HttpContext.Current.Session["pubadv"];}
+    @if (pubadv == null || (bool)pubadv != true)
+    {
+        <div id="pubadv" class="alert alert-warning text-center">
+            <small>
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                Creemos que el conocimiento debe ser de acceso libre para todos. <br />
+                Desactivando tu AdBlock permites que podamos seguir liberando contenido de calidad.
+            </small> <br />
+            <a class="btn btn-sm btn-danger" id="pubadv-accept" data-url="@Url.Content("~/Home/PubAdvAccept")">Comprendo</a>
+        </div>        
+    }
 </body>
 </html>
