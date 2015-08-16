@@ -108,13 +108,25 @@ textarea {
 	height: 100%;
 }
 
-#legal-info {
+#legal-info, #pubadv {
     width: 100%;
     margin: 0;
     z-index: 10;
     bottom: 0;
     position: fixed;
     border-radius: 0;
+}
+
+#pubadv{
+    z-index: 9;
+    display: none;
+    background-color: red;
+    color: white;
+    border: red;
+}
+
+.pubdiv div{
+    margin-top: 50px;
 }
 
 /*#course-body*/ .btn {

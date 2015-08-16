@@ -37,6 +37,12 @@ namespace Sibelius.Web.Controllers
             return Json("ok");
         }
 
+        public JsonResult PubAdvAccept()
+        {
+            Session["pubadv"] = true;
+            return Json("ok");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
