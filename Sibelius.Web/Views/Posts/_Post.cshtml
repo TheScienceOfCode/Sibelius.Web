@@ -7,23 +7,25 @@
                 <h5>@Model.Author</h5>
             </div>
             <div class="panel-body">
-                <p>
+                <div class="text-justify">
                     @Html.Raw(Model.IntroHtml)
-                </p>
-                @if (Model.Html != null)
-                {
-                    <hr />
-                    @Html.Raw(Model.Html)
-                }
-                else
-                {
-                    <div class="btn-group-justified btn-group-sm">
-                        <a href="~/Posts/Show/@Model.Id" class="btn btn-primary">
-                            <span class="glyphicon glyphicon-plus"></span>
-                            Ver más...
-                        </a>
-                    </div>
-                }
+                </div>
+                <div class="text-justify">
+                    @if (Model.Html != null)
+                    {
+                        <hr />
+                        @Html.Raw(Model.Html)
+                    }
+                    else
+                    {
+                        <div class="btn-group-justified btn-group-sm">
+                            <a href="~/Posts/Show/@Model.Id" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                Ver más...
+                            </a>
+                        </div>
+                    }
+                </div>
             </div>
             <div class="panel-footer">
                 <div class="row">
