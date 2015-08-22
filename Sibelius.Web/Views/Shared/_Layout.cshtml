@@ -19,6 +19,7 @@
     string curUrl = Request.Url.AbsoluteUri.ToUpper();
     string coursesClass = curUrl.Contains("COURSES") ? "class=active" : "";
     string postsClass = curUrl.Contains("POSTS") ? "class=active" : "";
+    string aboutClass = curUrl.Contains("ABOUT") ? "class=active" : "";
 }
 
 <body class="@ViewBag.bodyclass">
@@ -41,6 +42,17 @@
                     </li>
                     <li @postsClass>
                         <a href="~/Posts"><small><span class="glyphicon glyphicon-flash"></span></small>POSTS</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li @aboutClass>
+                        <a href="~/Home/About">¿QUÉ ES ESTO?</a>
+                    </li>
+                    <li class="hidden-xs">
+                        <a href="http://facebook.com/TheScienceOfCode" target="_blank"><i class="fa fa-facebook"></i></a>                        
+                    </li>
+                    <li class="hidden-xs">
+                        <a href="https://twitter.com/ScienceOfCode" target="_blank"><i class="fa fa-twitter"></i></a>
                     </li>
                 </ul>
             </div>
