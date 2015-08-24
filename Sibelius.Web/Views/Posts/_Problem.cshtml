@@ -1,0 +1,27 @@
+﻿@model Sibelius.Web.Models.Post
+
+<div class="col-xs-12">
+    <div class="row well">
+        <div class="col-xs-12">
+            <h4>@Model.Title</h4>
+            <h5>@Model.Author</h5>
+        </div>
+        <div class="col-xs-12">
+            Tags: @Model.Tags <br />
+        </div>
+        <div class="col-xs-12">
+            <div class="btn-group-justified btn-group-sm">
+                <a href="~/Posts/Show/@Model.Id" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Ver problema
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="fb-like" data-href="http://thescienceofcode.azurewebsites.net/Posts/Show/@Model.Id" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+        </div>
+        <div class="col-sm-6" style="padding-top: 8px;">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thescienceofcode.azurewebsites.net/Posts/Show/@Model.Id" data-via="ScienceOfCode">Tweet</a>
+        </div>
+    </div>
+</div>

@@ -18,7 +18,14 @@
         @foreach (var item in Model)
         {
             item.Html = null;
-            @Html.Partial("_Post", item)
+            if (ViewBag.Section != null && ViewBag.Section.ToUpper() == "PROBLEMAS")
+            {
+                @Html.Partial("_Problem", item)
+            }
+            else
+            {
+                @Html.Partial("_Post", item)
+            }
             if (count++ == 4)
             {
                 <div class="row">
