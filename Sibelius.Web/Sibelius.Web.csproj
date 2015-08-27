@@ -287,6 +287,8 @@
     <Content Include="Views\AdminPostSections\Index.cshtml" />
     <Content Include="Views\Posts\_Sections.cshtml" />
     <Content Include="Views\Posts\_Problem.cshtml" />
+    <Content Include="Views\Posts\_Problems.cshtml" />
+    <Content Include="Views\Posts\_Posts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
