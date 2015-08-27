@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Portada";
     ViewBag.MetaDescription = "Somos una comunidad dedicada a la enseñanza de las Ciencias de la Computación como Arte Liberal";
-    ViewBag.MetaKeywords = "computación, software, programación, desarrollo, tutoriales, cursos"; 
+    ViewBag.MetaKeywords = "computación, software, programación, desarrollo, tutoriales, cursos";
 }
 
 <div class="row">
@@ -12,6 +12,7 @@
         Sibelius.Web.Models.Article third = Model["2"];
         Sibelius.Web.Models.Article fourth = Model["3"];
         Sibelius.Web.Models.Article fifth = Model["4"];
+        Sibelius.Web.Models.Article sixth = Model["5"];
     }
     <div class="col-sm-8">
 
@@ -22,17 +23,17 @@
             <p class="article-text-intro hidden-xs">
                 @first.Intro
             </p>
-            <br />            
+            <br />
         </div>
         <div class="col-sm-4 hidden-xs">
-            <img class="img-responsive" src="@first.ImageUrl" alt="Imagen del artículo @first.Title"/>
-            <br /> 
+            <img class="img-responsive" src="@first.ImageUrl" alt="Imagen del artículo @first.Title" />
+            <br />
         </div>
-        <p class="article-text">
+        <div class="col-xs-12 hidden-xs">
             <div class="btn-group-justified btn-group-sm">
                 <a class="btn btn-primary" href="~/Articles/Show/@first.Id">Continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
-        </p>
+        </div>
     </div>
     <div class="col-sm-4">
         <br />
@@ -82,3 +83,16 @@
         <div class="pubdiv"></div>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-sm-8">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3><a href="~/Articles/Show/@sixth.Id">@sixth.Title</a></h3>
+                <h4>@sixth.Section</h4>
+                <p>Por @sixth.Author</p>
+            </div>
+        </div>
+    </div>
+</div>
+
