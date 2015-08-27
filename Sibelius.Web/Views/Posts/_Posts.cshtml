@@ -2,6 +2,7 @@
 @{ var count = 0; }
 @foreach (var item in Model)
 {
+    item.Html = null;
     @Html.Partial("_Post", item)
     if (count++ == 4)
     {
