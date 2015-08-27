@@ -4,9 +4,8 @@
     ViewBag.Title = "Posts";
     ViewBag.bodyclass = "dark-body";
     ViewBag.MetaDescription = "Posts cortos sobre computación, videojuegos, gamedev, software y hardware.";
-    ViewBag.MetaKeywords = "computación, software, programación, desarrollo, software, hardware, crear videojuegos, gamedev, videojuegos indie";
-    int count = 0;
-
+    ViewBag.MetaKeywords = "computación, software, programación, desarrollo, software, hardware, crear videojuegos, gamedev, videojuegos indie, apps";
+    bool problems = ViewBag.Section != null && ViewBag.Section.ToUpper() == "PROBLEMAS";
 }
 
 <br />
@@ -15,39 +14,16 @@
         @Html.Partial("_Sections", (IEnumerable<Sibelius.Web.Models.PostSection>)ViewBag.Sections)
     </div>
     <div class="col-md-8">
-        @foreach (var item in Model)
+        @if (problems)
         {
-            item.Html = null;
-            if (ViewBag.Section != null && ViewBag.Section.ToUpper() == "PROBLEMAS")
-            {
-                @Html.Partial("_Problem", item)
-            }
-            else
-            {
-                @Html.Partial("_Post", item)
-                if (count++ == 4)
-                {
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                            <!-- Posts -->
-                            <ins class="adsbygoogle"
-                                 style="display:block"
-                                 data-ad-client="ca-pub-1426867402604645"
-                                 data-ad-slot="2889385216"
-                                 data-ad-format="auto"></ins>
-                            <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
-                            <div class="pubdiv"></div>
-                            <br />
-                        </div>
-                    </div>
-                }
-            }
+            @Html.Partial("_Problems", Model);
+        }
+        else
+        {
+            @Html.Partial("_Posts", Model);
         }
 
-        @if (ViewBag.Pages > 1)
+        @if(ViewBag.Pages > 1)
         {
             long curpage = ViewBag.CurPage;
             long prev = curpage - 1;
