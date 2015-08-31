@@ -14,15 +14,7 @@ namespace Sibelius.Web.Controllers
 
         public ActionResult Index()
         {
-            var result = new Dictionary<string, Article>();
-            foreach (var article in articleBehavior.GetAll())
-            {
-                if (article.Portrait == string.Empty)
-                    continue;
-                result.Add(article.Portrait, article);
-
-            }
-
+            var result = articleBehavior.GetVisible().ToList();
             return View(result);
         }
 
