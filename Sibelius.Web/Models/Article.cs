@@ -19,5 +19,6 @@ namespace Sibelius.Web.Models
         public string Portrait { get; set; }
         public string ImageUrl { get; set; }
         public string HtmlImageFooter { get; set; }
+        public bool Visible { get; set; }
     }
 }
