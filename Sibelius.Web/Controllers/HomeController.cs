@@ -41,20 +41,6 @@ namespace Sibelius.Web.Controllers
         {
             Session["pubadv"] = true;
             return Json("ok");
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        }       
     }
 }

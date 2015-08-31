@@ -167,13 +167,11 @@
     <Compile Include="Behavior\PostSectionBehavior.cs" />
     <Compile Include="Behavior\PostBehavior.cs" />
     <Compile Include="Behavior\ArticleBehavior.cs" />
-    <Compile Include="Behavior\ContestBehavior.cs" />
     <Compile Include="Behavior\CourseBehavior.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminPostSections.cs" />
     <Compile Include="Controllers\AdminPostsController.cs" />
     <Compile Include="Controllers\AdminArticlesController.cs" />
-    <Compile Include="Controllers\AdminContestsController.cs" />
     <Compile Include="Controllers\AdminCoursesController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
@@ -189,7 +187,6 @@
     <Compile Include="Models\PostSection.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Article.cs" />
-    <Compile Include="Models\Contest.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -234,7 +231,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
