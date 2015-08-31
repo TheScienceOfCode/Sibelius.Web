@@ -22,6 +22,11 @@ namespace Sibelius.Web.Behavior
             return unit.Articles.GetById(id);
         }
 
+        public IEnumerable<Article> GetVisible()
+        {
+            return unit.Articles.Where(c => c.Visible == true).OrderByDescending(c => c.Portrait).ThenByDescending(c => c.Date);
+        }
+
         public IEnumerable<Article> GetAll()
         {
             return unit.Articles;
