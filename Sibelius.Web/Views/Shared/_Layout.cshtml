@@ -59,6 +59,36 @@
         </div>
     </div>
     <div class="container body-content">
+        @if (Request.IsAuthenticated)
+        {
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="btn-group btn-group-justified">
+                        @if (User.IsInRole("admin"))
+                        {
+                            <a class="btn btn-default" href="~/AdminPosts">
+                                POSTS
+                            </a>
+                            <a class="btn btn-default" href="~/AdminArticles">
+                                ARTICLES
+                            </a>
+                            <a class="btn btn-default" href="~/AdminCourses">
+                                COURSES
+                            </a>
+                        }
+                        <a class="btn btn-default" href="~/Account">
+                            USERS
+                        </a>
+                    </div>
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <a class="btn btn-primary" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                    }
+                </div>
+            </div>
+        }
         @RenderBody()
         <br /><br /><br />
         <footer>

@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "AddToAdmin";
+}
+
+<h2>AddToAdmin</h2>
+
+@using (Html.BeginForm("AddToAdmin", "Account", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label for="username" class="col-md-2 text-right">User</label>
+        <div class="col-md-6">
+            <input id="username" name="username" type="text" class="form-control" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Add" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+<table class="table table-striped table-responsive">
+    <thead>
+        <tr>
+            <th>Admins</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (string user in ViewBag.admins)
+        {
+            <tr>
+                <td>@user</td>
+            </tr>
+        }
+    </tbody>
+
+</table>

@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Users</h2>
+
+@if(User.IsInRole("admin"))
+{
+    <a class="btn btn-primary" href="~/Account/AddToAdmin">Admins</a>
+}

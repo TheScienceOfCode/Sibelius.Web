@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Sibelius.Web.Models;
-
+using System.Collections.Generic;
 
 namespace Sibelius.Web.Controllers
 {
@@ -53,6 +53,11 @@ namespace Sibelius.Web.Controllers
             }
         }
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -94,7 +99,7 @@ namespace Sibelius.Web.Controllers
 
         //
         // GET: /Account/VerifyCode
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
         {
             // Require that the user has already logged in via username/password or external login
@@ -108,7 +113,7 @@ namespace Sibelius.Web.Controllers
         //
         // POST: /Account/VerifyCode
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> VerifyCode(VerifyCodeViewModel model)
         {
@@ -135,9 +140,31 @@ namespace Sibelius.Web.Controllers
             }
         }
 
+        [Authorize(Roles = "admin")]
+        public ActionResult AddToAdmin()
+        {
+            List<string> admins = UserManager.Users.Where(u => u.Roles.Contains("admin")).Select(u => u.UserName).ToList();
+            ViewBag.admins = admins;
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "admin")]
+        public ActionResult AddToAdmin(string username)
+        {
+            var user = UserManager.FindByEmail(username); 
+            if(!UserManager.IsInRole(user.Id, "admin"))
+            {
+                UserManager.AddToRole(user.Id, "admin");
+            }
+            List<string> admins = UserManager.Users.Where(u => u.Roles.Contains("admin")).Select(u => u.UserName).ToList();
+            ViewBag.admins = admins;
+            return View();
+        }
+
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles = "admin")]
         public ActionResult Register()
         {
             return View();
@@ -146,7 +173,7 @@ namespace Sibelius.Web.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -175,7 +202,7 @@ namespace Sibelius.Web.Controllers
 
         //
         // GET: /Account/ConfirmEmail
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
             if (userId == null || code == null)
@@ -285,7 +312,7 @@ namespace Sibelius.Web.Controllers
 
         //
         // GET: /Account/SendCode
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
             var userId = await SignInManager.GetVerifiedUserIdAsync();
@@ -301,7 +328,7 @@ namespace Sibelius.Web.Controllers
         //
         // POST: /Account/SendCode
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> SendCode(SendCodeViewModel model)
         {
@@ -320,7 +347,7 @@ namespace Sibelius.Web.Controllers
 
         //
         // GET: /Account/ExternalLoginCallback
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
@@ -351,7 +378,7 @@ namespace Sibelius.Web.Controllers
         //
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
