@@ -1,4 +1,4 @@
-﻿@model Dictionary<string, Sibelius.Web.Models.Article>
+﻿@model List<Sibelius.Web.Models.Article>
 @{
     ViewBag.Title = "Portada";
     ViewBag.MetaDescription = "Somos una comunidad dedicada a la enseñanza de las Ciencias de la Computación como Arte Liberal";
@@ -7,12 +7,7 @@
 
 <div class="row">
     @{
-        Sibelius.Web.Models.Article first = Model["0"];
-        Sibelius.Web.Models.Article second = Model["1"];
-        Sibelius.Web.Models.Article third = Model["2"];
-        Sibelius.Web.Models.Article fourth = Model["3"];
-        Sibelius.Web.Models.Article fifth = Model["4"];
-        Sibelius.Web.Models.Article sixth = Model["5"];
+        Sibelius.Web.Models.Article first = Model[0];
     }
     <div class="col-sm-8">
 
@@ -44,28 +39,14 @@
 <div class="row">
     <div class="col-sm-8">
         <div class="row">
-            <div class="col-sm-6">
-                <h3><a href="~/Articles/Show/@second.Id">@second.Title</a></h3>
-                <h4>@second.Section</h4>
-                <p>Por @second.Author</p>
-            </div>
-            <div class="col-sm-6">
-                <h3><a href="~/Articles/Show/@third.Id">@third.Title</a></h3>
-                <h4>@third.Section</h4>
-                <p>Por @third.Author</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <h3><a href="~/Articles/Show/@fourth.Id">@fourth.Title</a></h3>
-                <h4>@fourth.Section</h4>
-                <p>Por @fourth.Author</p>
-            </div>
-            <div class="col-sm-6">
-                <h3><a href="~/Articles/Show/@fifth.Id">@fifth.Title</a></h3>
-                <h4>@fifth.Section</h4>
-                <p>Por @fifth.Author</p>
-            </div>
+            @for (int i = 1; i <= 4; ++i)
+            {
+                <div class="col-sm-6">
+                    <h3><a href="~/Articles/Show/@Model[i].Id">@Model[i].Title</a></h3>
+                    <h4>@Model[i].Section</h4>
+                    <p>Por @Model[i].Author</p>
+                </div>
+            }
         </div>
     </div>
     <div class="col-sm-4">
@@ -87,12 +68,14 @@
 <div class="row">
     <div class="col-sm-8">
         <div class="row">
-            <div class="col-sm-6">
-                <h3><a href="~/Articles/Show/@sixth.Id">@sixth.Title</a></h3>
-                <h4>@sixth.Section</h4>
-                <p>Por @sixth.Author</p>
-            </div>
+            @for (int i = 5; i < Model.Count; ++i)
+            {
+                <div class="col-sm-6">
+                    <h3><a href="~/Articles/Show/@Model[i].Id">@Model[i].Title</a></h3>
+                    <h4>@Model[i].Section</h4>
+                    <p>Por @Model[i].Author</p>
+                </div>
+            }
         </div>
     </div>
 </div>
-
