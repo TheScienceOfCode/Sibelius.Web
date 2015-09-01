@@ -86,3 +86,60 @@ $(function () {
         });
     });
 });
+
+
+/// POSTS
+function updateSectionMenu() {
+    $('.posts-menu a').removeClass('active');
+
+    // Activate Posts->all
+    var loc = $(location).attr('pathname').toLowerCase();
+    if (loc === '/posts')/*CHECK SIMILAR!!!!*/ {
+        $('.posts-menu-all').addClass('active');
+        return;
+    }
+    
+    // Activate sections
+    var params = ($(location).attr('href').toLowerCase()+'&').split("?")[1].split("&");
+    for(var p in params){
+        var data = params[p].split('=');
+        if (data[0] === 'name') {
+            $('.posts-menu-' + data[1]).addClass('active');
+            return;
+        }
+    }
+}
+
+function loadPosts(e) {
+    alert('asd');
+    $.ajax({
+        type: 'POST',
+        contentType: 'application/json; charset=utf-8',
+        url: $(e).data('url'),
+        success: function (response) {
+            $('#posts-body').html(response);
+        }
+    });
+}
+
+function setOnclickSectionMenu() {
+    $('#posts-menu-lg a').on('click', function () {
+        window.history.pushState("", "", $(this).data('url'));
+        updateSectionMenu();
+        loadPosts($(this));
+    });
+}
+
+$(function () {
+    $.ajax({
+        type: 'POST',
+        contentType: 'application/json; charset=utf-8',
+        url: $('#posts-sections').data('url'),
+        success: function (response) {            
+            $('#posts-sections').html(response);            
+            updateSectionMenu();            
+            setOnclickSectionMenu();
+            loadPosts($('#posts-body'));
+        }
+    });
+});

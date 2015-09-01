@@ -159,3 +159,6 @@ textarea {
     background-color: #fff;
 }
 
+.posts-menu a:hover{
+    cursor: pointer;
+}

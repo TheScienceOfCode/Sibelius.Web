@@ -12,31 +12,42 @@ namespace Sibelius.Web.Controllers
         PostBehavior postBehavior = new PostBehavior();
         PostSectionBehavior postSectionBehavior = new PostSectionBehavior();
 
-        public ActionResult Index(int page=1)
+        public ActionResult Index()
+        {
+            ViewBag.CallbackUrl = Url.Content("~/Posts");
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(int page = 1)
         {
             var posts = postBehavior.GetAll(page);
-            ViewBag.Sections = postSectionBehavior.GetAll();
             ViewBag.Pages = postBehavior.GetPages();
             ViewBag.CurPage = page;
-            return View(posts);
+            return PartialView("_PostsList", posts);
         }
 
         public ActionResult Show(string id)
         {
             var post = postBehavior.GetById(id);
-            ViewBag.Sections = postSectionBehavior.GetAll();
             return View(post);
         }
-        
 
-        public ActionResult Section(string name, int page=1)
+        [HttpPost]
+        public ActionResult Section(string name, int page = 1)
         {
             var post = postBehavior.GetBySection(name, page);
-            ViewBag.Sections = postSectionBehavior.GetAll();
             ViewBag.Pages = postBehavior.GetPages(name);
             ViewBag.CurPage = page;
             ViewBag.Section = name;
-            return View("Index", post);
+            return PartialView("PostsList", post);
+        }
+        
+
+        [HttpPost]
+        public ActionResult SectionsMenu()
+        {
+            return PartialView("_Sections", postSectionBehavior.GetAll());
         }
     }
 }
