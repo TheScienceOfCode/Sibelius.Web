@@ -12,42 +12,25 @@ namespace Sibelius.Web.Controllers
         PostBehavior postBehavior = new PostBehavior();
         PostSectionBehavior postSectionBehavior = new PostSectionBehavior();
 
-        public ActionResult Index()
+        public ActionResult Index(int page=1)
         {
-            ViewBag.CallbackUrl = Url.Content("~/Posts");
+            ViewBag.CallbackUrl = Url.Content("~/Posts/Index?page=" + page);
+            ViewBag.Title = "Posts";
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Index(int page = 1)
+        public ActionResult Section(string name, int page = 1)
         {
-            var posts = postBehavior.GetAll(page);
-            ViewBag.Pages = postBehavior.GetPages();
-            ViewBag.CurPage = page;
-            return PartialView("_PostsList", posts);
+            ViewBag.CallbackUrl = Url.Content("~/Posts/Section?name=" + name + "&page=" + page);
+            ViewBag.Title = "Posts";
+            return View("Index");
         }
 
         public ActionResult Show(string id)
         {
-            var post = postBehavior.GetById(id);
-            return View(post);
-        }
-
-        [HttpPost]
-        public ActionResult Section(string name, int page = 1)
-        {
-            var post = postBehavior.GetBySection(name, page);
-            ViewBag.Pages = postBehavior.GetPages(name);
-            ViewBag.CurPage = page;
-            ViewBag.Section = name;
-            return PartialView("_PostsList", post);
-        }
-        
-
-        [HttpPost]
-        public ActionResult SectionsMenu()
-        {
-            return PartialView("_Sections", postSectionBehavior.GetAll());
+            ViewBag.CallbackUrl = Url.Content("~/Posts/Show/" + id);
+            ViewBag.Title = "Posts";
+            return View("Index");
         }
     }
 }

@@ -22,7 +22,7 @@ else
             <nav>
                 <ul class="pagination">
                     @if (curpage == 1)
-                {
+                    {
                         <li class="disabled">
                             <a aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
@@ -32,15 +32,15 @@ else
                     else
                     {
                         <li>
-                            <a href="@url=prev" aria-label="Previous">
+                            <a class="posts-btn" data-url="@url=@prev" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                     }
                     @for (int i = 1; i <= pages; ++i)
-                {
-                    if (i == curpage)
                     {
+                        if (i == curpage)
+                        {
                             <li class="active">
                                 <a>@i</a>
                             </li>
@@ -48,12 +48,12 @@ else
                         else
                         {
                             <li>
-                                <a href="@url=@i">@i</a>
+                                <a class="posts-btn" data-url="@url=@i">@i</a>
                             </li>
                         }
                     }
                     @if (curpage == pages)
-                {
+                    {
                         <li class="disabled">
                             <a aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
@@ -62,8 +62,8 @@ else
                     }
                     else
                     {
-                        <li class="disabled">
-                            <a href="@url=next" aria-label="Next">
+                        <li>
+                            <a class="posts-btn" data-url="@url=@next" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>

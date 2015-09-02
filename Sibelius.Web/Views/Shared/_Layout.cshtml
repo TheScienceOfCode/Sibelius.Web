@@ -49,7 +49,7 @@
                         <a href="~/Home/About">¿QUÉ ES ESTO?</a>
                     </li>
                     <li class="hidden-xs">
-                        <a href="http://facebook.com/TheScienceOfCode" target="_blank"><i class="fa fa-facebook"></i></a>                        
+                        <a href="http://facebook.com/TheScienceOfCode" target="_blank"><i class="fa fa-facebook"></i></a>
                     </li>
                     <li class="hidden-xs">
                         <a href="https://twitter.com/ScienceOfCode" target="_blank"><i class="fa fa-twitter"></i></a>
@@ -119,13 +119,13 @@
     @{var legal = HttpContext.Current.Session["legal"];}
     @if (legal == null || (bool)legal != true)
     {
-        <div id="legal-info" class="alert alert-info text-center">            
+        <div id="legal-info" class="alert alert-info text-center">
             <small>Nos obligan a molestarte con la obviedad de que este sitio usa cookies</small> <br class="visible-xs" />
             <a class="btn btn-sm btn-info" href="~/Home/Privacy">Más información</a>
             <a class="btn btn-sm btn-info" id="legal-accept" data-url="@Url.Content("~/Home/LegalAccept")">Cerrar</a>
         </div>
     }
-   
+
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -134,27 +134,25 @@
     <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     <script>
-        $(function () {
-            window.fbAsyncInit = function () {
-                FB.init({
-                    appId: '770797393033687',
-                    xfbml: true,
-                    version: 'v2.3'
-                });
-            };
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '770797393033687',
+                xfbml: true,
+                version: 'v2.3'
+            });
+        };
 
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) { return; }
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
 
-            !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');
-        });
     </script>
-
+    <script>
+!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
     @RenderSection("scripts", required: false)
     <script>
         (function (i, s, o, g, r, a, m) {
@@ -178,19 +176,18 @@
                 Desactivando tu AdBlock permites que podamos seguir liberando contenido de calidad.
             </small> <br />
             <a class="btn btn-sm btn-danger" id="pubadv-accept" data-url="@Url.Content("~/Home/PubAdvAccept")">Comprendo</a>
-        </div>        
+        </div>
     }
     <script>
         $(document).ready(
-            function(){
+            function () {
                 setTimeout(checkAds, 5000);
             }
         );
 
         function checkAds() {
             var ad = document.querySelector("ins.adsbygoogle");
-            if (ad && ad.innerHTML.replace('/\s / g', "").length == 0)
-            {
+            if (ad && ad.innerHTML.replace('/\s / g', "").length == 0) {
                 $('#pubadv').show('slow');
                 $('.pubdiv').html('<div class="alert alert-info"><h3>¡Tú puedes ayudarnos!</h3><h4>Desactivando tu AdBlock nos apoyas para que podamos liberar más contenidos gratuitos.</h4></div>');
             }

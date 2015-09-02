@@ -1,4 +1,5 @@
-﻿
+﻿@import url("//fonts.googleapis.com/css?family=News+Cycle:400,700");
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 body {
     padding-top: 60px;
     padding-bottom: 20px;
@@ -159,6 +160,22 @@ textarea {
     background-color: #fff;
 }
 
-.posts-menu a:hover{
+a:hover {
     cursor: pointer;
+}
+
+.loading {
+    padding-top: 20px;
+    min-height: 70px;
+}
+
+#posts-body{
+    display: block;
+}
+
+#posts-sections a{
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    transition: all 0.1s linear;
 }

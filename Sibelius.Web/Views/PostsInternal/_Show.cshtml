@@ -1,0 +1,36 @@
+﻿@model Sibelius.Web.Models.Post
+@{
+    Layout = null;
+    ViewBag.Title = Model.Title;
+    ViewBag.bodyclass = "dark-body";
+    ViewBag.MetaDescription = Model.Title;
+    ViewBag.MetaKeywords = Model.Tags;
+}
+@Html.Partial("_Post", Model)
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel">
+            <div class="panel-body">
+                <h3>Discusión</h3>
+                <h5>¡Haga sus comentarios o preguntas aquí!</h5>
+                <div id="disqus_thread"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'thescienceofcode';
+    var disqus_identifier = '@Model.Id';
+    var disqus_title = '@Model.Title';
+    var disqus_url = 'http://thescienceofcode.azurewebsites.net/Posts/Show/@Model.Id';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
