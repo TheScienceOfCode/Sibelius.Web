@@ -20,5 +20,7 @@ namespace Sibelius.Web.Models
         public int Answers { get; set; }
         public string ImgUrl { get; set; }
         public string Topics { get; set; }
+        public DateTime MemberSince { get; set; }
+        public string Username { get; set; }
     }
 }

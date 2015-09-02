@@ -164,11 +164,15 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Behavior\QuestionBehavior.cs" />
+    <Compile Include="Behavior\CollaboratorBehavior.cs" />
     <Compile Include="Behavior\PostSectionBehavior.cs" />
     <Compile Include="Behavior\PostBehavior.cs" />
     <Compile Include="Behavior\ArticleBehavior.cs" />
     <Compile Include="Behavior\CourseBehavior.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminQuestionsController.cs" />
+    <Compile Include="Controllers\AdminCollaborators.cs" />
     <Compile Include="Controllers\AdminPostSections.cs" />
     <Compile Include="Controllers\AdminPostsController.cs" />
     <Compile Include="Controllers\AdminArticlesController.cs" />
@@ -179,6 +183,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostsInternalController.cs" />
+    <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Data\Global.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
     <Compile Include="Global.asax.cs">
@@ -293,6 +298,18 @@
     <Content Include="Views\Shared\_Loading.cshtml" />
     <Content Include="Views\PostsInternal\_Sections.cshtml" />
     <Content Include="Views\PostsInternal\_PostsList.cshtml" />
+    <Content Include="Views\AdminCollaborators\Create.cshtml" />
+    <Content Include="Views\AdminCollaborators\Delete.cshtml" />
+    <Content Include="Views\AdminCollaborators\Edit.cshtml" />
+    <Content Include="Views\AdminCollaborators\Index.cshtml" />
+    <Content Include="Views\AdminQuestions\Create.cshtml" />
+    <Content Include="Views\AdminQuestions\Delete.cshtml" />
+    <Content Include="Views\AdminQuestions\Edit.cshtml" />
+    <Content Include="Views\AdminQuestions\Index.cshtml" />
+    <Content Include="Views\Questions\Index.cshtml" />
+    <Content Include="Views\Questions\_SendQuestion.cshtml" />
+    <Content Include="Views\Shared\_SocialLoader.cshtml" />
+    <Content Include="Views\Questions\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

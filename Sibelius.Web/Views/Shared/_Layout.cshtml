@@ -20,6 +20,7 @@
     string coursesClass = curUrl.Contains("COURSES") ? "class=active" : "";
     string postsClass = curUrl.Contains("POSTS") ? "class=active" : "";
     string aboutClass = curUrl.Contains("ABOUT") ? "class=active" : "";
+    string questionsClass = curUrl.Contains("QUESTIONS") ? "class=active" : "";
 }
 
 <body class="@ViewBag.bodyclass">
@@ -38,10 +39,13 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li @coursesClass>
-                        <a href="~/Courses">CURSOS</a>
+                        <a href="~/Courses"><small><span class="glyphicon glyphicon-book"></span> CURSOS</small></a>
                     </li>
                     <li @postsClass>
-                        <a href="~/Posts"><small><span class="glyphicon glyphicon-flash"></span></small>POSTS</a>
+                        <a href="~/Posts"><small><span class="glyphicon glyphicon-flash"></span> POSTS</small></a>
+                    </li>
+                    <li @questionsClass>
+                        <a href="~/Questions"><small><span class="glyphicon glyphicon-user"></span> PREGÚNTANOS</small></a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -76,6 +80,9 @@
                                 COURSES
                             </a>
                         }
+                        <a class="btn btn-default" href="~/AdminQuestions">
+                            QUESTIONS
+                        </a>
                         <a class="btn btn-default" href="~/Account">
                             USERS
                         </a>
@@ -133,26 +140,7 @@
     <link href='//fonts.googleapis.com/css?family=News+Cycle:400,700' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '770797393033687',
-                xfbml: true,
-                version: 'v2.3'
-            });
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-    </script>
-    <script>
-!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+    @Html.Partial("_SocialLoader")
     @RenderSection("scripts", required: false)
     <script>
         (function (i, s, o, g, r, a, m) {

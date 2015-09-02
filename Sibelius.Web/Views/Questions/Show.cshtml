@@ -1,0 +1,18 @@
+﻿@model Sibelius.Web.Models.Question
+@{
+    ViewBag.Title = "Respuesta";
+    ViewBag.bodyclass = "dark-body";
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel">
+            <div class="panel-body">
+                <h4>@Model.Title</h4>
+                @Model.Text
+                <hr />
+                <h3>Respuesta</h3>
+                @Html.Raw(Model.HtmlAnswer)
+            </div>
+        </div>
+    </div>
+</div>
