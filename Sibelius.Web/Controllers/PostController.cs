@@ -14,29 +14,23 @@ namespace Sibelius.Web.Controllers
 
         public ActionResult Index(int page=1)
         {
-            var posts = postBehavior.GetAll(page);
-            ViewBag.Sections = postSectionBehavior.GetAll();
-            ViewBag.Pages = postBehavior.GetPages();
-            ViewBag.CurPage = page;
-            return View(posts);
+            ViewBag.CallbackUrl = Url.Content("~/Posts/Index?page=" + page);
+            ViewBag.Title = "Posts";
+            return View();
+        }
+
+        public ActionResult Section(string name, int page = 1)
+        {
+            ViewBag.CallbackUrl = Url.Content("~/Posts/Section?name=" + name + "&page=" + page);
+            ViewBag.Title = "Posts";
+            return View("Index");
         }
 
         public ActionResult Show(string id)
         {
-            var post = postBehavior.GetById(id);
-            ViewBag.Sections = postSectionBehavior.GetAll();
-            return View(post);
-        }
-        
-
-        public ActionResult Section(string name, int page=1)
-        {
-            var post = postBehavior.GetBySection(name, page);
-            ViewBag.Sections = postSectionBehavior.GetAll();
-            ViewBag.Pages = postBehavior.GetPages(name);
-            ViewBag.CurPage = page;
-            ViewBag.Section = name;
-            return View("Index", post);
+            ViewBag.CallbackUrl = Url.Content("~/Posts/Show/" + id);
+            ViewBag.Title = "Posts";
+            return View("Index");
         }
     }
 }

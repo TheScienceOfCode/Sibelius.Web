@@ -1,0 +1,52 @@
+﻿@model Sibelius.Web.Models.Post
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>@Model.Title <span class="badge">@Model.Section</span> </h4>
+                <h5>@Model.Author</h5>
+            </div>
+            <div class="panel-body">
+                <div class="text-justify">
+                    @Html.Raw(Model.IntroHtml)
+                </div>
+                <div class="text-justify">
+                    @if (Model.Html != null)
+                    {                        
+                        <hr />
+                        @Html.Raw(Model.Html)
+                        <div style="display:none">
+                            <span id="desc">@ViewBag.MetaDescription</span>
+                            <span id="keywords">@ViewBag.MetaKeywords</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="btn-group-justified btn-group-sm">
+                            <a data-url="@Url.Content("~/Posts/Show/"+Model.Id)" class="btn btn-primary posts-btn">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                Ver más...
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h6>
+                            Tags: @Model.Tags <br />
+                            Posteado: @Model.Date.ToShortDateString()
+                        </h6>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="fb-like" data-href="http://thescienceofcode.azurewebsites.net/Posts/Show/@Model.Id" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+                    </div>
+                    <div class="col-sm-4" style="padding-top: 8px;">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thescienceofcode.azurewebsites.net/Posts/Show/@Model.Id" data-via="ScienceOfCode">Tweet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

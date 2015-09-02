@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Sibelius.Web.Models.PostSection>
+@{ 
+    Layout = null;    
+}
+
+<div class="btn-group-justified btn-group visible-xs visible-sm">
+    <a class="btn btn-primary" data-toggle="collapse" data-target="#posts-menu-sm">
+        SECCIONES <span class="caret"></span>
+    </a>
+</div>
+
+<div class="posts-menu list-group hidden-md hidden-lg collapse" id="posts-menu-sm">
+    <a class="posts-menu-all list-group-item" data-url="@Url.Content("~/Posts")">
+        <small><span class="glyphicon glyphicon-flash"></span></small>POSTS
+    </a>
+    @foreach (var item in Model)
+    {        
+        <a class="posts-menu-@item.Title.ToLower() list-group-item" data-url="@Url.Content("~/Posts/Section?name="+item.Title)" >
+            @item.Title
+        </a>
+    }
+</div>
+
+<div class="posts-menu list-group hidden-xs hidden-sm" id="posts-menu-lg">
+    <a class="posts-menu-all list-group-item" data-url="@Url.Content("~/Posts")" >
+        <small><span class="glyphicon glyphicon-flash"></span></small>POSTS
+        <span class="hidden-xs"><small><br />Todos los Posts!</small></span>
+    </a>
+    @foreach (var item in Model)
+    { 
+        <a class="posts-menu-@item.Title.ToLower() list-group-item" data-url="@Url.Content("~/Posts/Section?name="+item.Title)" >
+            @item.Title <br /><small>@item.Subtitle</small>
+        </a>
+    }
+</div>

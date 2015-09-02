@@ -11,7 +11,7 @@ namespace Sibelius.Web.Behavior
     {
         UnitOfWork unit = new UnitOfWork();
 
-        private const int PER_PAGE = 10;
+        private const int PER_PAGE = 7;
 
         #region Basic Behavior
         public void Insert(Post post)

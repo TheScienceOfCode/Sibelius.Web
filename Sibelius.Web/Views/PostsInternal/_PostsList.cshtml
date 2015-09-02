@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Sibelius.Web.Models.Post>
+
+@{  bool problems = ViewBag.Section != null && ViewBag.Section.ToUpper() == "PROBLEMAS"; }
+
+@if (problems)
+{
+    @Html.Partial("_Problems", Model);
+}
+else
+{
+    @Html.Partial("_Posts", Model);
+}
+@if (ViewBag.Pages > 1)
+{
+    long curpage = ViewBag.CurPage;
+    long prev = curpage - 1;
+    long next = curpage + 1;
+    long pages = ViewBag.Pages;
+    string url = ViewBag.Section == null ? "/Posts/Index?page" : string.Format("/Posts/Section?name={0}&page", ViewBag.Section);
+    <div class="row">
+        <div class="col-xs-12">
+            <nav>
+                <ul class="pagination">
+                    @if (curpage == 1)
+                    {
+                        <li class="disabled">
+                            <a aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a class="posts-btn" data-url="@url=@prev" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    }
+                    @for (int i = 1; i <= pages; ++i)
+                    {
+                        if (i == curpage)
+                        {
+                            <li class="active">
+                                <a>@i</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a class="posts-btn" data-url="@url=@i">@i</a>
+                            </li>
+                        }
+                    }
+                    @if (curpage == pages)
+                    {
+                        <li class="disabled">
+                            <a aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a class="posts-btn" data-url="@url=@next" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+}

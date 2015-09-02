@@ -1,4 +1,19 @@
-﻿/// Toogleable elements with fixed menu
+﻿loadingMsgs = ['¡Ya casi!', 'La conexión está lenta', 'Estos mensajes son divertidos', ':('];
+var htmlLoading = null;
+var curLoadingMsg = 0;
+function changeMsg() {
+    if (htmlLoading == null) {
+        htmlLoading = $('.loading').html();
+    }
+
+    $('.loading-msg').text(loadingMsgs[curLoadingMsg]);
+    if (++curLoadingMsg < loadingMsgs.length) setTimeout(changeMsg, 5000);
+}
+changeMsg();
+
+
+
+/// Toogleable elements with fixed menu
 var fixed_menu = -1;
 var fixed_status = false;
 $(function () {
@@ -85,4 +100,103 @@ $(function () {
             }
         });
     });
+});
+
+/// POSTS
+function getCall(id) {
+    var d = $(id).data('url');
+    return d.replace('Posts', 'PostsInternal');
+}
+
+function updateSectionMenu() {
+    $('.posts-menu a').removeClass('active');
+
+    // Activate Posts->all
+    var loc = $(location).attr('pathname').toLowerCase();
+    if (loc === '/posts' || loc === '/posts/' || loc == '/posts/index' || loc == '/posts/index/') {
+        $('.posts-menu-all').addClass('active');
+        return;
+    }
+    
+    // Activate sections
+    try {
+        var params = ($(location).attr('href').toLowerCase() + '&').split("?")[1].split("&");
+        for(var p in params){
+            var data = params[p].split('=');
+            if (data[0] === 'name') {
+                $('.posts-menu-' + data[1]).addClass('active');
+                return;
+            }
+        }
+    } catch (e) {
+        // Doesn't match with an existing section
+        // This looks terrible, but it's better to avoid unexpected errors with Url's.
+        return;
+    }
+}
+
+function updateMetadata() {
+    $('meta[name=description]').remove();
+    $('head').append('<meta name="description" content="'+ $('#desc').html() +'" />');
+    $('meta[name=keywords]').remove();
+    $('head').append('<meta name="keywords" content="' + $('#keywords').html() + '" />');
+}
+
+function loadPosts(e) {    
+    $.ajax({
+        type: 'POST',
+        contentType: 'text/html; charset=utf-8',
+        url: getCall(e),
+        success: function (response) {
+            $('#posts-body').html(response);
+            $('.posts-btn').on('click', function () {
+                window.history.pushState("", "", $(this).data('url'));
+                $('html, body').animate({
+                    scrollTop: 0
+                });
+                loadPosts($(this));
+            });
+            updateMetadata();
+        }
+    });
+}
+
+function menuAction(obj) {
+    window.history.pushState("", "", obj.data('url'));
+    updateSectionMenu();
+    $('html, body').animate({
+        scrollTop: fixed_menu - 40
+    });
+    loadPosts(obj);
+}
+
+function setOnclickSectionMenu() {
+    $('#posts-menu-lg a').on('click', function () {
+        menuAction($(this));
+    });
+    $('#posts-menu-sm a').on('click', function () {
+        menuAction($(this));
+        $('#posts-menu-sm').removeClass('in');
+        $('#posts-menu-sm').addClass('collapse');
+    });
+
+    
+}
+
+$(function () {
+    $.ajax({
+        type: 'POST',
+        contentType: 'text/html; charset=utf-8',
+        url: getCall('#posts-sections'),
+        success: function (response) {
+            $('#posts-sections').hide('fast', function () {
+                $('#posts-sections').html(response);
+                $('#posts-sections').show('fast', function () { 
+                updateSectionMenu();
+                setOnclickSectionMenu();
+                loadPosts($('#posts-body'));
+                });
+            });            
+        }
+    });    
 });
