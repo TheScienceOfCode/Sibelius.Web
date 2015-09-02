@@ -142,7 +142,9 @@ function updateMetadata() {
     $('head').append('<meta name="keywords" content="' + $('#keywords').html() + '" />');
 }
 
-function loadPosts(e) {    
+function loadPosts(e, loading) {
+    if (loading) jQuery(e).find("img").fadeIn('fast');
+    
     $.ajax({
         type: 'POST',
         contentType: 'text/html; charset=utf-8',
@@ -154,9 +156,10 @@ function loadPosts(e) {
                 $('html, body').animate({
                     scrollTop: 0
                 });
-                loadPosts($(this));
+                loadPosts($(this), true);
             });
             updateMetadata();
+            if (loading) jQuery(e).find("img").fadeOut('fast');
         }
     });
 }
@@ -167,7 +170,7 @@ function menuAction(obj) {
     $('html, body').animate({
         scrollTop: fixed_menu - 40
     });
-    loadPosts(obj);
+    loadPosts(obj, true);
 }
 
 function setOnclickSectionMenu() {
@@ -192,9 +195,9 @@ $(function () {
             $('#posts-sections').hide('fast', function () {
                 $('#posts-sections').html(response);
                 $('#posts-sections').show('fast', function () { 
-                updateSectionMenu();
-                setOnclickSectionMenu();
-                loadPosts($('#posts-body'));
+                    updateSectionMenu();
+                    setOnclickSectionMenu();
+                    loadPosts($('#posts-body'), false);
                 });
             });            
         }
