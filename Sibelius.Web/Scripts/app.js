@@ -160,6 +160,10 @@ function loadPosts(e, loading) {
             });
             updateMetadata();
             if (loading) jQuery(e).find("img").fadeOut('fast');
+            try {
+                FB.XFBML.parse();
+                twttr.widgets.load(); 
+            } catch (ex) { }
         }
     });
 }
