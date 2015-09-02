@@ -33,6 +33,11 @@ namespace Sibelius.Web.Controllers
         {
             Session["pubadv"] = true;
             return Json("ok");
-        }       
+        }      
+        
+        public ActionResult About()
+        {
+            return View();
+        } 
     }
 }
