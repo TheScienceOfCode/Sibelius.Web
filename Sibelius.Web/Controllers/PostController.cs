@@ -40,7 +40,7 @@ namespace Sibelius.Web.Controllers
             ViewBag.Pages = postBehavior.GetPages(name);
             ViewBag.CurPage = page;
             ViewBag.Section = name;
-            return PartialView("PostsList", post);
+            return PartialView("_PostsList", post);
         }
         
 

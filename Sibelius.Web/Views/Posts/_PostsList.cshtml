@@ -10,7 +10,6 @@ else
 {
     @Html.Partial("_Posts", Model);
 }
-
 @if (ViewBag.Pages > 1)
 {
     long curpage = ViewBag.CurPage;
@@ -23,7 +22,7 @@ else
             <nav>
                 <ul class="pagination">
                     @if (curpage == 1)
-                    {
+                {
                         <li class="disabled">
                             <a aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
@@ -39,9 +38,9 @@ else
                         </li>
                     }
                     @for (int i = 1; i <= pages; ++i)
+                {
+                    if (i == curpage)
                     {
-                        if (i == curpage)
-                        {
                             <li class="active">
                                 <a>@i</a>
                             </li>
@@ -54,7 +53,7 @@ else
                         }
                     }
                     @if (curpage == pages)
-                    {
+                {
                         <li class="disabled">
                             <a aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
@@ -73,3 +72,4 @@ else
             </nav>
         </div>
     </div>
+}

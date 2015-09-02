@@ -1,4 +1,19 @@
-﻿/// Toogleable elements with fixed menu
+﻿loadingMsgs = ['¡Ya casi!','Cargando', 'La conexión está lenta', 'Estos mensajes son divertidos', ':('];
+var htmlLoading = null;
+var curLoadingMsg = 0;
+function changeMsg() {
+    if (htmlLoading == null) {
+        htmlLoading = $('.loading').html();
+    }
+
+    $('.loading-msg').text(loadingMsgs[curLoadingMsg]);
+    if (++curLoadingMsg < loadingMsgs.length) setTimeout(changeMsg, 5000);
+}
+changeMsg();
+
+
+
+/// Toogleable elements with fixed menu
 var fixed_menu = -1;
 var fixed_status = false;
 $(function () {
@@ -87,7 +102,6 @@ $(function () {
     });
 });
 
-
 /// POSTS
 function updateSectionMenu() {
     $('.posts-menu a').removeClass('active');
@@ -111,7 +125,7 @@ function updateSectionMenu() {
 }
 
 function loadPosts(e) {
-    alert('asd');
+    $('#posts-body').html(htmlLoading);
     $.ajax({
         type: 'POST',
         contentType: 'application/json; charset=utf-8',
