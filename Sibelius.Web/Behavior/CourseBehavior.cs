@@ -24,7 +24,7 @@ namespace Sibelius.Web.Behavior
 
         public IEnumerable<Course> GetAll()
         {
-            return unit.Courses;
+            return unit.Courses.OrderByDescending(c => c.Year).ThenByDescending(c => c.Semester);
         }
 
         public IEnumerable<Course> GetVisible()
