@@ -13,19 +13,20 @@ namespace Sibelius.Web.Controllers
         QuestionBehavior questionBehavior = new QuestionBehavior();
         CollaboratorBehavior collaboratorBehavior = new CollaboratorBehavior();
 
-        public ActionResult Index(string msg=null, string error=null)
-        {
-            ViewBag.msg = msg;
-            ViewBag.error = error;
+        public ActionResult Index()
+        {            
+            return View();
+        }
 
+        public ActionResult List()
+        {
             ViewBag.Collaborators = collaboratorBehavior.GetAll();
             var questions = questionBehavior.GetAll();
-            return View(questions);
+            return PartialView("_List", questions);
         }
 
         public ActionResult Show(string id)
         {
-            ViewBag.Collaborators = collaboratorBehavior.GetAll();
             var question = questionBehavior.GetById(id);
             return View(question);
         }
@@ -36,20 +37,29 @@ namespace Sibelius.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(Question question)
+        public ActionResult SendQuestion(Question question)
         {
             if (!ModelState.IsValid)
             {
-                return RedirectToAction(
-                    "Index", 
-                    new { error = "No pudimos recibir la pregunta :(" });
+                return PartialView(
+                    "_SendResult", 
+                    new QuestionResultVM
+                    {
+                        Error = true,
+                        Message = "No pudimos recibir la pregunta :(",
+                        Question = question
+                    });
             }
             else
             {
                 questionBehavior.Insert(question);
-                return RedirectToAction(
-                   "Index",
-                   new { msg = "¡Hemos recibido tu pregunta!" });
+                return PartialView(
+                   "_SendResult",
+                   new QuestionResultVM
+                   {
+                       Error = false,
+                       Message = "¡Hemos recibido tu pregunta!"
+                   });
             }
             
             

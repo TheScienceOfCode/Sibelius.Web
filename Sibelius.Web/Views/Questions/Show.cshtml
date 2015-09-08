@@ -3,8 +3,12 @@
     ViewBag.Title = "Respuesta";
     ViewBag.bodyclass = "dark-body";
 }
+<br />
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-4">
+        @{Html.RenderAction("List", "Questions", null);}
+    </div>
+    <div class="col-md-8">
         <div class="panel">
             <div class="panel-body">
                 <h4>@Model.Title</h4>
@@ -13,6 +17,47 @@
                 <h3>Respuesta</h3>
                 @Html.Raw(Model.HtmlAnswer)
             </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4>Facebook</h4>
+                        <div class="fb-like" data-href="http://thescienceofcode.azurewebsites.net/Questions/Show/@Model.Id" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+                    </div>
+                    <div class="col-sm-6" style="padding-top: 8px;">
+                        <h4>Twitter</h4>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thescienceofcode.azurewebsites.net/Questions/Show/@Model.Id" data-via="ScienceOfCode">Tweet</a>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-body">
+                        <h3>Discusión</h3>
+                        <h5>¡Haga sus comentarios o preguntas aquí!</h5>
+                        <div id="disqus_thread"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'thescienceofcode';
+            var disqus_identifier = '@Model.Id';
+            var disqus_title = '@Model.Title';
+            var disqus_url = 'http://thescienceofcode.azurewebsites.net/Questions/Show/@Model.Id';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
     </div>
 </div>
