@@ -9,9 +9,9 @@ namespace Sibelius.Web.Models
 {
     public class Question : Entity
     {
-        [Required]
+        [Required(ErrorMessage="Debes escribir algo aquí")]
         public string Title { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Debes escribir algo aquí")]
         public string Text { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }

@@ -1,62 +1,22 @@
-﻿@model IEnumerable<Sibelius.Web.Models.Question>
+﻿
 @{
     ViewBag.Title = "Preguntanos";
     ViewBag.bodyclass = "dark-body";
 }
-
-@if (ViewBag.error != null)
-{
-    <br />
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="alert alert-danger">
-                @ViewBag.error
-            </div>
-        </div>
-    </div>
-}
-
-
-@if (ViewBag.msg != null)
-{
-    <br />
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="alert alert-success">
-                @ViewBag.msg
-            </div>
-        </div>
-    </div>
-}
-
+<br />
 <div class="row">
-    <div class="col-md-6">
-        <div class="panel">
-            <div class="panel-body">
-                <h4><span class="glyphicon glyphicon-question-sign"></span> ÚLTIMAS RESPUESTAS</h4>
-                <hr />
-                @foreach (var question in Model.Where(q => q.Answered))
-                {
-
-                    <h4><a href="~/Questions/Show/@question.Id">@question.Title</a></h4>
-                    @question.Text
-                    <div class="btn-group-justified btn-group-sm">
-                        <a class="btn btn-primary" href="~/Questions/Show/@question.Id">Ver respuesta <span class="glyphicon glyphicon-chevron-right"></span></a>
-                    </div>
-
-                }
-            </div>
-        </div>
+    <div class="col-md-4">
+        @{Html.RenderAction("List", "Questions", null);}
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
         <div class="well well-sm">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="text-right">
-                        <h4><span class="glyphicon glyphicon-bullhorn"></span> HAZ TU PREGUNTA</h4>
-                    </div>
+                    <h4><span class="glyphicon glyphicon-bullhorn"></span> HAZ TU PREGUNTA</h4>
                     <hr />
-                    @Html.Partial("_SendQuestion", new Sibelius.Web.Models.Question())
+                    <div id="questions-action">
+                        @Html.Partial("_SendQuestion", new Sibelius.Web.Models.Question())
+                    </div>
                 </div>
             </div>
         </div>

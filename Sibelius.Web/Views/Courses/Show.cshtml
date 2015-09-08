@@ -34,18 +34,14 @@
             <div class="btn-group btn-group-justified">
                 <a class="btn btn-primary" data-toggle="#course-content"> 
                     <span class="glyphicon glyphicon-th-list"></span>
-                    <br class="visible-xs"/> <span class="hidden-xs-fixed">&nbsp; Contenido</span>
+                    <br class="visible-xs"/> <span>&nbsp; Contenido</span>
                 </a>
-                <a class="btn btn-primary" data-toggle="#course-diqus"> 
-                    <span class="glyphicon glyphicon-comment"></span> 
-                    <br class="visible-xs" /> <span class="hidden-xs-fixed">&nbsp; Discusión</span>
-               </a>
                 <a class="btn btn-primary" data-toggle="#course-bib"> 
                     <span class="glyphicon glyphicon-book"></span> 
-                    <br class="visible-xs" /> <span class="hidden-xs-fixed">&nbsp; Bibliografía</span></a>
+                    <br class="visible-xs" /> <span>&nbsp; Bibliografía</span></a>
                 <a class="btn btn-primary" data-toggle="#course-tools"> 
                     <span class="glyphicon glyphicon-cog"></span> 
-                    <br class="visible-xs" /> <span class="hidden-xs-fixed">&nbsp; Herramientas</span>
+                    <br class="visible-xs" /> <span>&nbsp; Herramientas</span>
                 </a>
             </div>
         </div>
@@ -60,22 +56,6 @@
             <h3>Contenido</h3>
 
             @Html.Raw(Model.Html)
-        </div>
-    </div>
-
-    <div id="course-diqus" style="display:none;" data-hide-me="true">
-        <div class="col-xs-12">
-            <h3>Discusión</h3>
-            <h5>¡Haga sus preguntas aquí!</h5>
-            @if (!Model.Active)
-            {
-                <div class="alert alert-warning">
-                    <span class="glyphicon glyphicon-info-sign">&nbsp;</span>
-                    Este curso ya no está activo.
-                    Aunque puede preguntar en esta discusión, es posible que en un curso activo pueda interactuar con más personas.
-                </div>
-            }
-            <div id="disqus_thread"></div>
         </div>
     </div>
 
@@ -94,29 +74,3 @@
     </div>
 </div>
 
-
-@section scripts{
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES * * */
-        var disqus_shortname = 'thescienceofcode';
-        var disqus_identifier = '@Model.Id';
-        var disqus_title = '@Model.Title - @Model.Year - @Model.Semester';
-        var disqus_url = 'http://thescienceofcode.azurewebsites.net/Courses/Show/@Model.Id';
-        var disqus_ready = false;
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        $(function () {
-            $('a[data-toggle="#course-diqus"]').click(function(){
-                (function () {
-                    if (disqus_ready) return;
-                    disqus_ready = true;
-                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-            });
-        });
-       
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-}
