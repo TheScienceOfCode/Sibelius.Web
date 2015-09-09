@@ -23,7 +23,9 @@
                     <small>@nombre</small>
                 </blockquote>
                 <br />
-                @Html.Raw(Model.HtmlAnswer)
+                <div class="text-justify">
+                    @Html.Raw(Model.HtmlAnswer)
+                </div>
                 <br /><br />
                 <div class="col-sm-10">
                     <table class="table table-responsive table-striped">
