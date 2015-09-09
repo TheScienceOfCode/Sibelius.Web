@@ -15,6 +15,7 @@ namespace Sibelius.Web.Behavior
         #region Basic Behavior
         public void Insert(Question question)
         {
+            question.Date = DateTime.Now;
             unit.Questions.Add(question);
         }
 
