@@ -28,6 +28,7 @@ namespace Sibelius.Web.Controllers
         public ActionResult Show(string id)
         {
             var question = questionBehavior.GetById(id);
+            ViewBag.Collaborator = collaboratorBehavior.GetByUsername(question.Collaborator);
             return View(question);
         }
 

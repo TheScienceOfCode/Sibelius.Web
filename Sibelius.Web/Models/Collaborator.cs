@@ -17,6 +17,7 @@ namespace Sibelius.Web.Models
         public string Twitter { get; set; }
         public string Google { get; set; }
         public string LinkedIn { get; set; }
+        public string Github { get; set; }
         public int Answers { get; set; }
         public string ImgUrl { get; set; }
         public string Topics { get; set; }

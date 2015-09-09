@@ -28,6 +28,11 @@ namespace Sibelius.Web.Behavior
             return unit.Collaborators.OrderByDescending(p => p.Answers);
         }
 
+        public Collaborator GetByUsername(string username)
+        {
+            return unit.Collaborators.Where(c => c.Username == username).FirstOrDefault();
+        }
+
         public void Update(Collaborator collaborator)
         {
             unit.Collaborators.Update(collaborator);
