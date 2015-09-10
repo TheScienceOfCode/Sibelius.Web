@@ -30,8 +30,7 @@ namespace Sibelius.Web.Controllers
         {
             if (!ModelState.IsValid)
                 return View();
-
-            question.Date = DateTime.Now;
+            
             questionBehavior.Insert(question);
             return RedirectToAction("Index");
         }

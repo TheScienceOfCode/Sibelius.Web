@@ -1,13 +1,9 @@
 ﻿
 @{
     ViewBag.Title = "Pregúntanos";
-    ViewBag.bodyclass = "dark-body";
 }
 <br />
 <div class="row">
-    <div class="col-md-4">
-        @{Html.RenderAction("List", "Questions", null);}
-    </div>
     <div class="col-md-8">
         <div class="well well-sm">
             <div class="row">
@@ -20,6 +16,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col-md-4">
+        @{Html.RenderAction("List", "Questions", null);}
     </div>
 </div>
 
