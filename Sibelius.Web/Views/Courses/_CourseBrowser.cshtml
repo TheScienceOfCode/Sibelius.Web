@@ -7,17 +7,22 @@
             <h4>@Model.Subtitle</h4>  
             <h5>Semestre @Model.Year - @Model.Semester</h5>
             <div class="btn-group-justified">
-                <a class="btn btn-primary" href="~/Courses/Show/@Model.Id">
-                    <span class="glyphicon glyphicon-folder-open">&nbsp;</span> Ver curso                          
-                     @if (Model.CurrentlyUpdated) 
-                     { 
-                         <span class="badge">Actualizado</span>
-                    }
-                </a>
+                @if (Model.Active)
+                {
+                    <a class="btn btn-primary" href="~/Courses/Show/@Model.Id">
+                        <span class="glyphicon glyphicon-plus">&nbsp;</span> Ver contenido
+                    </a>
+                }
+                else
+                {
+                    <a class="btn btn-default" href="~/Courses/Show/@Model.Id">
+                        <span class="glyphicon glyphicon-plus">&nbsp;</span> Ver contenido
+                    </a>
+                }
             </div>
         </div>
-        <div class="col-xs-4">
-            <img class="img-responsive" src="@Model.ImageUrl" />
+        <div class="col-xs-4"><br />
+            <img class="center-block img-responsive" src="@Model.ImageUrl" style="max-height: 100px;" />
         </div>        
     </div>
 </div>
