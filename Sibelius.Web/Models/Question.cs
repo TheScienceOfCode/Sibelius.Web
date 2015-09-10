@@ -9,7 +9,6 @@ namespace Sibelius.Web.Models
 {
     public class Question : Entity
     {
-        [Required(ErrorMessage="Debes escribir algo aquí")]
         public string Title { get; set; }
         [Required(ErrorMessage = "Debes escribir algo aquí")]
         public string Text { get; set; }

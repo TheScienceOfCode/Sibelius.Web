@@ -53,6 +53,7 @@ namespace Sibelius.Web.Controllers
             }
             else
             {
+                question.Title = question.Text;
                 questionBehavior.Insert(question);
                 return PartialView(
                    "_SendResult",
