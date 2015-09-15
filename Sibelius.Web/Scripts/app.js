@@ -145,10 +145,15 @@ function updateMetadata() {
     $('head').append('<meta name="keywords" content="' + $('#keywords').html() + '" />');
 }
 
+var reqs = [];
 function loadPosts(e, loading) {
     if (loading) jQuery(e).find("img").fadeIn('fast');
+    for (i = 0; i < reqs.length; i++) {
+        reqs[i].abort();        
+    }
+    reqs.length = 0;    
     
-    $.ajax({
+    var r = $.ajax({
         type: 'POST',
         contentType: 'text/html; charset=utf-8',
         url: getCall(e),
@@ -169,6 +174,7 @@ function loadPosts(e, loading) {
             } catch (ex) { }
         }
     });
+    reqs.push(r);
 }
 
 function menuAction(obj) {
