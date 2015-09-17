@@ -11,8 +11,7 @@ namespace Sibelius.Web.Controllers
     {
         PostBehavior postBehavior = new PostBehavior();
         PostSectionBehavior postSectionBehavior = new PostSectionBehavior();
-
-        [HttpPost]
+                
         public ActionResult Index(int page = 1)
         {
             var posts = postBehavior.GetAll(page);
@@ -23,8 +22,7 @@ namespace Sibelius.Web.Controllers
 
             return PartialView("_PostsList", posts);
         }
-
-        [HttpPost]
+        
         public ActionResult Section(string name, int page = 1)
         {
             var post = postBehavior.GetBySection(name, page);
@@ -35,8 +33,7 @@ namespace Sibelius.Web.Controllers
             ViewBag.MetaKeywords = "posts, computación, artículos, tutoriales, " + name;
             return PartialView("_PostsList", post);
         }
-
-        [HttpPost]
+        
         public ActionResult Show(string id)
         {
             var post = postBehavior.GetById(id);
@@ -45,8 +42,7 @@ namespace Sibelius.Web.Controllers
 
             return View("_Show", post);
         }
-
-        [HttpPost]
+        
         public ActionResult SectionsMenu()
         {
             return PartialView("_Sections", postSectionBehavior.GetAll());

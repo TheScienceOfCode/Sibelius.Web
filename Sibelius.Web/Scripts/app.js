@@ -145,6 +145,16 @@ function updateMetadata() {
     $('head').append('<meta name="keywords" content="' + $('#keywords').html() + '" />');
 }
 
+function setOnClickPosts() {
+    $('.posts-btn').on('click', function () {
+        window.history.pushState("", "", $(this).data('url'));
+        $('html, body').animate({
+            scrollTop: 0
+        });
+        loadPosts($(this), true);
+    });
+}
+
 var reqs = [];
 function loadPosts(e, loading) {
     if (loading) jQuery(e).find("img").fadeIn('fast');
@@ -159,13 +169,7 @@ function loadPosts(e, loading) {
         url: getCall(e),
         success: function (response) {
             $('#posts-body').html(response);
-            $('.posts-btn').on('click', function () {
-                window.history.pushState("", "", $(this).data('url'));
-                $('html, body').animate({
-                    scrollTop: 0
-                });
-                loadPosts($(this), true);
-            });
+            setOnClickPosts();
             updateMetadata();
             if (loading) jQuery(e).find("img").fadeOut('fast');
             try {
@@ -176,6 +180,13 @@ function loadPosts(e, loading) {
     });
     reqs.push(r);
 }
+
+window.onpopstate = function (event) {
+    // Trigger url load
+    document.location = document.location;
+};
+
+
 
 function menuAction(obj) {
     window.history.pushState("", "", obj.data('url'));
@@ -200,21 +211,9 @@ function setOnclickSectionMenu() {
 }
 
 $(function () {
-    $.ajax({
-        type: 'POST',
-        contentType: 'text/html; charset=utf-8',
-        url: getCall('#posts-sections'),
-        success: function (response) {
-            $('#posts-sections').hide('fast', function () {
-                $('#posts-sections').html(response);
-                $('#posts-sections').show('fast', function () { 
-                    updateSectionMenu();
-                    setOnclickSectionMenu();
-                    loadPosts($('#posts-body'), false);
-                });
-            });            
-        }
-    });    
+    updateSectionMenu();
+    setOnclickSectionMenu();
+    setOnClickPosts();
 });
 
 

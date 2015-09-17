@@ -5,8 +5,8 @@
 <br />
 <div class="row">
     <div class="col-md-4">
-        <div id="posts-sections" data-url="@Url.Content("~/Posts/SectionsMenu")">
-            @Html.Partial("~/Views/Shared/_Loading.cshtml", true)
+        <div id="posts-sections">
+           @{Html.RenderAction("SectionsMenu", "PostsInternal"); }
         </div>
         <br />
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -23,8 +23,8 @@
         <br />
     </div>
     <div class="col-md-8">
-        <div id="posts-body" data-url="@ViewBag.CallbackUrl">
-            @Html.Partial("~/Views/Shared/_Loading.cshtml", true)
+        <div id="posts-body">
+            @{Html.RenderAction((string)ViewBag.Action, (string)ViewBag.Controller, (object[])ViewBag.routeValues);}
         </div>
     </div>
 </div>
