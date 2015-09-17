@@ -16,6 +16,9 @@ namespace Sibelius.Web.Controllers
         {
             ViewBag.CallbackUrl = Url.Content("~/Posts/Index?page=" + page);
             ViewBag.Title = "Posts";
+            ViewBag.Controller = "PostsInternal";
+            ViewBag.Action = "Index";
+            ViewBag.RouteValues = null;
             return View();
         }
 
@@ -23,6 +26,9 @@ namespace Sibelius.Web.Controllers
         {
             ViewBag.CallbackUrl = Url.Content("~/Posts/Section?name=" + name + "&page=" + page);
             ViewBag.Title = "Posts";
+            ViewBag.Controller = "PostsInternal";
+            ViewBag.Action = "Section";
+            ViewBag.RouteValues = new object[] { name, page };
             return View("Index");
         }
 
@@ -30,6 +36,9 @@ namespace Sibelius.Web.Controllers
         {
             ViewBag.CallbackUrl = Url.Content("~/Posts/Show/" + id);
             ViewBag.Title = "Posts";
+            ViewBag.Controller = "PostsInternal";
+            ViewBag.Action = "Show";
+            ViewBag.RouteValues = new object[] { id };
             return View("Index");
         }
     }
