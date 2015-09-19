@@ -23,11 +23,18 @@
         <dd>
             @Html.DisplayFor(model => model.Text)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
-
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Text)
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-danger" /> |
             @Html.ActionLink("Back", "Index", null, new { @class="btn btn-default"})
