@@ -13,7 +13,7 @@
     }
     <title>@ViewBag.Title - The Science of Code</title>
     @Styles.Render("~/Content/css")
-    @if (Session["fonts"] == null)
+    @if (Session["fonts"] != null)
     {
         Html.Partial("_Fonts");
     }
