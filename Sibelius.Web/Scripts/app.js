@@ -2,34 +2,22 @@
 var fixed_menu = -1;
 var fixed_status = false;
 $(function () {
-    if ($('#fixed-menu').offset() == undefined) return;
-    fixed_menu = $('#fixed-menu').offset().top - 30;
+    if ($('#fixeable-menu').offset() == undefined) return;
+    fixed_menu = $('#fixeable-menu').offset().top - 45;
+    $('#fixed-menu').html($('#fixeable-menu').html());
     $(window).scroll(function () {
         if ($(window).scrollTop() > fixed_menu) {
             if (fixed_status) return;
             fixed_status = true;
-            $('#fixed-menu').fadeOut('fast', function () {
-                $('#fixed-menu-empty').fadeIn('fast');
-                $('#fixed-menu').addClass('fixed');
-                $('#fixed-menu').addClass('well');
-                $('#fixed-menu').addClass('well-sm');
-                $('a[data-toggle]').removeClass('btn-primary');
-                $('a[data-toggle]').addClass('btn-default');
-                $('#fixed-menu').fadeIn('fast');                
-            });            
+            $('#fixed-menu').slideDown('fast');
+            $('a[data-toggle]').removeClass('btn-primary');
+            $('a[data-toggle]').addClass('btn-default');          
         } else {
             if (!fixed_status) return;
             fixed_status = false;
-            $('#fixed-menu').fadeOut('fast', function () {                
-                $('#fixed-menu').removeClass('fixed');
-                $('#fixed-menu').removeClass('well');
-                $('#fixed-menu').removeClass('well-sm');
-                $('a[data-toggle]').removeClass('btn-default');
-                $('a[data-toggle]').addClass('btn-primary');
-                $('#fixed-menu-empty').fadeOut('fast', function () {
-                    $('#fixed-menu').fadeIn('fast');
-                });                
-            });
+            $('#fixed-menu').fadeOut('fast');
+            $('a[data-toggle]').removeClass('btn-default');
+            $('a[data-toggle]').addClass('btn-primary');
         }
     });
 });
@@ -41,7 +29,7 @@ $(function () {
             called = true;
             $('[data-showable="true"]').addClass('min-h-content');
         }
-        var current = $(this);
+        var current = $('a[data-toggle='+$(this).data('toggle')+']');
         var show = true;
         if (current.hasClass('active')) {
             current.removeClass('active');
