@@ -314,6 +314,7 @@
     <Content Include="Views\Questions\Show.cshtml" />
     <Content Include="Views\Questions\_SendResult.cshtml" />
     <Content Include="Views\Questions\_List.cshtml" />
+    <Content Include="Views\Shared\_Fonts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
