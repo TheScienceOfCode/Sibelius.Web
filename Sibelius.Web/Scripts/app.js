@@ -1,19 +1,4 @@
-﻿loadingMsgs = ['¡Ya casi!', 'La conexión está lenta', 'Estos mensajes son divertidos', ':('];
-var htmlLoading = null;
-var curLoadingMsg = 0;
-function changeMsg() {
-    if (htmlLoading == null) {
-        htmlLoading = $('.loading').html();
-    }
-
-    $('.loading-msg').text(loadingMsgs[curLoadingMsg]);
-    if (++curLoadingMsg < loadingMsgs.length) setTimeout(changeMsg, 5000);
-}
-changeMsg();
-
-
-
-/// Toogleable elements with fixed menu
+﻿/// Toogleable elements with fixed menu
 var fixed_menu = -1;
 var fixed_status = false;
 $(function () {
@@ -157,7 +142,7 @@ function setOnClickPosts() {
 
 var reqs = [];
 function loadPosts(e, loading) {
-    if (loading) jQuery(e).find("img").fadeIn('fast');
+    if (loading) jQuery(e).find("img").addClass('visible');
     for (i = 0; i < reqs.length; i++) {
         reqs[i].abort();        
     }
@@ -171,7 +156,7 @@ function loadPosts(e, loading) {
             $('#posts-body').html(response);
             setOnClickPosts();
             updateMetadata();
-            if (loading) jQuery(e).find("img").fadeOut('fast');
+            if (loading) jQuery(e).find("img").removeClass('visible');
             try {
                 FB.XFBML.parse();
                 twttr.widgets.load(); 
