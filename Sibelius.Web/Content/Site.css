@@ -1,6 +1,4 @@
-﻿@import url("//fonts.googleapis.com/css?family=News+Cycle:400,700");
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-body {
+﻿body {
     padding-top: 60px;
     padding-bottom: 20px;
     font-family: 'Open Sans';
@@ -60,9 +58,6 @@ textarea {
     text-align: justify;
     font-size: 16px;
     line-height: 1.8;
-}
-
-.article-text-intro {
 }
 
 .pre-fixed{
