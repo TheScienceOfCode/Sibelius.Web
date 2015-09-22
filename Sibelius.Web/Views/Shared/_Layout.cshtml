@@ -15,7 +15,7 @@
     @Styles.Render("~/Content/css")
     @if (Session["fonts"] != null)
     {
-        Html.Partial("_Fonts");
+        @Html.Partial("_Fonts")
     }
 </head>
 @{
@@ -142,9 +142,9 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/app")
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-    @if (Session["fonts"] != null)
+    @if (Session["fonts"] == null)
     {
-        Html.Partial("_Fonts");
+        @Html.Partial("_Fonts")
         Session["fonts"] = true;
     }
     @Html.Partial("_SocialLoader")
