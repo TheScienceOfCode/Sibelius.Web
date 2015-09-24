@@ -165,3 +165,7 @@ a:hover {
 .visible {
     display: inline !important;
 }
+
+.img-bounded {
+    max-height: 300px;
+}
