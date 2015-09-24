@@ -10,17 +10,19 @@
         Sibelius.Web.Models.Article first = Model[0];
     }
     <div class="col-sm-8">
-
-        <h3><a href="~/Articles/Show/@first.Id">@first.Title</a></h3>
-        <h4>@first.Section</h4>
-        <p>Por @first.Author</p>
-        <div class="col-sm-8">
-            <p class="article-text-intro hidden-xs">
+        <div class="col-sm-12 col-xs-8">
+            <h3><a href="~/Articles/Show/@first.Id">@first.Title</a></h3>
+            <h4>@first.Section</h4>
+            <p>Por @first.Author</p>
+        </div>
+        <div class="col-sm-8 hidden-xs">
+            <p class="article-text-intro">
                 @first.Intro
             </p>
             <br />
         </div>
-        <div class="col-sm-4 hidden-xs">
+        <div class="col-sm-4 col-xs-4">
+            <br class="visible-xs" />
             <img class="img-responsive" src="@first.ImageUrl" alt="Imagen del artículo @first.Title" />
             <br />
         </div>
@@ -30,12 +32,30 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 hidden-xs">
         <br />
         <a class="twitter-timeline" href="https://twitter.com/ScienceOfCode" data-widget-id="609045119644409856">Tweets ScienceOfCode.</a>
         <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+        
     </div>
 </div>
+<br />
+<div class="row">
+    <div class="col-sm-8">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Main TSOC -->
+        <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-1426867402604645"
+                data-ad-slot="7023487219"
+                data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="pubdiv"></div>
+    </div>
+</div>
+<br />
 <div class="row">
     <div class="col-sm-8">
         <div class="row">
@@ -49,20 +69,7 @@
             }
         </div>
     </div>
-    <div class="col-sm-4">
-        <br />
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Main TSOC -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1426867402604645"
-             data-ad-slot="7023487219"
-             data-ad-format="auto"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-        <div class="pubdiv"></div>
-    </div>
+    
 </div>
 
 <div class="row">
