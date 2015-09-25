@@ -118,13 +118,16 @@ function updateMetadata() {
     $('head').append('<meta name="keywords" content="' + $('#keywords').html() + '" />');
 }
 
-function setOnClickDataUrl() {
+// Sets on click for all a[data-url]
+// load: shows a loading gif (true or false).
+// func: a function that receives an element and a bool.
+function setOnClickDataUrl(load, func) {
     $('a[data-url]').on('click', function () {
         window.history.pushState("", "", $(this).data('url'));
         $('html, body').animate({
             scrollTop: 0
         });
-        loadPosts($(this), true);
+        func($(this), load);
     });
 }
 
@@ -142,7 +145,7 @@ function loadPosts(e, loading) {
         url: getCall(e),
         success: function (response) {
             $('#posts-body').html(response);
-            setOnClickPosts();
+            setOnClickDataUrl(true, loadPosts);
             updateMetadata();
             if (loading) jQuery(e).find("img").removeClass('visible');
             try {
@@ -186,7 +189,7 @@ function setOnclickSectionMenu() {
 $(function () {
     updateSectionMenu();
     setOnclickSectionMenu();
-    setOnClickPosts();
+    setOnClickDataUrl(true, loadPosts);
 });
 
 
