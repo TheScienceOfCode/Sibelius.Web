@@ -14,14 +14,20 @@ namespace Sibelius.Web.Controllers
         CollaboratorBehavior collaboratorBehavior = new CollaboratorBehavior();
 
         public ActionResult Index()
-        {            
+        {   
             return View();
         }
 
-        public ActionResult List()
+        public ActionResult List(int page = 1)
         {
             ViewBag.Collaborators = collaboratorBehavior.GetAll();
-            var questions = questionBehavior.GetAll();
+            var questions = questionBehavior.GetAll(page);
+            ViewBag.PaginationVM = new PaginationVM()
+            {
+                Url = "~/Questions/Lists?page={0}",
+                CurPage = page,
+                Pages = questionBehavior.GetPages()
+            };
             return PartialView("_List", questions);
         }
 

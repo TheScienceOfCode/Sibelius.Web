@@ -23,7 +23,7 @@
                     else
                     {
                         <li>
-                            <a class="posts-btn" data-url="@Url.Content(url.Param(prev))" aria-label="Previous">
+                            <a data-url="@Url.Content(url.Param(prev))" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -39,7 +39,7 @@
                         else
                         {
                             <li>
-                                <a class="posts-btn" data-url="@Url.Content(url.Param(i))">@i</a>
+                                <a data-url="@Url.Content(url.Param(i))">@i</a>
                             </li>
                         }
                     }
@@ -54,7 +54,7 @@
                     else
                     {
                         <li>
-                            <a class="posts-btn" data-url="@Url.Content(url.Param(next))" aria-label="Next">
+                            <a data-url="@Url.Content(url.Param(next))" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>

@@ -47,6 +47,12 @@ namespace Sibelius.Web.Behavior
         {
             unit.Questions.Delete(question);
         }
-        #endregion        
+        #endregion
+
+        public int GetPages()
+        {
+            return (int)Math.Ceiling(unit.Questions.Count() / (double)PER_PAGE);
+        }
+
     }
 }

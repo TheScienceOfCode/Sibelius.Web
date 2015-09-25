@@ -18,6 +18,8 @@
         </div>
         <hr />
     }
+    @Html.Partial("~/Views/Shared/_Pagination.cshtml",
+    (Sibelius.Web.Models.PaginationVM)ViewBag.PaginationVM)
     <div class="row">
         <div class="col-xs-12">
             <div class="btn-group-justified">
