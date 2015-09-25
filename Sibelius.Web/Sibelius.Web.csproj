@@ -170,6 +170,7 @@
     <Compile Include="Behavior\PostBehavior.cs" />
     <Compile Include="Behavior\ArticleBehavior.cs" />
     <Compile Include="Behavior\CourseBehavior.cs" />
+    <Compile Include="Common\ExtendedMethods.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminQuestionsController.cs" />
     <Compile Include="Controllers\AdminCollaborators.cs" />
@@ -191,6 +192,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Collaborator.cs" />
+    <Compile Include="Models\PaginationVM.cs" />
     <Compile Include="Models\PostSection.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Article.cs" />
@@ -315,6 +317,7 @@
     <Content Include="Views\Questions\_SendResult.cshtml" />
     <Content Include="Views\Questions\_List.cshtml" />
     <Content Include="Views\Shared\_Fonts.cshtml" />
+    <Content Include="Views\Shared\_Pagination.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
