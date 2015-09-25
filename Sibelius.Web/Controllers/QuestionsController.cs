@@ -38,7 +38,7 @@ namespace Sibelius.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult SendQuestion(Question question)
+        public ActionResult SendQuestion([Bind(Include ="Text,Name,SourceCodeUrl,Email")]Question question)
         {
             if (!ModelState.IsValid)
             {
