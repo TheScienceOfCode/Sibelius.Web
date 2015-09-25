@@ -118,8 +118,8 @@ function updateMetadata() {
     $('head').append('<meta name="keywords" content="' + $('#keywords').html() + '" />');
 }
 
-function setOnClickPosts() {
-    $('.posts-btn').on('click', function () {
+function setOnClickDataUrl() {
+    $('a[data-url]').on('click', function () {
         window.history.pushState("", "", $(this).data('url'));
         $('html, body').animate({
             scrollTop: 0
