@@ -17,7 +17,7 @@ namespace Sibelius.Web.Controllers
         {
             var posts = postBehavior.GetAll(page);
 
-            var url = string.Format("/Posts/Index?page={0}", page);
+            var url = "/Posts/Index?page={0}";
             ViewBag.PaginationVM = new PaginationVM()
             {
                 Pages = postBehavior.GetPages(),
