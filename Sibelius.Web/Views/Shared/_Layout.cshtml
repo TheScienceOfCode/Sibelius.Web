@@ -130,32 +130,13 @@
     @{var legal = HttpContext.Current.Session["legal"];}
     @if (legal == null || (bool)legal != true)
     {
-        <div id="legal-info"  class="alert alert-info text-center">
-            <small>Nos obligan a molestarte con la obviedad de que este sitio usa cookies</small> <br class="visible-xs" />
-            <a class="btn btn-sm btn-info" href="~/Home/Privacy">Más información</a>
-            <a class="btn btn-sm btn-info" id="legal-accept" 
-               data-callable-url="@Url.Content("~/Home/LegalAccept")" 
-               data-expected-result="ok"
-               data-hideable="#legal-info">
-                    Cerrar
-            </a>
-        </div>
+        @Html.Partial("_LegalInfo")
     }
 
     @{var pubadv = HttpContext.Current.Session["pubadv"];}
     @if (pubadv == null || (bool)pubadv != true)
     {
-        <div id="pubadv" class="alert alert-warning text-center">
-            <small>
-                <span class="glyphicon glyphicon-exclamation-sign"></span>
-                Creemos que el conocimiento debe ser de acceso libre para todos. <br />
-                Desactivando tu AdBlock permites que podamos seguir liberando contenido de calidad.
-            </small> <br />
-            <a class="btn btn-sm btn-danger" id="pubadv-accept"
-               data-callable-url="@Url.Content("~/Home/PubAdvAccept")"
-               data-expected-result="ok"
-               data-hideable="#pubadv">Comprendo</a>
-        </div>
+        @Html.Partial("_Pubadv")
     }
 
     @Scripts.Render("~/bundles/modernizr")

@@ -319,6 +319,8 @@
     <Content Include="Views\Questions\_List.cshtml" />
     <Content Include="Views\Shared\_Fonts.cshtml" />
     <Content Include="Views\Shared\_Pagination.cshtml" />
+    <Content Include="Views\Shared\_LegalInfo.cshtml" />
+    <Content Include="Views\Shared\_Pubadv.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
