@@ -150,7 +150,7 @@ function setOnClickDataUrl(o) {
         options.func($(this), options);
 
         // Postcall
-        if (options.postcall) options.postcall;
+        if (options.postcall) options.postcall();
     });
 }
 
