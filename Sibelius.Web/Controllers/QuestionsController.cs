@@ -24,7 +24,7 @@ namespace Sibelius.Web.Controllers
             var questions = questionBehavior.GetAll(page);
             ViewBag.PaginationVM = new PaginationVM()
             {
-                Url = "~/Questions/Lists?page={0}",
+                Url = "~/Questions/List?page={0}",
                 CurPage = page,
                 Pages = questionBehavior.GetPages()
             };
@@ -35,6 +35,12 @@ namespace Sibelius.Web.Controllers
         {
             var question = questionBehavior.GetById(id);
             ViewBag.Collaborator = collaboratorBehavior.GetByUsername(question.Collaborator);
+            ViewBag.PaginationVM = new PaginationVM()
+            {
+                Url = "~/Questions/List?page={0}",
+                CurPage = 1,
+                Pages = questionBehavior.GetPages()
+            };
             return View(question);
         }
 

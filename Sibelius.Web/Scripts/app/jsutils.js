@@ -43,9 +43,15 @@ $(function () {
 var fixed_menu = -1;
 var fixed_status = false;
 $(function () {
+    // No fixeable menu?
     if ($('#fixeable-menu').offset() == undefined) return;
+
+    // Set position
     fixed_menu = $('#fixeable-menu').offset().top - 45;
+    // Copy menu
     $('#fixed-menu').html($('#fixeable-menu').html());
+
+    // Hide and show fixed menu!
     $(window).scroll(function () {
         if ($(window).scrollTop() > fixed_menu) {
             if (fixed_status) return;
@@ -96,3 +102,28 @@ $(function () {
         });
     });
 });
+
+
+/// Sets on click for all a[data-url]    
+///     func: a function that receives an element and options (o).
+///     o: options->load: shows a nested loading gif (true or false) ->ONLY INFORMATIVE, MUST BEHANDLED BY YOUR CODE.
+///                 push: into browser history.
+///                 top: position to slide to.
+function setOnClickDataUrl(func, o) {
+    var options = o || {};
+    var load = options.load || false;
+    var push = options.push || false;
+    var top = options.top || 0;
+    $('a[data-url]').on('click', function () {
+        if (push) window.history.pushState("", "", $(this).data('url'));        
+        $('html, body').animate({
+            scrollTop: top
+        });
+        func($(this), options);
+    });
+}
+
+window.onpopstate = function (event) {
+    // Trigger url load
+    document.location = document.location;
+};
