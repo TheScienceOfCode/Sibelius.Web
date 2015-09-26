@@ -112,9 +112,12 @@ $(function () {
 /// options.func: handler.
 /// options.precall: a function to call before ajax.
 /// options.postcall: a function to call after ajax.
-/// options.method: GET or POST for ajax call
-/// options.contentType: for ajax result
+/// options.method: GET or POST for ajax call.
+/// options.contentType: for ajax result.
 /// options.getCall: default URL getter.
+/// options.updateMetadata: a function to update metadata.
+/// options.metadataDesc: id that contains new desc info.
+/// options.metadataKeywords: id that contains new keywords info.
 
 function setOnClickDataUrl(o) {
     var options = o || {};
@@ -128,6 +131,9 @@ function setOnClickDataUrl(o) {
     options.method = options.method || 'POST';
     options.contentType = options.contentType || 'text/html; charset=utf-8';
     options.getCall = options.getCall || function (id) { return $(id).data('url'); };
+    options.updateMetadata = options.updateMetadata || updateMetadata;
+    options.metadataDesc = options.metadataDesc || '#desc';
+    options.metadataKeywords = options.metadataKeywords || '#keywords';
 
     $('a[data-url]').on('click', function () {
         // History
@@ -180,7 +186,7 @@ function defaultLoad(e, options) {
             setOnClickDataUrl(options);
 
             // History
-            if (options.push) updateMetadata();
+            if (options.push) options.updateMetadata(options.metadataDesc, options.metadataKeywords);
             // Hide loading gif
             if (options.load) jQuery(e).find("img").removeClass('visible');
 
@@ -194,10 +200,10 @@ function defaultLoad(e, options) {
     reqs.push(r);
 }
 
-function updateMetadata() {
+function updateMetadata(desc, keywords) {
     $('meta[name=description]').remove();
-    $('head').append('<meta name="description" content="' + $('#desc').html() + '" />');
+    $('head').append('<meta name="description" content="' + $(desc).html() + '" />');
     $('meta[name=keywords]').remove();
-    $('head').append('<meta name="keywords" content="' + $('#keywords').html() + '" />');
+    $('head').append('<meta name="keywords" content="' + $(keywords).html() + '" />');
 }
 
