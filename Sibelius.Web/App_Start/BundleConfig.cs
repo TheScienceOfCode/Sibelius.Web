@@ -15,6 +15,7 @@ namespace Sibelius.Web
                         "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                      "~/Scripts/jsutils/jsutils.js",
                       "~/Scripts/app.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
