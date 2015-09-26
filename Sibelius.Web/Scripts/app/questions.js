@@ -17,22 +17,15 @@ function sendQuestion() {
     });
 }
 
-function pagAnswers(e, o) {
-    $.ajax({
-        type: 'GET',
-        contentType: 'text/html; charset=utf-8',
-        url: e.data('url'),
-        success: function (response) {
-            $('#questions-list').html(response);
-            setOnClickDataUrl(pagAnswers, o);
-        }
-    });
-}
-
 $(function () {
     $('#send-question-submit').click(function () {
         sendQuestion();
     });
 
-    setOnClickDataUrl(pagAnswers, {top: $('#questions-list').offset().top});
+    setOnClickDataUrl({
+        top: $('#questions-list').offset().top,
+        method: 'get', div: '#questions-list',
+        load: false,
+        push: false
+    });
 });

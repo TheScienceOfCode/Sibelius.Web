@@ -1,5 +1,5 @@
 ﻿/// POSTS
-function getCall(id) {
+function postsCall(id) {
     var d = $(id).data('url');
     if (d === null)
         return '';
@@ -34,52 +34,22 @@ function updateSectionMenu() {
     }
 }
 
-function updateMetadata() {
-    $('meta[name=description]').remove();
-    $('head').append('<meta name="description" content="'+ $('#desc').html() +'" />');
-    $('meta[name=keywords]').remove();
-    $('head').append('<meta name="keywords" content="' + $('#keywords').html() + '" />');
-}
-
-var reqs = [];
-function loadPosts(e, options) {
-    updateSectionMenu();
-    if (options.load) jQuery(e).find("img").addClass('visible');
-    for (i = 0; i < reqs.length; i++) {
-        reqs[i].abort();        
-    }
-    reqs.length = 0;    
-    
-    var r = $.ajax({
-        type: 'POST',
-        contentType: 'text/html; charset=utf-8',
-        url: getCall(e),
-        success: function (response) {
-            $('#posts-body').html(response);
-            setOnClickDataUrl(loadPosts, options);
-            updateMetadata();
-            
-            if (options.load) jQuery(e).find("img").removeClass('visible');
-            try {
-                FB.XFBML.parse();
-                twttr.widgets.load(); 
-            } catch (ex) { }
-        }
-    });
-    reqs.push(r);
-}
 
 function setOnclickSectionMenu() {
     $('#posts-menu-sm a').on('click', function () {
         $('#posts-menu-sm').removeClass('in');
         $('#posts-menu-sm').addClass('collapse');
     });
-
-    
 }
 
 $(function () {
     updateSectionMenu();
     setOnclickSectionMenu();
-    setOnClickDataUrl(loadPosts, { load: true, push: true });
+    setOnClickDataUrl({
+        div: '#posts-body',
+        load: true,
+        push: true,
+        precall: updateSectionMenu,
+        getCall: postsCall
+    });
 });
