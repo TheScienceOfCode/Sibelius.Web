@@ -10,7 +10,8 @@ namespace Sibelius.Web.Behavior
     public class QuestionBehavior
     {
         UnitOfWork unit = new UnitOfWork();
-        
+
+        private const int PER_PAGE = 5;
 
         #region Basic Behavior
         public void Insert(Question question)
@@ -29,6 +30,14 @@ namespace Sibelius.Web.Behavior
             return unit.Questions.OrderByDescending(q => q.Date);
         }
 
+        public IEnumerable<Question> GetAll(int page)
+        {
+            return unit.Questions
+                .OrderByDescending(q => q.Date)
+                .Skip(PER_PAGE * (page - 1))
+                .Take(PER_PAGE);
+        }
+
         public void Update(Question question)
         {
             unit.Questions.Update(question);
@@ -38,6 +47,12 @@ namespace Sibelius.Web.Behavior
         {
             unit.Questions.Delete(question);
         }
-        #endregion        
+        #endregion
+
+        public int GetPages()
+        {
+            return (int)Math.Ceiling(unit.Questions.Count() / (double)PER_PAGE);
+        }
+
     }
 }

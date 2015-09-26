@@ -1,4 +1,5 @@
 ﻿using Sibelius.Web.Behavior;
+using Sibelius.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,15 @@ namespace Sibelius.Web.Controllers
         public ActionResult Index(int page = 1)
         {
             var posts = postBehavior.GetAll(page);
-            ViewBag.Pages = postBehavior.GetPages();
-            ViewBag.CurPage = page;
+
+            var url = "/Posts/Index?page={0}";
+            ViewBag.PaginationVM = new PaginationVM()
+            {
+                Pages = postBehavior.GetPages(),
+                CurPage = page,
+                Url = url
+            };
+
             ViewBag.MetaDescription = "Posts cortos sobre computacion, videojuegos, gamedev, appdev, software y hardware.";
             ViewBag.MetaKeywords = "computacion, software, programacion, desarrollo, software, hardware, crear videojuegos, gamedev, videojuegos indie, apps";
 
@@ -26,8 +34,15 @@ namespace Sibelius.Web.Controllers
         public ActionResult Section(string name, int page = 1)
         {
             var post = postBehavior.GetBySection(name, page);
-            ViewBag.Pages = postBehavior.GetPages(name);
-            ViewBag.CurPage = page;
+
+            var url = string.Format("/Posts/Section?name={0}", name);
+            ViewBag.PaginationVM = new PaginationVM()
+            {
+                Pages = postBehavior.GetPages(name),
+                CurPage = page,
+                Url = url + "&page={0}"
+            };
+
             ViewBag.Section = name;
             ViewBag.MetaDescription = "Posts sobre " + name;
             ViewBag.MetaKeywords = "posts, computación, artículos, tutoriales, " + name;

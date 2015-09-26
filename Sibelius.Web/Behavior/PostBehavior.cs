@@ -27,8 +27,7 @@ namespace Sibelius.Web.Behavior
         public IEnumerable<Post> GetAll()
         {
             return unit.Posts.OrderByDescending(p => p.Date);
-        }
-        
+        }        
 
         public IEnumerable<Post> GetAll(int page)
         {
@@ -59,14 +58,14 @@ namespace Sibelius.Web.Behavior
                 .Take(PER_PAGE); ;
         }
 
-        public long GetPages()
+        public int GetPages()
         {
-            return (long)Math.Ceiling(unit.Posts.Count() / (double)PER_PAGE);
+            return (int)Math.Ceiling(unit.Posts.Count() / (double)PER_PAGE);
         }
 
-        public long GetPages(string section)
+        public int GetPages(string section)
         {
-            return (long)Math.Ceiling(unit.Posts.Where(p => p.Section == section).Count() / (double)PER_PAGE);
+            return (int)Math.Ceiling(unit.Posts.Where(p => p.Section == section).Count() / (double)PER_PAGE);
         }
     }
 }

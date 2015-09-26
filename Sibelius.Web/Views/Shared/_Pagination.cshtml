@@ -1,0 +1,67 @@
+﻿@model Sibelius.Web.Models.PaginationVM
+@using Sibelius.Web.Common;
+
+@if (Model.Pages > 1)
+{
+    var curpage = Model.CurPage;
+    var prev = curpage - 1;
+    var next = curpage + 1;
+    var pages = Model.Pages;
+    string url = Model.Url;
+    <div class="row">
+        <div class="col-xs-12">
+            <nav>
+                <ul class="pagination">
+                    @if (curpage == 1)
+                    {
+                        <li class="disabled">
+                            <a aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a data-url="@Url.Content(url.Param(prev))" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    }
+                    @for (int i = 1; i <= pages; ++i)
+                    {
+                        if (i == curpage)
+                        {
+                            <li class="active">
+                                <a>@i</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a data-url="@Url.Content(url.Param(i))">@i</a>
+                            </li>
+                        }
+                    }
+                    @if (curpage == pages)
+                    {
+                        <li class="disabled">
+                            <a aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a data-url="@Url.Content(url.Param(next))" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+}
+

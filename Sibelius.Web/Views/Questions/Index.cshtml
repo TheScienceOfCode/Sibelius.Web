@@ -33,8 +33,11 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" id="questions-list">
         @{Html.RenderAction("List", "Questions", null);}
     </div>
 </div>
 
+@section Scripts {
+    <script src="~/Scripts/app/questions.js"></script>
+}
