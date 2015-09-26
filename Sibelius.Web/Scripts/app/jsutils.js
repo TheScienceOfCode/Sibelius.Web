@@ -103,23 +103,48 @@ $(function () {
     });
 });
 
-
 /// Sets on click for all a[data-url]    
-///     func: a function that receives an element and options (o).
-///     o: options->load: shows a nested loading gif (true or false) ->ONLY INFORMATIVE, MUST BEHANDLED BY YOUR CODE.
-///                 push: into browser history.
-///                 top: position to slide to.
-function setOnClickDataUrl(func, o) {
+/// 
+/// options.load: determines if a gif is showed when loading (by default is a nested <img>).
+/// options.push: determines if url must be pushed into history.
+/// options.top: position to scroll to.
+/// options.div: div to replace result.
+/// options.func: handler.
+/// options.precall: a function to call before ajax.
+/// options.postcall: a function to call after ajax.
+/// options.method: GET or POST for ajax call
+/// options.contentType: for ajax result
+/// options.getCall: default URL getter.
+
+function setOnClickDataUrl(o) {
     var options = o || {};
-    var load = options.load || false;
-    var push = options.push || false;
-    var top = options.top || 0;
+    options.load = options.load || false;
+    options.push = options.push || false;
+    options.top = options.top || 0;
+    options.div = options.div || '';
+    options.func = options.func || defaultLoad;
+    options.precall = options.precall || undefined;
+    options.postcall = options.postcall || undefined;
+    options.method = options.method || 'POST';
+    options.contentType = options.contentType || 'text/html; charset=utf-8';
+    options.getCall = options.getCall || function (id) { return $(id).data('url'); };
+
     $('a[data-url]').on('click', function () {
-        if (push) window.history.pushState("", "", $(this).data('url'));        
+        // History
+        if (options.push) window.history.pushState("", "", $(this).data('url'));
+        // Precall
+        if (options.precall) options.precall();
+
+        // Scroll
         $('html, body').animate({
             scrollTop: top
         });
-        func($(this), options);
+
+        // Call
+        options.func($(this), options);
+
+        // Postcall
+        if (options.postcall) options.postcall;
     });
 }
 
@@ -127,3 +152,52 @@ window.onpopstate = function (event) {
     // Trigger url load
     document.location = document.location;
 };
+
+/// Default a[data-url] handler
+/// If push is on, calls a default metadata update, that takes info from #desc and #keyword
+var reqs = [];
+function defaultLoad(e, options) {
+    // Abort pending reqs
+    for (i = 0; i < reqs.length; i++) {
+        reqs[i].abort();
+    }
+    reqs.length = 0;
+
+    // Show loading gif
+    if (options.load) jQuery(e).find("img").addClass('visible');    
+
+    // Ajax call
+    var r = $.ajax({
+        // Config
+        type: options.method,
+        contentType: options.contentType,
+        url: options.getCall(e),
+        success: function (response) {
+            // Show
+            $(options.div).html(response);
+
+            // Reconfigure buttons
+            setOnClickDataUrl(options);
+
+            // History
+            if (options.push) updateMetadata();
+            // Hide loading gif
+            if (options.load) jQuery(e).find("img").removeClass('visible');
+
+            // Force FB & TW
+            try {
+                FB.XFBML.parse();
+                twttr.widgets.load();
+            } catch (ex) { }
+        }
+    });
+    reqs.push(r);
+}
+
+function updateMetadata() {
+    $('meta[name=description]').remove();
+    $('head').append('<meta name="description" content="' + $('#desc').html() + '" />');
+    $('meta[name=keywords]').remove();
+    $('head').append('<meta name="keywords" content="' + $('#keywords').html() + '" />');
+}
+
