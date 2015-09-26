@@ -135,6 +135,7 @@ function setOnClickDataUrl(o) {
     options.metadataDesc = options.metadataDesc || '#desc';
     options.metadataKeywords = options.metadataKeywords || '#keywords';
 
+    $('a[data-url]').unbind('click');
     $('a[data-url]').on('click', function () {
         // History
         if (options.push) window.history.pushState("", "", $(this).data('url'));
@@ -150,7 +151,7 @@ function setOnClickDataUrl(o) {
         options.func($(this), options);
 
         // Postcall
-        if (options.postcall) options.postcall;
+        if (options.postcall) options.postcall();
     });
 }
 

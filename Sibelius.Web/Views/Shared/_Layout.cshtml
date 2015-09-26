@@ -20,11 +20,6 @@
 </head>
 @{
     ViewBag.bodyclass = ViewBag.bodyclass == null ? "light-body" : ViewBag.bodyclass;
-    string curUrl = Request.Url.AbsoluteUri.ToUpper();
-    string coursesClass = curUrl.Contains("COURSES") ? "class=active" : "";
-    string postsClass = curUrl.Contains("POSTS") ? "class=active" : "";
-    string aboutClass = curUrl.Contains("ABOUT") ? "class=active" : "";
-    string questionsClass = curUrl.Contains("QUESTIONS") ? "class=active" : "";
 }
 
 <body class="@ViewBag.bodyclass">
@@ -40,6 +35,13 @@
                     <img src="~/Content/logo-science-code.png" alt="Logo The Science of Code" />
                 </a>
             </div>
+            @{
+                string curUrl = Request.Url.AbsoluteUri.ToUpper();
+                string coursesClass = curUrl.Contains("COURSES") ? "class=active" : "";
+                string postsClass = curUrl.Contains("POSTS") ? "class=active" : "";
+                string aboutClass = curUrl.Contains("ABOUT") ? "class=active" : "";
+                string questionsClass = curUrl.Contains("QUESTIONS") ? "class=active" : "";
+            }
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li @coursesClass>
@@ -142,7 +144,7 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jsutils")    
+    @Scripts.Render("~/bundles/jsutils")
     @if (Session["fonts"] == null)
     {
         @Html.Partial("_Fonts")
@@ -160,7 +162,7 @@
 
         ga('create', 'UA-59510259-1', 'auto');
         ga('send', 'pageview');
-    </script>    
+    </script>
     <script>
         $(document).ready(
             function () {
