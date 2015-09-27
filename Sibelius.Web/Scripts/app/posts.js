@@ -9,6 +9,8 @@ function postsCall(id) {
 
 function updateSectionMenu() {
     $('.posts-menu a').removeClass('active');
+    $('#posts-menu-sm').removeClass('in');
+    $('#posts-menu-sm').addClass('collapse');
 
     // Activate Posts->all
     var loc = $(location).attr('pathname').toLowerCase();
@@ -34,17 +36,8 @@ function updateSectionMenu() {
     }
 }
 
-
-function setOnclickSectionMenu() {
-    $('#posts-menu-sm a').on('click', function () {
-        $('#posts-menu-sm').removeClass('in');
-        $('#posts-menu-sm').addClass('collapse');
-    });
-}
-
 $(function () {
     updateSectionMenu();
-    setOnclickSectionMenu();
     setOnClickDataUrl({
         div: '#posts-body',
         load: true,
