@@ -169,3 +169,58 @@ a:hover {
 .img-bounded {
     max-height: 300px;
 }
+
+.box {    
+    margin-top: 30px;
+    display: block;
+}
+
+.background-image {
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    height: 350px;    
+}
+
+.headline {    
+    color: #fff;    
+    font-family: 'News Cycle';    
+    position: absolute;
+    bottom: 0px;
+    padding: 0;
+    width: 100%;
+}
+
+    .headline a, .headline a:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+
+.headline .sm-title {
+    background-color: #f67930;
+    color: #fff;
+    padding: 0px 10px 0px 10px;
+    width: unset;
+    font-weight: bold;
+}
+
+.headline .md-title {
+    padding: 0px 10px 5px 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+    height: 75px;
+    font-size: 22px;
+    display: inline;
+    width: calc(100% - 30px); /* 100% less paddings */
+}
+
+.headline .sm-bottom {
+    width: calc(100% - 30px);
+}
+
+    .headline .sm-bottom .fb {
+    background-color: rgba(10, 150, 250, 0.9);
+    height: 36px;
+    }
+
+    .headline .sm-bottom .tw {
+    background-color: rgba(0, 200, 250, 0.9);
+    }
