@@ -144,7 +144,7 @@ function setOnClickDataUrl(o) {
 
         // Scroll
         $('html, body').animate({
-            scrollTop: top
+            scrollTop: options.top
         });
 
         // Call
