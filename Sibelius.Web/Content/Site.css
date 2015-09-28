@@ -162,6 +162,38 @@ a:hover {
     display: block;
 }
 
+#posts-menu-sm, #posts-menu-lg {
+    font-family: "News Cycle";
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#posts-menu-sm small, #posts-menu-lg small {
+    font-size: 14px;
+}
+
+.ending {
+    color: #585858;
+}
+
+/*#posts-menu-sm small, #posts-menu-lg small {
+    color: #fff;
+}
+
+#posts-menu-sm a, #posts-menu-lg a {
+    color: #fff;
+    background-color: #f67930;
+    border: 1px solid #dd6b28;
+}
+
+#posts-menu-sm a, #posts-menu-lg a:hover {
+    background: #f56410;
+}
+
+    #posts-menu-sm .list-group-item.active, #posts-menu-lg .list-group-item.active{
+        background: #f56410;
+    }*/
+
 .visible {
     display: inline !important;
 }
