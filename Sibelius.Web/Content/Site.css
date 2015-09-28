@@ -162,7 +162,7 @@ a:hover {
     display: block;
 }
 
-#posts-menu-sm, #posts-menu-lg {
+#posts-menu-sm, #posts-menu-lg, #posts-menu-btn a {
     font-family: "News Cycle";
     font-weight: bold;
     font-size: 18px;
@@ -171,6 +171,8 @@ a:hover {
 #posts-menu-sm small, #posts-menu-lg small {
     font-size: 14px;
 }
+
+
 
 .ending {
     color: #585858;
