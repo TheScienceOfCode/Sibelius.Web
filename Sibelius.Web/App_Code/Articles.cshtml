@@ -1,13 +1,16 @@
 ﻿
-@helper Headline(Sibelius.Web.Models.Article article) { 
-    var backgroundposition = article.BackgroundPosition != null ? article.BackgroundPosition : "center bottom";
+@helper Headline(Sibelius.Web.Models.Article article)
+{
+var backgroundposition = article.BackgroundPosition != null ? article.BackgroundPosition : "center bottom";
 
     <div class="box">
         <a href="~/Articles/Show/@article.Id">
             <div class="background-image" style="background-image: url(@article.ImageUrl); background-position: @backgroundposition;"></div>
             <div class="headline">
-                <span class="sm-title"><small>@article.Section.ToUpper()</small></span>
-                <div class="md-title col-xs-12">
+                <div class="col-xs-12 sm-title">
+                    <span><small>@article.Section.ToUpper()</small></span>
+                </div>
+                <div class="col-xs-12 md-title">
                     @article.Title
                 </div>
                 <div class="sm-bottom col-xs-12">
