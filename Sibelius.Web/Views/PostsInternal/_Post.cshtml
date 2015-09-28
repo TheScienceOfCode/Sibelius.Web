@@ -2,11 +2,11 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-body">
                 <h4>@Model.Title <span class="badge">@Model.Section</span> </h4>
                 <h5>@Model.Author</h5>
-            </div>
-            <div class="panel-body">
+
+                <hr />
                 <div class="text-justify">
                     @Html.Raw(Model.IntroHtml)
                 </div>
@@ -22,7 +22,7 @@
                     }
                     else
                     {
-                        <div class="btn-group-justified btn-group-sm">
+                        <div class="btn-group-justified btn-group">
                             <a data-url="@Url.Content("~/Posts/Show/"+Model.Id)" class="btn btn-primary posts-btn">
                                 <span class="glyphicon glyphicon-plus"></span>
                                 Ver más... 
@@ -31,20 +31,17 @@
                         </div>
                     }
                 </div>
-            </div>
-            <div class="panel-footer">
+                <hr />
+                <div class="row text-center">
+                    @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Posts/Show/{0}", Model.Id))
+                </div>
+
                 <div class="row">
-                    <div class="col-sm-4">
-                        <h6>
+                    <div class="col-xs-12">
+                        <h6 class="ending">
                             Tags: @Model.Tags <br />
                             Posteado: @Model.Date.ToShortDateString()
                         </h6>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="fb-like" data-href="http://thescienceofcode.azurewebsites.net/Posts/Show/@Model.Id" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-                    </div>
-                    <div class="col-sm-4" style="padding-top: 8px;">
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thescienceofcode.azurewebsites.net/Posts/Show/@Model.Id" data-via="ScienceOfCode">Tweet</a>
                     </div>
                 </div>
             </div>
