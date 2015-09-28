@@ -1,0 +1,26 @@
+﻿
+@helper Headline(Sibelius.Web.Models.Article article) { 
+    var backgroundposition = article.BackgroundPosition != null ? article.BackgroundPosition : "center bottom";
+
+    <div class="box">
+        <a href="~/Articles/Show/@article.Id">
+            <div class="background-image" style="background-image: url(@article.ImageUrl); background-position: @backgroundposition;"></div>
+            <div class="headline">
+                <span class="sm-title"><small>@article.Section.ToUpper()</small></span>
+                <div class="md-title col-xs-12">
+                    @article.Title
+                </div>
+                <div class="sm-bottom col-xs-12">
+                    <div class="row text-center">
+                        @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", article.Id))
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 author">
+                            @article.Author
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+}

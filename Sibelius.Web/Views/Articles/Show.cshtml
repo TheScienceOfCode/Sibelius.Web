@@ -5,67 +5,91 @@
     ViewBag.MetaKeywords = Model.Tags;
 }
 
-<div class="row">
-    <div class="col-xs-12">
-        <h3>@Model.Title</h3>
-        <h4>@Model.Section</h4>
-        <p>Por @Model.Author</p>
+@{ var backgroundposition = Model.BackgroundPosition != null ? Model.BackgroundPosition : "center bottom"; }
 
-        <div class="col-sm-8">
-            <p class="article-text-intro">
-                @Model.Intro
-            </p>
-            <hr />
-            <div class="article-text">
-                @Html.Raw(Model.Html)
+<div class="row">
+    <div class="col-md-12">       
+        <h1>@Model.Title</h1>
+        <h3>@Model.Author</h3>
+        <div class="row text-center">
+            <div class="col-md-8">
+                @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", Model.Id))
             </div>
         </div>
-        <div class="col-sm-4">
-            <img class="img-responsive" src="@Model.ImageUrl" alt="Imagen del artículo @Model.Title" />
-            <div class="panel panel-default">
-                <div class="panel-body text-center">
+        <hr />                
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <div class="box-image">
+                    <div class="background-image" style="background-image: url(@Model.ImageUrl); background-position: @backgroundposition;"></div>
+                </div>
+                <div class="text-center">
                     @Html.Raw(Model.HtmlImageFooter)
-                </div>
-            </div>
-            <div class="well">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="fb-like" data-href="http://thescienceofcode.azurewebsites.net/Articles/Show/@Model.Id" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-                    </div>
-                    <div class="col-sm-6" style="padding-top: 8px;">
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thescienceofcode.azurewebsites.net/Articles/Show/@Model.Id" data-via="ScienceOfCode">Tweet</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <!-- ArticlesTSOC -->
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-1426867402604645"
-                         data-ad-slot="5053899614"
-                         data-ad-format="auto"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
+                    <br />
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col-md-4">
+        <br />
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- ArticlesTSOC -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1426867402604645"
+             data-ad-slot="5053899614"
+             data-ad-format="auto"></ins>
+        <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
 </div>
 <br />
-<div class="well col-sm-8">
-    <div class="row">
-        <div class="col-sm-6">
-            <h4>Facebook</h4>
-            <div class="fb-like" data-href="http://thescienceofcode.azurewebsites.net/Articles/Show/@Model.Id" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+<div class="row">
+    <div class="col-md-8">
+        <p class="article-text-intro">
+            @Model.Intro
+        </p>
+        <hr />
+        <div class="article-text">
+            @Html.Raw(Model.Html)
         </div>
-        <div class="col-sm-6" style="padding-top: 8px;">
-            <h4>Twitter</h4>
-            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thescienceofcode.azurewebsites.net/Articles/Show/@Model.Id" data-via="ScienceOfCode">Tweet</a>
+        <div class="row text-center">
+            <br />
+            <h4>¿Te gustó el artículo?</h4>
+            @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", Model.Id))            
         </div>
     </div>
+    <div class="col-md-4 hidden-xs hidden-sm">
+        <div class="text-center">
+        <h4>Más artículos</h4>
+        </div>
+        @foreach (var article in ViewBag.Articles)
+        {
+            <div class="row">
+                <div class="col-xs-12">
+                    @Articles.Headline(article)
+                </div>
+            </div>
+        }
+        
+    </div>
+</div>
+<br />
+<div class="row">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- ArticlesBottom -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-1426867402604645"
+         data-ad-slot="1810456816"
+         data-ad-format="auto"></ins>
+    <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 </div>
 
 
@@ -75,6 +99,8 @@
         <div id="disqus_thread"></div>
     </div>
 </div>
+
+
 
 @section scripts{
     <script type="text/javascript">

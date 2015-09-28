@@ -169,3 +169,75 @@ a:hover {
 .img-bounded {
     max-height: 300px;
 }
+
+.box {    
+    margin-top: 30px;
+    display: block;
+}
+
+.box-image {    
+    display: block;
+}
+
+.background-image {
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center bottom;
+    height: 380px; 
+}
+
+.box .background-image {
+    box-shadow: 0px 3px 12px -4px #000000;
+}
+
+.headline {    
+    color: #fff;    
+    font-family: 'News Cycle';    
+    position: absolute;
+    bottom: 0px;
+    padding: 0;
+    width: 100%;
+}
+
+    .headline a, .headline a:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+
+.headline .sm-title {
+    background-color: #f67930;
+    color: #fff;
+    padding: 0px 10px 0px 10px;
+    width: unset;
+    font-weight: bold;
+}
+
+.headline .md-title {
+    padding: 0px 10px 5px 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+    height: 75px;
+    font-size: 22px;
+    display: inline;
+    width: calc(100% - 30px); /* 100% less paddings */
+}
+
+.headline .sm-bottom {
+    width: calc(100% - 30px);
+}
+
+    .fb {
+        background-color: rgba(10, 150, 250, 0.9);
+        height: 36px;
+    }
+
+    .tw {
+        background-color: rgba(0, 200, 250, 0.9);
+        padding-top: 8px;
+    }
+
+    .headline .sm-bottom .author {
+        background-color: rgba(220, 220, 220, 0.9);
+        color: black;
+        font-size: 12px;
+        font-weight: bold;
+    }
