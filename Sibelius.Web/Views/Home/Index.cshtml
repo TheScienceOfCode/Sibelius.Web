@@ -1,18 +1,9 @@
 ﻿@model List<Sibelius.Web.Models.Article>
 @{
-    ViewBag.bodyclass = "dark-body";
     ViewBag.Title = "Portada";
     ViewBag.MetaDescription = "Somos una comunidad dedicada a la enseñanza de las Ciencias de la Computación como Arte Liberal";
     ViewBag.MetaKeywords = "computación, software, programación, desarrollo, tutoriales, cursos";
 }
-<div class="row">
-    <div class="col-sm-8">
-        @Html.Partial("~/Views/Articles/_Headline.cshtml", Model[0])
-    </div>
-    <div class="col-sm-4">
-        @Html.Partial("~/Views/Articles/_Headline.cshtml", Model[1])
-    </div>
-</div>
 <br />
 <div class="row">
     <div class="col-xs-12">
@@ -29,13 +20,23 @@
         <div class="pubdiv"></div>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-sm-8">
+        @Articles.Headline(Model[0])
+    </div>
+    <div class="col-sm-4">
+        @Articles.Headline(Model[1])
+    </div>
+</div>
+
 <div class="row">
     <div class="col-sm-8">
         <div class="row">
             @for (int i = 2; i <= 5; ++i)
             {
                 <div class="col-sm-6">
-                    @Html.Partial("~/Views/Articles/_Headline.cshtml", Model[i])
+                    @Articles.Headline(Model[i])
                 </div>
             }
         </div>
@@ -49,8 +50,7 @@
             @for (int i = 6; i < Model.Count; ++i)
             {
                 <div class="col-sm-6">
-                    @Html.Partial("~/Views/Articles/_Headline.cshtml", Model[i]) 
-                    
+                    @Articles.Headline(Model[i])                    
                 </div>
             }
         </div>

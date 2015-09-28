@@ -218,6 +218,7 @@
     <Content Include="Scripts\app\questions.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Code\Articles.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -322,7 +323,7 @@
     <Content Include="Views\Shared\_Pagination.cshtml" />
     <Content Include="Views\Shared\_LegalInfo.cshtml" />
     <Content Include="Views\Shared\_Pubadv.cshtml" />
-    <Content Include="Views\Articles\_Headline.cshtml" />
+    <Content Include="App_Code\Social.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
