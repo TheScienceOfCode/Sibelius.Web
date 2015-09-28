@@ -205,6 +205,10 @@ a:hover {
     }
 
 .headline .sm-title {
+    right: 15px;
+}
+
+.headline .sm-title span {
     background-color: #f67930;
     color: #fff;
     padding: 0px 10px 0px 10px;
@@ -233,6 +237,7 @@ a:hover {
     .tw {
         background-color: rgba(0, 200, 250, 0.9);
         padding-top: 8px;
+        height: 36px;
     }
 
     .headline .sm-bottom .author {
@@ -241,3 +246,10 @@ a:hover {
         font-size: 12px;
         font-weight: bold;
     }
+
+.highlight {
+    background-color: #f67930;
+    color: #fff;
+    font-family: "News Cycle";
+    font-weight: bold;
+}
