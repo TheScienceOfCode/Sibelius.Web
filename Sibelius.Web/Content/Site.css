@@ -176,6 +176,11 @@ a:hover {
     color: #585858;
 }
 
+.nav-courses {
+    font-family: "News Cycle";
+    font-weight: bold;
+}
+
 /*#posts-menu-sm small, #posts-menu-lg small {
     color: #fff;
 }
