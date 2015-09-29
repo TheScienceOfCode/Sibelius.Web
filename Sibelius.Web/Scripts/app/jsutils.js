@@ -135,6 +135,13 @@ function setOnClickDataUrl(o) {
     options.metadataDesc = options.metadataDesc || '#desc';
     options.metadataKeywords = options.metadataKeywords || '#keywords';
 
+    if (options.updateMetadata) {
+        window.onpopstate = function (event) {
+            // Trigger url load
+            document.location = document.location;
+        };
+    }
+
     $('a[data-url]').unbind('click');
     $('a[data-url]').on('click', function () {
         // History
@@ -155,10 +162,6 @@ function setOnClickDataUrl(o) {
     });
 }
 
-window.onpopstate = function (event) {
-    // Trigger url load
-    document.location = document.location;
-};
 
 /// Default a[data-url] handler
 /// If push is on, calls a default metadata update, that takes info from #desc and #keyword
@@ -208,3 +211,19 @@ function updateMetadata(desc, keywords) {
     $('head').append('<meta name="keywords" content="' + $(keywords).html() + '" />');
 }
 
+// Smoth scrolling
+// Tutorial from: http://www.paulund.co.uk/smooth-scroll-to-internal-links-with-jquery
+$(document).ready(function () {
+    $('a[href^="#"]').on('click', function (e) {
+        e.preventDefault();
+
+        var target = this.hash;
+        var $target = $(target);
+
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top - 55 /* target - fixed menu*/
+        }, 900, 'swing', function () {
+            window.location.hash = target;
+        });
+    });
+});
