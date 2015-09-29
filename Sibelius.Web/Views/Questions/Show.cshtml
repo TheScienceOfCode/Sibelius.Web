@@ -34,10 +34,18 @@
             <small>@nombre</small>
         </blockquote>
         <br />
+        <div class="row text-center">
+            @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Questions/Show/{0}",Model.Id))
+        </div>
+        <br />
         <div class="text-justify">
             @Html.Raw(Model.HtmlAnswer)
         </div>
-        <br /><br />
+        <br />
+        <div class="row text-center">
+            @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Questions/Show/{0}", Model.Id))
+        </div>
+        <br />
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -102,17 +110,6 @@
                 </div>
             </div>
         </div>
-        
-        <div class="well row">
-            <div class="col-sm-6">
-                <h4>Facebook</h4>
-                <div class="fb-like" data-href="http://thescienceofcode.azurewebsites.net/Questions/Show/@Model.Id" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-            </div>
-            <div class="col-sm-6" style="padding-top: 8px;">
-                <h4>Twitter</h4>
-                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://thescienceofcode.azurewebsites.net/Questions/Show/@Model.Id" data-via="ScienceOfCode">Tweet</a>
-            </div>            
-        </div>       
 
         <div class="row">
             <div class="col-xs-12">
