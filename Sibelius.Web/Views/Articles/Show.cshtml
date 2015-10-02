@@ -104,19 +104,7 @@
 
 
 @section scripts{
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES * * */
-        var disqus_shortname = 'thescienceofcode';
-        var disqus_identifier = '@Model.Id';
-        var disqus_title = '@Model.Title';
-        var disqus_url = 'http://thescienceofcode.azurewebsites.net/Articles/Show/@Model.Id';
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    @Social.Disqus(
+        Model.Title, 
+        string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", Model.Id))
 }
