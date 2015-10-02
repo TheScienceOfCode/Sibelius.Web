@@ -1,19 +1,36 @@
-﻿@helper DefaultBtn(string url)
+﻿@helper DefaultBtn(string url, string css="col-sm-6")
 { 
-    <div class="col-sm-6 fb">
+    <div class="@css fb">
         <a class="fb-like" data-href="@url" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></a>
     </div>
-    <div class="col-sm-6 tw">
+    <div class="@css tw">
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="@url" data-via="ScienceOfCode">Tweet</a>
     </div>
 }
 
-@helper CleanBtn(string url)
+@helper CleanBtn(string url, string css="col-sm-6")
 {
-    <div class="col-sm-6">
+    <div class="@css">
         <div class="fb-like" data-href="@url" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
     </div>
-    <div class="col-sm-6" style="padding-top: 8px;">
+    <div class="@css" style="padding-top: 8px;">
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="@url" data-via="ScienceOfCode">Tweet</a>
     </div>
+}
+
+@helper Disqus(string title, string url) { 
+    <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'thescienceofcode';
+            var disqus_title = '@title';
+            var disqus_url = '@url';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 }
