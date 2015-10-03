@@ -18,19 +18,6 @@
     </div>
 }
 
-
-@helper ReloadDisqus(string id, string title, string url) {
-    <script>
-    DISQUS.reset({
-        reload: true,
-        config: function() {
-            this.page.url = '@url';
-            this.page.identifier = id;
-        }
-    });
-    </script>
-}
-
 @helper Disqus(string title, string url) { 
     <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES * * */

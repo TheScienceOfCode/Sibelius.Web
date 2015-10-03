@@ -7,6 +7,15 @@
                 <h5>@Model.Author</h5>
 
                 <hr />
+                @if (Model.ImageUrl != null)
+                {
+                    @Custom.Img(
+                        Model.ImageUrl, 
+                        "Imagen " + Model.Title, 
+                        Model.Html == null ? Url.Content("~/Posts/Show/" + Model.Id) : null)
+
+                    <br />
+                }
                 <div class="text-justify">
                     @Html.Raw(Model.IntroHtml)
                 </div>
@@ -21,9 +30,9 @@
                         </div>
                     }
                     else
-                    {
+                    {                        
                         <div class="btn-group-justified btn-group">
-                            <a data-url="@Url.Content("~/Posts/Show/"+Model.Id)" class="btn btn-primary posts-btn">
+                            <a data-url="@Url.Content("~/Posts/Show/"+Model.Id)" class="btn btn-primary">
                                 <span class="glyphicon glyphicon-plus"></span>
                                 Ver más... 
                                 <img src="~/Content/loading-sm.gif" style="display:none;" />

@@ -142,8 +142,8 @@ function setOnClickDataUrl(o) {
         };
     }
 
-    $('a[data-url]').unbind('click');
-    $('a[data-url]').on('click', function () {
+    $('[data-url]').unbind('click');
+    $('[data-url]').on('click', function () {
         // History
         if (options.push) window.history.pushState("", "", $(this).data('url'));
         // Precall
