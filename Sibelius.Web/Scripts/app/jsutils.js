@@ -214,12 +214,11 @@ function updateMetadata(desc, keywords) {
 // Smoth scrolling
 // Tutorial from: http://www.paulund.co.uk/smooth-scroll-to-internal-links-with-jquery
 $(document).ready(function () {
-    $('a[href^="#"]').on('click', function (e) {
+    $('a.smooth[href^="#"]').on('click', function (e) {
         e.preventDefault();
 
         var target = this.hash;
         var $target = $(target);
-
         $('html, body').stop().animate({
             'scrollTop': $target.offset().top - 55 /* target - fixed menu*/
         }, 900, 'swing', function () {
