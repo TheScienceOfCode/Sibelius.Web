@@ -12,6 +12,7 @@ namespace Sibelius.Web.Models
         public string Section { get; set; }
         public string IntroHtml { get; set; }
         public string Html { get; set; }
+        public string ImageUrl { get; set; }
         public string Author { get; set; }
         public DateTime Date { get; set; }
         public string Tags { get; set; }

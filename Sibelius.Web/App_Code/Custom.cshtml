@@ -1,0 +1,11 @@
+﻿@helper Img(string url, string alt="", string dataUrl=null)
+{
+    if (dataUrl != null)
+    {
+        <img src="@url" alt="@alt" class="img-responsive center-block actionable" data-url="@dataUrl" />
+    }
+    else
+    {
+        <img src="@url" alt="@alt" class="img-responsive center-block" />
+    }
+}

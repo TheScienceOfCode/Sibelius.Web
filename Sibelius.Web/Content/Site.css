@@ -149,7 +149,7 @@ textarea {
     background-color: #fff;
 }
 
-actionable:hover {
+.actionable:hover {
     cursor: pointer;
 }
 
