@@ -2,7 +2,10 @@
 {
     if (dataUrl != null)
     {
-        <img src="@url" alt="@alt" class="img-responsive center-block actionable" data-url="@dataUrl" />
+        <div class="actionable text-center" data-url="@dataUrl">
+            <img src="@url" alt="@alt" class="img-responsive center-block" />
+            <img src="~/Content/loading-sm.gif" class="center-block" style="display:none;" />
+        </div>
     }
     else
     {
