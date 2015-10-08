@@ -30,7 +30,7 @@
     <div class="col-md-8">
         <h3>@Model.Title</h3>
         <blockquote>
-            <p>@Model.Text</p>
+            <p class="text-justify">@Html.Raw(Model.Text)</p>
             <small>@nombre</small>
         </blockquote>
         <br />

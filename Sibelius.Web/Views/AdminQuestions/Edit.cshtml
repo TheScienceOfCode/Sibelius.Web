@@ -26,6 +26,7 @@
                 @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.TextAreaFor(model => model.Text, new { @class = "form-control", rows = 5 })
+                    (Check for unwanted code to be rendered! This will be rendered as raw html)
                     @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
                 </div>
             </div>
