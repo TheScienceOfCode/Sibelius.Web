@@ -1,19 +1,19 @@
 ﻿@helper DefaultBtn(string url, string css="col-sm-6")
 { 
-    <div class="@css fb">
+    <div class="@css fb fb-default">
         <a class="fb-like" data-href="@url" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></a>
     </div>
-    <div class="@css tw">
+    <div class="@css tw tw-default">
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="@url" data-via="ScienceOfCode">Tweet</a>
     </div>
 }
 
 @helper CleanBtn(string url, string css="col-sm-6")
 {
-    <div class="@css">
+    <div class="@css fb">
         <div class="fb-like" data-href="@url" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
     </div>
-    <div class="@css" style="padding-top: 8px;">
+    <div class="@css tw">
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="@url" data-via="ScienceOfCode">Tweet</a>
     </div>
 }

@@ -281,14 +281,21 @@ a:hover {
     width: calc(100% - 30px);
 }
 
-    .fb {
-        background-color: rgba(10, 150, 250, 0.9);
+    .fb {        
+        padding-top: 8px;
+    }
+
+    .fb-default {
+        background-color: rgba(10, 150, 250, 0.9);        
         height: 36px;
     }
 
-    .tw {
-        background-color: rgba(0, 200, 250, 0.9);
+    .tw {        
         padding-top: 8px;
+    }
+
+    .tw-default {
+        background-color: rgba(0, 200, 250, 0.9);        
         height: 36px;
     }
 
