@@ -143,7 +143,8 @@ function setOnClickDataUrl(o) {
     }
 
     $('[data-url]').unbind('click');
-    $('[data-url]').on('click', function () {
+    $('[data-url]').on('click', function (e) {
+        e.preventDefault();
         // History
         if (options.push) window.history.pushState("", "", $(this).data('url'));
         // Precall

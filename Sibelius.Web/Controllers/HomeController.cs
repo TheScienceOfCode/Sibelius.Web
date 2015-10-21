@@ -10,11 +10,17 @@ namespace Sibelius.Web.Controllers
 {
     public class HomeController : Controller
     {
-        ArticleBehavior articleBehavior = new ArticleBehavior(); 
+        ArticleBehavior articleBehavior = new ArticleBehavior();
+        CourseBehavior courseBehavior = new CourseBehavior();
+        PostBehavior postBehavior = new PostBehavior();
 
         public ActionResult Index()
         {
-            var result = articleBehavior.GetVisible().ToList();
+            var result = new PortraitVM()
+            {
+                Articles = articleBehavior.GetVisible().ToList(),
+                Posts = postBehavior.GetAll(1).ToList()
+            }; 
             return View(result);
         }
 

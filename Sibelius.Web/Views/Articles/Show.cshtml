@@ -3,20 +3,35 @@
     ViewBag.Title = Model.Title;
     ViewBag.MetaDescription = Model.Title;
     ViewBag.MetaKeywords = Model.Tags;
+    ViewBag.MainImage = Model.ImageUrl;
 }
 
 @{ var backgroundposition = Model.BackgroundPosition != null ? Model.BackgroundPosition : "center bottom"; }
 
+<br />
 <div class="row">
-    <div class="col-md-12">       
-        <h1>@Model.Title</h1>
-        <h3>@Model.Author</h3>
-        <div class="row text-center">
-            <div class="col-md-8">
-                @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", Model.Id))
-            </div>
-        </div>
-        <hr />                
+    <div class="col-xs-12">
+        <center>
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- ArticlesTSOC -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-1426867402604645"
+                 data-ad-slot="5053899614"
+                 data-ad-format="auto"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <div class="pubdiv"></div>
+        </center>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>@Model.Title</h2>
+        <h4>@Model.Author</h4>
+        <br />
     </div>
 </div>
 <div class="row">
@@ -33,18 +48,8 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <br />
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- ArticlesTSOC -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1426867402604645"
-             data-ad-slot="5053899614"
-             data-ad-format="auto"></ins>
-        <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+    <div class="col-md-4 left-col">
+
     </div>
 </div>
 <br />
@@ -53,6 +58,9 @@
         <p class="article-text-intro">
             @Model.Intro
         </p>
+        <div class="row text-center">
+            @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", Model.Id))
+        </div>
         <hr />
         <div class="article-text">
             @Html.Raw(Model.Html)
@@ -60,14 +68,14 @@
         <div class="row text-center">
             <br />
             <h4>¿Te gustó el artículo?</h4>
-            @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", Model.Id))            
+            @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", Model.Id))
         </div>
     </div>
-    <div class="col-md-4 hidden-xs hidden-sm">
+    <div class="col-md-4 hidden-xs hidden-sm left-col">
         <div class="btn-group btn-group-justified">
             <a class="btn btn-primary" href="~/Home/Index">MÁS ARTÍCULOS</a>
         </div>
-            
+
         @foreach (var article in ViewBag.Articles)
         {
             <div class="row">
@@ -76,21 +84,25 @@
                 </div>
             </div>
         }
-        
+
     </div>
 </div>
 <br />
 <div class="row">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- ArticlesBottom -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-1426867402604645"
-         data-ad-slot="1810456816"
-         data-ad-format="auto"></ins>
-    <script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <div class="col-md-8">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- ArticlesBottom -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1426867402604645"
+             data-ad-slot="1810456816"
+             data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="pubdiv"></div>
+        <br />
+    </div>
 </div>
 
 
@@ -105,6 +117,6 @@
 
 @section scripts{
     @Social.Disqus(
-        Model.Title, 
+        Model.Title,
         string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", Model.Id))
 }

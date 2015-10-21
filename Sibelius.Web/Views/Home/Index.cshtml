@@ -1,9 +1,12 @@
-﻿@model List<Sibelius.Web.Models.Article>
+﻿@model Sibelius.Web.Models.PortraitVM
 @{
     ViewBag.Title = "Portada";
     ViewBag.MetaDescription = "Somos una comunidad dedicada a la enseñanza de las Ciencias de la Computación como Arte Liberal";
     ViewBag.MetaKeywords = "computación, software, programación, desarrollo, tutoriales, cursos";
-    ViewBag.MainImage = Model[0].ImageUrl;
+    ViewBag.MainImage = Model.Articles[0].ImageUrl;
+
+    var articles = Model.Articles;
+    var posts = Model.Posts;
 }
 <br />
 <div class="row">
@@ -26,35 +29,29 @@
 
 <div class="row">
     <div class="col-sm-8">
-        @Articles.Headline(Model[0])
+        @Articles.Headline(articles[0])
     </div>
     <div class="col-sm-4">
-        @Articles.Headline(Model[1])
+        @Articles.Headline(articles[1])
     </div>
 </div>
 
 <div class="row">
     <div class="col-sm-8">
         <div class="row">
-            @for (int i = 2; i <= 5; ++i)
+            @for (int i = 2; i < articles.Count; ++i)
             {
                 <div class="col-sm-6">
-                    @Articles.Headline(Model[i])
+                    @Articles.Headline(articles[i])
                 </div>
             }
         </div>
-    </div>   
-</div>
-
-<div class="row">
-    <div class="col-sm-8">
-        <div class="row">
-            @for (int i = 6; i < Model.Count; ++i)
+    </div>  
+    <div class="col-sm-4 ">
+            @foreach(var post in posts)
             {
-                <div class="col-sm-6">
-                    @Articles.Headline(Model[i])                    
-                </div>
+                    @Posts.Headline(post)
             }
-        </div>
     </div>
 </div>
+
