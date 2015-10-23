@@ -15,6 +15,12 @@ namespace Sibelius.Web.Controllers
         public ActionResult Show(string id)
         {
             var article = articleBehavior.GetById(id);
+            if (Session[string.Format("articleid={0}", id)] == null)
+            {
+                Session[string.Format("articleid={0}", id)] = true;
+                article.Visitas++;
+                articleBehavior.Update(article);
+            }
             var articles = articleBehavior.GetVisible().ToList();
 
             var result = new List<Article>();

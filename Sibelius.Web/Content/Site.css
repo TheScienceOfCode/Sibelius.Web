@@ -253,7 +253,7 @@ a:hover {
         text-decoration: none;
     
     }
-    .post-headline .sm-title {
+    .sm-title {
         background-color: rgba(220, 220, 220, 1);
         color: black;
         font-size: 14px;
@@ -296,6 +296,36 @@ a:hover {
     display: inline;
     width: calc(100% - 30px); /* 100% less paddings */
 }
+
+
+.taringa, .stats {
+    height: 36px;
+    font-size: 12px;
+    font-weight: bold;    
+    padding-top: 8px;
+}
+
+    .taringa {
+        background-color: #005dab;    
+        color: #fff;
+    }    
+
+        .taringa a {
+            color: #fff;            
+        }
+
+        .taringa a:hover {
+            text-decoration: none;
+            color: #cecece; 
+        }
+
+    .stats {
+        background-color: #000;
+        color: #fff;
+    }
+        .stats > span {
+            color: #fcd430;
+        }
 
 .headline .sm-bottom {
     width: calc(100% - 30px);
