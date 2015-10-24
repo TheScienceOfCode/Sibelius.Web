@@ -3,7 +3,7 @@
 <div class="col-xs-12">
     <h4><span class="glyphicon glyphicon-exclamation-sign"></span> ÚLTIMAS RESPUESTAS</h4>
     <hr />
-    @foreach (var question in Model.Where(q => q.Answered))
+    @foreach (var question in Model)
     {
         <h4>
             <a href="~/Questions/Show/@question.Id">@question.Title</a>
