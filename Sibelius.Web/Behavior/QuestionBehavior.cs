@@ -33,6 +33,7 @@ namespace Sibelius.Web.Behavior
         public IEnumerable<Question> GetAll(int page)
         {
             return unit.Questions
+                .Where(q => q.Answered)
                 .OrderByDescending(q => q.Date)
                 .Skip(PER_PAGE * (page - 1))
                 .Take(PER_PAGE);
