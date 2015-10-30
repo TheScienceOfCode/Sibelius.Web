@@ -148,7 +148,7 @@
         @Html.Partial("_LegalInfo")
     }
 
-    @{var pubadv = HttpContext.Current.Session["pubadv"];}
+    @{var pubadv = HttpContext.Current.Session["pubadv"]; pubadv = null;}
     @if (pubadv == null || (bool)pubadv != true)
     {
         @Html.Partial("_Pubadv")
@@ -193,7 +193,7 @@
             var ad = document.querySelector("ins.adsbygoogle");
             if (ad && ad.innerHTML.replace('/\s / g', "").length == 0) {
                 $('#pubadv').show('slow');
-                $('.pubdiv').html('<div class="alert alert-info"><h3>¡Tú puedes ayudarnos!</h3><h4>Desactivando tu AdBlock nos apoyas para que podamos liberar más contenidos gratuitos.</h4></div>');
+                $('.pubdiv').html('<div class="alert alert-red"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h3>¡Tú puedes ayudarnos!</h3><h4>Desactivando tu AdBlock nos apoyas para que podamos liberar más contenidos gratuitos.</h4></div>');
             }
         }
     </script>
