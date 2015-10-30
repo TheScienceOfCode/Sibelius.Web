@@ -370,3 +370,8 @@ a:hover {
     font-family: "News Cycle";
     font-weight: bold;
 }
+
+.alert-red {
+    background-color: red;
+    color: white;
+}
