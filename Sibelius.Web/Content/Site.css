@@ -375,3 +375,6 @@ a:hover {
     background-color: red;
     color: white;
 }
+    .alert-red h3 {
+        color: yellow;
+    }

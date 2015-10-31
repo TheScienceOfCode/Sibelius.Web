@@ -35,9 +35,10 @@ namespace Sibelius.Web.Controllers
             return Json("ok");
         }
 
-        public JsonResult PubAdvAccept()
+        [HttpPost]
+        public JsonResult PubAdvAccept(bool value)
         {
-            Session["pubadv"] = true;
+            Session["pubadv"] = value;
             return Json("ok");
         }      
         
