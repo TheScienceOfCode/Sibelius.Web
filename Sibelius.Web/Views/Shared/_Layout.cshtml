@@ -147,12 +147,8 @@
     {
         @Html.Partial("_LegalInfo")
     }
-
-    @{var pubadv = HttpContext.Current.Session["pubadv"]; pubadv = null;}
-    @if (pubadv == null || (bool)pubadv != true)
-    {
-        @Html.Partial("_Pubadv")
-    }
+    
+    @Html.Partial("_Pubadv")
 
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -182,18 +178,41 @@
         ga('create', 'UA-59510259-1', 'auto');
         ga('send', 'pageview');
     </script>
+    
+    @{  var pubadv = HttpContext.Current.Session["pubadv"];
+        int timeout = 5000;    
+    }
+    @if (pubadv != null && (bool)pubadv == true)
+    {
+        timeout = 1000;
+    }
     <script>
         $(document).ready(
-            function () {
-                setTimeout(checkAds, 5000);
-            }
+            function() {
+                $('#pubadv-accept').on('click', function(){
+                    $('#pubadv').hide();
+                });
+                setTimeout(checkAds, @timeout);
+            }            
         );
 
         function checkAds() {
             var ad = document.querySelector("ins.adsbygoogle");
             if (ad && ad.innerHTML.replace('/\s / g', "").length == 0) {
+                $.ajax({
+                    type: 'post',
+                    data: {'value':true},
+                    url: '@Url.Content("~/Home/PubAdvAccept")'
+                });
                 $('#pubadv').show('slow');
-                $('.pubdiv').html('<div class="alert alert-red"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h3>¡Tú puedes ayudarnos!</h3><h4>Desactivando tu AdBlock nos apoyas para que podamos liberar más contenidos gratuitos.</h4></div>');
+                $('.pubdiv').html('<div class="alert alert-red"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h3>¡Tú puedes ayudarnos!</h3><h4>Desactivando tu AdBlock este site se ve mejor y nos apoyas para que podamos liberar más contenidos gratuitos.</h4></div>');
+            }
+            else{
+                $.ajax({
+                    type: 'post',
+                    data: {'value':false},
+                    url: '@Url.Content("~/Home/PubAdvAccept")'
+                });
             }
         }
     </script>
