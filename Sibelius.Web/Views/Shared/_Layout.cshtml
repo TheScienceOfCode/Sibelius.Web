@@ -49,13 +49,10 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li @coursesClass>
-                        <a href="~/Courses"><small><span class="glyphicon glyphicon-book"></span> CURSOS</small></a>
-                    </li>
-                    <li @postsClass>
-                        <a href="~/Posts"><small><span class="glyphicon glyphicon-flash"></span> POSTS</small></a>
+                        <a href="~/Courses">CURSOS</a>
                     </li>
                     <li @questionsClass>
-                        <a href="~/Questions"><small><span class="glyphicon glyphicon-user"></span> PREGÚNTANOS</small></a>
+                        <a href="~/Questions">PREGÚNTANOS</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -76,7 +73,6 @@
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left">
         <br /><br />
         <a href="~/Courses"><small><span class="glyphicon glyphicon-book">&nbsp;</span> CURSOS</small></a>
-        <a href="~/Posts"><small><span class="glyphicon glyphicon-flash">&nbsp;</span> POSTS</small></a>
         <a href="~/Questions"><small><span class="glyphicon glyphicon-user">&nbsp;</span> PREGÚNTANOS</small></a>
         <a href="~/Home/About"><small><span class="glyphicon glyphicon-question-sign">&nbsp;</span> ¿QUÉ ES ESTO?</small></a> 
         <a class="toggle-menu menu-left push-body"><small><span class="glyphicon glyphicon-remove">&nbsp;</span> CERRAR</small></a>
@@ -120,21 +116,34 @@
         <footer>
             <hr />
             <div class="row">
-                <div class="col-xs-12">
-                    <a class="btn btn-default" href="https://github.com/TheScienceOfCode/Sibelius.Web" target="_blank"><i class="fa fa-github"></i> Source code</a>
-                    <a class="btn btn-default" href="http://facebook.com/TheScienceOfCode" target="_blank"><i class="fa fa-facebook"></i></a>
-                    <a class="btn btn-default" href="https://twitter.com/ScienceOfCode" target="_blank"><i class="fa fa-twitter"></i></a>
-                    <a class="btn btn-default" style="float: right" href="~/Home/Privacy">Privacidad</a>
+                <div class="col-sm-3 small">
+                    <h6>CONTENIDO</h6>
+                    <a href="~/Home/" target="_blank">Portada</a><br />
+                    <a href="~/Courses/" target="_blank">Cursos</a><br />
+                    <a href="~/Questions" target="_blank">Pregúntanos</a><br />
+                </div>
+                <div class="col-sm-3 small">
+                    <h6>SOCIAL</h6>
+                    <a href="https://github.com/TheScienceOfCode/Sibelius.Web" target="_blank"><i class="fa fa-github"></i> Source code</a><br />
+                    <a href="http://facebook.com/TheScienceOfCode" target="_blank">Facebook</a><br />
+                    <a href="https://twitter.com/ScienceOfCode" target="_blank">Twitter</a><br />                    
+                </div>
+                <div class="col-sm-3 small">
+                    <h6>POSTMORTEM</h6>
+                    <a href="~/Posts/">Posts</a><br />
+                </div>
+                <div class="col-sm-3 small">
+                    <h6>LEGAL</h6>
+                    <a href="~/Home/Privacy">Privacidad</a><br />
                 </div>
             </div>
-
+            <br />
             <div class="row">
                 <div class="col-xs-12">
                     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
                         <img alt="Licencia Creative Commons" style="border-width:0; float: right" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
                     </a>
                     <h5><i class="fa fa-cc"></i> 2013 - @DateTime.Now.Year - THE SCIENCE OF CODE. </h5>
-
                     <br />
                     <br />
                     <br />
