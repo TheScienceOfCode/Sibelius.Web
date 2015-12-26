@@ -37,7 +37,7 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-12">
         <div class="row">
             @for (int i = 2; i < articles.Count; ++i)
             {
@@ -46,12 +46,6 @@
                 </div>
             }
         </div>
-    </div>  
-    <div class="col-sm-4 ">
-            @foreach(var post in posts)
-            {
-                    @Posts.Headline(post)
-            }
     </div>
 </div>
 
