@@ -9,6 +9,14 @@
     var posts = Model.Posts;
 }
 <br />
+@if((int)Session["pubadv"] > 0){
+    <div class="row well">
+        <div class="col-xs-12">
+            No podrás navegar hasta que verifiquemos que has desactivado el AdBlock.
+            <a class="btn btn-primary" href="~/Home/Index">Recargar</a>
+        </div>
+    </div>
+}
 <div class="row">
     <div class="col-xs-12">
         <center>

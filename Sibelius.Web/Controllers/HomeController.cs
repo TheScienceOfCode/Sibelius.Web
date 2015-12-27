@@ -1,4 +1,5 @@
 ﻿using Sibelius.Web.Behavior;
+using Sibelius.Web.Filters;
 using Sibelius.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -14,13 +15,14 @@ namespace Sibelius.Web.Controllers
         CourseBehavior courseBehavior = new CourseBehavior();
         PostBehavior postBehavior = new PostBehavior();
 
+        [SkipBanFilter]
         public ActionResult Index()
         {
             var result = new PortraitVM()
             {
                 Articles = articleBehavior.GetVisible().ToList(),
                 Posts = postBehavior.GetAll(1).ToList()
-            }; 
+            };
             return View(result);
         }
 
@@ -29,6 +31,7 @@ namespace Sibelius.Web.Controllers
             return View();
         }
 
+        [SkipBanFilter]
         public JsonResult LegalAccept()
         {
             Session["legal"] = true;
@@ -36,9 +39,17 @@ namespace Sibelius.Web.Controllers
         }
 
         [HttpPost]
+        [SkipBanFilter]
         public JsonResult PubAdvAccept(bool value)
         {
-            Session["pubadv"] = value;
+            if (value)
+            {
+                Session["pubadv"] = (int)Session["pubadv"] + 1;
+            }
+            else
+            {
+                Session["pubadv"] = 0;
+            }
             return Json("ok");
         }      
         

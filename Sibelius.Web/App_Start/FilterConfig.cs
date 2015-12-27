@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using Sibelius.Web.Filters;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Sibelius.Web
@@ -8,6 +9,7 @@ namespace Sibelius.Web
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new BanFilter());
         }
     }
 }
