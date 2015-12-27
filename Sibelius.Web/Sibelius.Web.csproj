@@ -187,6 +187,7 @@
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Data\Global.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
+    <Compile Include="Filters\BanFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
