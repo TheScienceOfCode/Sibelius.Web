@@ -25,6 +25,12 @@
         <th>
             @Html.DisplayNameFor(model => model.University)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Virtual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.License)
+        </th>
         <th></th>
     </tr>
 
@@ -43,6 +49,19 @@
             @Html.DisplayFor(modelItem => item.University)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Virtual)
+        </td>
+        <td>
+            @if (item.License == null)
+            {
+                <span>N/A</span>
+            }
+            else
+            {
+                @item.License.ShortName
+            }
+        </td>
+        <td>
         <td>
             <a class="btn btn-primary btn-sm" href="~/Courses/Show/@item.Id">
                 <span class="glyphicon glyphicon-share"></span>
@@ -53,7 +72,6 @@
             <a class="btn btn-default  btn-sm" href="~/AdminCourses/Delete/@item.Id">
                 <span class="glyphicon glyphicon-trash"></span>
             </a>
-        </td>
         </td>
     </tr>
 }

@@ -7,7 +7,8 @@ using System.Web.Mvc;
 
 namespace Sibelius.Web.Models
 {
-    public class Course : Entity
+    [CollectionName("Course")]
+    public class Course : LicenseableEntity
     {
         public string Title { get; set; }
         public string Subtitle { get; set; }
@@ -25,5 +26,6 @@ namespace Sibelius.Web.Models
         public bool CurrentlyUpdated { get; set; }
         public string Language { get; set; }
         public bool Visible { get; set; }
+        public bool Virtual { get; set; }
     }
 }

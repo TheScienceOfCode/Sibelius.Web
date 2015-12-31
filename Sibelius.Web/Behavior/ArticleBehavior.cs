@@ -4,12 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Sibelius.Web.Common;
 
 namespace Sibelius.Web.Behavior
 {
     public class ArticleBehavior
-    {
+    {        
         UnitOfWork unit = new UnitOfWork();
+        LicenseableBehavior<Article> licenseableBehavior = new LicenseableBehavior<Article>();
 
         #region Basic Behavior
         public void Insert(Article article)
@@ -19,17 +21,29 @@ namespace Sibelius.Web.Behavior
 
         public Article GetById(string id)
         {
-            return unit.Articles.GetById(id);
+            var article = unit.Articles.GetById(id);
+
+            licenseableBehavior.AddLicense(article);
+            return article;
         }
 
-        public IEnumerable<Article> GetVisible()
+        public List<Article> GetVisible()
         {
-            return unit.Articles.Where(c => c.Visible == true).OrderByDescending(c => c.Portrait).ThenByDescending(c => c.Date);
+            var articles = unit.Articles
+                .Where(c => c.Visible == true)
+                .OrderByDescending(c => c.Portrait)
+                .ThenByDescending(c => c.Date).ToList();
+
+            licenseableBehavior.AddLicense(articles);
+            return articles;
         }
 
-        public IEnumerable<Article> GetAll()
+        public List<Article> GetAll()
         {
-            return unit.Articles;
+            var articles = unit.Articles.ToList();
+
+            licenseableBehavior.AddLicense(articles);          
+            return articles;
         }
 
         public void Update(Article article)
@@ -41,7 +55,6 @@ namespace Sibelius.Web.Behavior
         {
             unit.Articles.Delete(article);
         }
-        #endregion
-
+        #endregion       
     }
 }

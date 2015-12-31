@@ -10,40 +10,29 @@ using System.Web.Mvc;
 namespace Sibelius.Web.Controllers
 {
     [Authorize]
-    public class AdminCoursesController : Controller
+    public class AdminLicensesController : Controller
     {
-        CourseBehavior courseBehavior = new CourseBehavior();
-
         LicenseBehavior licenseBehavior = new LicenseBehavior();
 
-        private void DropdownLicenses()
-        {
-            ViewBag.Licenses = licenseBehavior.GetSelectList();
-        }
-
         public ActionResult Index()
-        {            
-            return View(courseBehavior.GetAll());
+        {
+            return View(licenseBehavior.GetAll());
         }
 
         public ActionResult Create()
         {
-            DropdownLicenses();
             return View();
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(Course course)
+        public ActionResult Create(License license)
         {
             if (!ModelState.IsValid)
-            {
-                DropdownLicenses();
                 return View();
-            }
-            
-            courseBehavior.Insert(course);
-            return RedirectToAction("Index");          
+
+            licenseBehavior.Insert(license);
+            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(string id)
@@ -51,47 +40,43 @@ namespace Sibelius.Web.Controllers
             if (id == null || id == string.Empty)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var course = courseBehavior.GetById(id);
-            if (course == null)
+            var license = licenseBehavior.GetById(id);
+            if (license == null)
                 return HttpNotFound();
 
-            DropdownLicenses();
-            return View(course);
+            return View(license);
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(Course course)
+        public ActionResult Edit(License license)
         {
             if (!ModelState.IsValid)
-            {
-                DropdownLicenses();
-                return View(course);
-            }
+                return View(license);
 
-            courseBehavior.Update(course);
+            licenseBehavior.Update(license);
             return RedirectToAction("Index");
         }
-        
+
         public ActionResult Delete(string id)
         {
             if (id == null || id == string.Empty)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var course = courseBehavior.GetById(id);
-            if(course == null)
-                 return HttpNotFound();
-                        
-            return View(course);
+            var license = licenseBehavior.GetById(id);
+            if (license == null)
+                return HttpNotFound();
+
+            return View(license);
         }
 
         [HttpPost]
-        public ActionResult Delete(Course course)
+        public ActionResult Delete(License license)
         {
             if (!ModelState.IsValid)
                 return RedirectToAction("Index");
 
-            courseBehavior.Delete(course);
+            licenseBehavior.Delete(license);
 
             return RedirectToAction("Index");
         }
