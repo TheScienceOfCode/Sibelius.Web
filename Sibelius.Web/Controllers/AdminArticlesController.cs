@@ -13,14 +13,21 @@ namespace Sibelius.Web.Controllers
     public class AdminArticlesController : Controller
     {
         ArticleBehavior articleBehavior = new ArticleBehavior();
+        LicenseBehavior licenseBehavior = new LicenseBehavior();
+
+        private void DropdownLicenses()
+        {
+            ViewBag.Licenses = licenseBehavior.GetSelectList();
+        }
 
         public ActionResult Index()
-        {
+        {            
             return View(articleBehavior.GetAll());
         }
 
         public ActionResult Create()
         {
+            DropdownLicenses();
             return View();
         }
 
@@ -29,7 +36,10 @@ namespace Sibelius.Web.Controllers
         public ActionResult Create(Article article)
         {
             if (!ModelState.IsValid)
+            {
+                DropdownLicenses();
                 return View();
+            }
 
             articleBehavior.Insert(article);
             return RedirectToAction("Index");
@@ -44,6 +54,7 @@ namespace Sibelius.Web.Controllers
             if (course == null)
                 return HttpNotFound();
 
+            DropdownLicenses();
             return View(course);
         }
 
@@ -52,7 +63,10 @@ namespace Sibelius.Web.Controllers
         public ActionResult Edit(Article article)
         {
             if (!ModelState.IsValid)
+            {
+                DropdownLicenses();
                 return View(article);
+            }
 
             articleBehavior.Update(article);
             return RedirectToAction("Index");

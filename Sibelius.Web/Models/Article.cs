@@ -1,4 +1,5 @@
-﻿using MongoRepository;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,8 +7,9 @@ using System.Web;
 
 namespace Sibelius.Web.Models
 {
-    public class Article : Entity
-    {
+    [CollectionName("Article")]
+    public class Article : LicenseableEntity
+    {        
         public string Title { get; set; }
         public string Section { get; set; }
         public string Intro { get; set; }
@@ -24,6 +26,6 @@ namespace Sibelius.Web.Models
         public bool Visible { get; set; }
         public int Visitas { get; set; }
         public string TaringaUrl { get; set; }
-        public int TaringaVisitas { get; set; }
+        public int TaringaVisitas { get; set; }       
     }
 }

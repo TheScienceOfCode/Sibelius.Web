@@ -164,6 +164,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Behavior\LicenseableBehavior.cs" />
+    <Compile Include="Behavior\LicenseBehavior.cs" />
     <Compile Include="Behavior\QuestionBehavior.cs" />
     <Compile Include="Behavior\CollaboratorBehavior.cs" />
     <Compile Include="Behavior\PostSectionBehavior.cs" />
@@ -172,6 +174,7 @@
     <Compile Include="Behavior\CourseBehavior.cs" />
     <Compile Include="Common\ExtendedMethods.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminLicensesController.cs" />
     <Compile Include="Controllers\AdminQuestionsController.cs" />
     <Compile Include="Controllers\AdminCollaborators.cs" />
     <Compile Include="Controllers\AdminPostSections.cs" />
@@ -193,6 +196,8 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Collaborator.cs" />
+    <Compile Include="Models\LicenseableEntity.cs" />
+    <Compile Include="Models\License.cs" />
     <Compile Include="Models\PaginationVM.cs" />
     <Compile Include="Models\PortraitVM.cs" />
     <Compile Include="Models\PostSection.cs" />
@@ -242,7 +247,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\jsPushMenu.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -330,6 +337,10 @@
     <Content Include="Views\Shared\_LegalInfo.cshtml" />
     <Content Include="Views\Shared\_Pubadv.cshtml" />
     <Content Include="App_Code\Social.cshtml" />
+    <Content Include="Views\AdminLicenses\Create.cshtml" />
+    <Content Include="Views\AdminLicenses\Delete.cshtml" />
+    <Content Include="Views\AdminLicenses\Edit.cshtml" />
+    <Content Include="Views\AdminLicenses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -65,6 +65,11 @@
         <hr />
         <div class="article-text">
             @Html.Raw(Model.Html)
+                        
+            @if (Model.License != null)
+            {
+                <small>@Html.Raw(Model.License.Html)</small>
+            }
         </div>
         <div class="row text-center">
             <br />

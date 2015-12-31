@@ -10,6 +10,7 @@ namespace Sibelius.Web.Behavior
     public class CourseBehavior
     {
         UnitOfWork unit = new UnitOfWork();
+        LicenseableBehavior<Course> licenseableBehavior =  new LicenseableBehavior<Course>();
 
         #region Basic Behavior
         public void Insert(Course course)
@@ -19,17 +20,33 @@ namespace Sibelius.Web.Behavior
 
         public Course GetById(string id)
         {
-            return unit.Courses.GetById(id);
+            var course = unit.Courses.GetById(id);
+
+            licenseableBehavior.AddLicense(course);
+            return course;
         }
 
-        public IEnumerable<Course> GetAll()
+        public List<Course> GetAll()
         {
-            return unit.Courses.OrderByDescending(c => c.Year).ThenByDescending(c => c.Semester);
+            var courses = unit.Courses
+                .OrderByDescending(c => c.Year)
+                .ThenByDescending(c => c.Semester)
+                .ToList();
+
+            licenseableBehavior.AddLicense(courses);
+            return courses;
         }
 
-        public IEnumerable<Course> GetVisible()
+        public List<Course> GetVisible()
         {
-            return unit.Courses.Where(c => c.Visible == true).OrderByDescending(c => c.Year).ThenByDescending(c => c.Semester);
+            var courses = unit.Courses
+                .Where(c => c.Visible == true)
+                .OrderByDescending(c => c.Year)
+                .ThenByDescending(c => c.Semester)
+                .ToList();
+
+            licenseableBehavior.AddLicense(courses);
+            return courses;
         }
 
         public void Update(Course course)
