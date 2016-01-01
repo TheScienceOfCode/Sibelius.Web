@@ -36,6 +36,12 @@ var backgroundposition = article.BackgroundPosition != null ? article.Background
                     <div class="row">
                         <div class="col-xs-12 author">
                             @article.Author
+                            <small style="float: right">
+                                @if (article.License != null)
+                                {    
+                                    @article.License.ShortName
+                                }
+                            </small>
                         </div>
                     </div>
                 </div>
