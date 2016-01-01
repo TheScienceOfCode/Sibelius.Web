@@ -26,6 +26,7 @@ namespace Sibelius.Web.Models
         public bool Visible { get; set; }
         public int Visitas { get; set; }
         public string TaringaUrl { get; set; }
-        public int TaringaVisitas { get; set; }       
+        public int TaringaVisitas { get; set; }    
+        public string Collaborator { get; set; }   
     }
 }

@@ -11,6 +11,7 @@ namespace Sibelius.Web.Controllers
     public class ArticlesController : Controller
     {
         ArticleBehavior articleBehavior = new ArticleBehavior();
+        CollaboratorBehavior collaboratorBehavior = new CollaboratorBehavior();
 
         public ActionResult Show(string id)
         {

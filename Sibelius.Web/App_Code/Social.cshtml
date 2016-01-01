@@ -1,5 +1,5 @@
-﻿@helper DefaultBtn(string url, string css="col-sm-6")
-{ 
+﻿@helper DefaultBtn(string url, string css = "col-sm-6")
+{
     <div class="@css fb fb-default">
         <a class="fb-like" data-href="@url" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></a>
     </div>
@@ -8,7 +8,7 @@
     </div>
 }
 
-@helper CleanBtn(string url, string css="col-sm-6")
+@helper CleanBtn(string url, string css = "col-sm-6")
 {
     <div class="@css fb">
         <div class="fb-like" data-href="@url" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
@@ -18,19 +18,76 @@
     </div>
 }
 
-@helper Disqus(string title, string url) { 
+@helper Disqus(string title, string url)
+{
     <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES * * */
-            var disqus_shortname = 'thescienceofcode';            
-            var disqus_title = '@title';
-            var disqus_url = '@url';
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'thescienceofcode';
+        var disqus_title = '@title';
+        var disqus_url = '@url';
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function () {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+}
+
+@helper Collaborator(Sibelius.Web.Models.Collaborator collaborator)
+{
+    if (collaborator != null)
+    {
+        <table class="table table-responsive">
+            <tbody>
+                <tr>
+                    <td>Nick</td>
+                    <td><strong>@collaborator.Nickname</strong></td>
+                </tr>
+                <tr>
+                    <td>Nombre completo</td>
+                    <td><strong>@collaborator.Fullname</strong></td>
+                </tr>
+                <tr>
+                    <td>Universidad</td>
+                    <td><strong>@collaborator.University</strong></td>
+                </tr>
+                <tr>
+                    <td>Interéses</td>
+                    <td><strong>@collaborator.Topics</strong></td>
+                </tr>
+                <tr>
+                    <td>
+                        Social
+                    </td>
+                    <td>
+                        @if (collaborator.Facebook != null)
+                        {
+                            <a class="btn btn-primary" href="@collaborator.Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                        }
+                        @if (collaborator.Twitter != null)
+                        {
+                            <a class="btn btn-primary" href="@collaborator.Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+                        }
+                        @if (collaborator.Google != null)
+                        {
+                            <a class="btn btn-primary" href="@collaborator.Google" target="_blank"><i class="fa fa-google"></i></a>
+                        }
+                        @if (collaborator.Github != null)
+                        {
+                            <a class="btn btn-primary" href="@collaborator.Github" target="_blank"><i class="fa fa-github"></i></a>
+                        }
+                        @if (collaborator.LinkedIn != null)
+                        {
+                            <a class="btn btn-primary" href="@collaborator.LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        }
+
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+}
 }

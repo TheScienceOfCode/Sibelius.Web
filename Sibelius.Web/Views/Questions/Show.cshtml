@@ -53,55 +53,7 @@
                         <h4>¿Quién contestó?</h4>
                     </div>
                     <div class="col-sm-10">
-                        <table class="table table-responsive">
-                            <tbody>
-                                <tr>
-                                    <td>Nick</td>
-                                    <td><strong>@collaborator.Nickname</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Nombre completo</td>
-                                    <td><strong>@collaborator.Fullname</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Universidad</td>
-                                    <td><strong>@collaborator.University</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Interéses</td>
-                                    <td><strong>@collaborator.Topics</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Social
-                                    </td>
-                                    <td>
-                                        @if (collaborator.Facebook != null)
-                                        {
-                                            <a class="btn btn-primary" href="@collaborator.Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-                                        }
-                                        @if (collaborator.Twitter != null)
-                                        {
-                                            <a class="btn btn-primary" href="@collaborator.Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-                                        }
-                                        @if (collaborator.Google != null)
-                                        {
-                                            <a class="btn btn-primary" href="@collaborator.Google" target="_blank"><i class="fa fa-google"></i></a>
-                                        }
-                                        @if (collaborator.Github != null)
-                                        {
-                                            <a class="btn btn-primary" href="@collaborator.Github" target="_blank"><i class="fa fa-github"></i></a>
-                                        }
-                                        @if (collaborator.LinkedIn != null)
-                                        {
-                                            <a class="btn btn-primary" href="@collaborator.LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                        }
-
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        @Social.Collaborator(collaborator)
                     </div>
 
                     <div class="col-sm-2 hidden-xs">
