@@ -5,14 +5,22 @@
         <div class="col-xs-8">
             <h3>@Model.Title</h3>
             <h4>@Model.Subtitle</h4>  
-            @if (Model.Virtual)
+            <h5>
+                @if (Model.Virtual)
             {
-                <h5>Virtual</h5>
-            }
-            else
-            {
-                <h5>Semestre @Model.Year - @Model.Semester</h5>
-            }
+                    <span>Virtual</span>
+                }
+                else
+                {
+                    <span>Semestre @Model.Year - @Model.Semester</span>
+                }
+                <span style="float: right">
+                    @if (Model.License != null)
+                    {
+                        @Model.License.ShortName
+                    }
+                </span>
+            </h5>
             <div class="btn-group-justified">
                 @if (Model.Active)
                 {
