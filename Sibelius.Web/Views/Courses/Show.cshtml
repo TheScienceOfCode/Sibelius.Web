@@ -37,11 +37,11 @@
         <b>Profesor(es):</b> @Model.Professor <br />
         @if (Model.Virtual)
         {
-            <h5>Virtual</h5>
+            <b>Virtual</b>
         }
         else
         {
-            <h5>Semestre @Model.Year - @Model.Semester</h5>
+            <b>Semestre: </b> @Model.Year - @Model.Semester
             <div class="alert alert-warning text-justify">
                 <span class="glyphicon glyphicon-exclamation-sign"></span>
                 Este es un curso presencial, no tenemos la cantidad de materiales disponibles que nos gustaría compartir.
