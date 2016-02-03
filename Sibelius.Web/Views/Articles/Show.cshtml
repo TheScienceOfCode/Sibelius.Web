@@ -49,20 +49,23 @@
         </div>
     </div>
     <div class="col-md-4">
-
-        <div class="row text-center">
-            @Articles.Stats(Model, "col-xs-12")
-            @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", Model.Id))
+        <div class="col-xs-12" style="margin-bottom: 20px;">
+            @Custom.ImportantHeadline()
         </div>
     </div>
 </div>
 <br />
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8">       
         <p class="article-text-intro">
             @Model.Intro
         </p>
-        <hr />
+        <br />
+        <div class="row text-center">
+            @Articles.Stats(Model, "col-xs-12")
+            @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", Model.Id))
+        </div>
+        <br /><br />
         <div class="article-text">
             @Html.Raw(Model.Html)
                         
@@ -79,10 +82,10 @@
         </div>
     </div>
     <div class="col-md-4 hidden-xs hidden-sm left-col">
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         <div class="btn-group btn-group-justified">
             <a class="btn btn-primary" href="~/Home/Index">MÁS ARTÍCULOS</a>
         </div>
-
         @foreach (var article in ViewBag.Articles)
         {
             <div class="row">
@@ -91,7 +94,7 @@
                 </div>
             </div>
         }
-
+        
     </div>
 </div>
 <br />

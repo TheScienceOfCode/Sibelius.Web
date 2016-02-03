@@ -12,3 +12,34 @@
         <img src="@url" alt="@alt" class="img-responsive center-block" />
     }
 }
+
+@helper ImportantHeadline()
+{
+    <div class="box box-important">
+        <a href="https://play.google.com/store/apps/details?id=com.thesmallapps.fooltortoise" target="_blank">
+            <div class="background-image" style="background-image: url(https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xfa1/v/t1.0-9/12512701_10208636613852698_3215259465615895377_n.jpg?oh=40fec0ccfcd51faccf353ef3db279126&oe=572567D9&__gda__=1463172660_f68c5b85f450acc1ac6c1980618009ea); background-position: center bottom;"></div>
+            <div class="headline">
+                <div class="col-xs-12 sm-title">
+                    <span><small>Una tortuga ha llegado a tu Android</small></span>
+                </div>
+                <div class="col-xs-12 md-title">
+                    ¡Gratis! Un juego de los fundadores de The Science of Code
+                </div>
+                <div class="sm-bottom col-xs-12">
+                    <div class="row text-center">
+                        @Social.DefaultBtn("http://facebook.com/TheSmallApps")
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 author">
+                            The Small Apps
+                            <small style="float: right">
+                                :)
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </a>
+    </div>
+}
