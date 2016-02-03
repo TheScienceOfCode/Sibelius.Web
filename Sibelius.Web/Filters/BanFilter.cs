@@ -31,7 +31,6 @@ namespace Sibelius.Web.Filters
             // No pub?
             else if ((int)context.HttpContext.Session["pubadv"] > 0)
             {
-                context.HttpContext.Session["ban"] = true;
                 context.Result = new RedirectToRouteResult(
                     new RouteValueDictionary
                     {
