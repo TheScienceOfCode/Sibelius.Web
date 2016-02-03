@@ -67,6 +67,7 @@ namespace Sibelius.Web.Controllers
             {
                 question.Title = question.Text;
                 questionBehavior.Insert(question);
+                Session["question"] = true;
                 return PartialView(
                    "_SendResult",
                    new QuestionResultVM

@@ -14,19 +14,22 @@ namespace Sibelius.Web.Filters
 
     public class BanFilter : ActionFilterAttribute
     {
-
-
         public override void OnActionExecuting(ActionExecutingContext context)
         {
+            // Start
             if (context.HttpContext.Session["pubadv"] == null)
+            {
                 context.HttpContext.Session["pubadv"] = 0;
 
+            }
+
+            // Do not Filter?
             if (context.ActionDescriptor.GetCustomAttributes(typeof(SkipBanFilter), false).Any())
             {
                 return;
             }
-
-            if ((int)context.HttpContext.Session["pubadv"] > 0)
+            // No pub?
+            else if ((int)context.HttpContext.Session["pubadv"] > 0)
             {
                 context.Result = new RedirectToRouteResult(
                     new RouteValueDictionary
@@ -34,6 +37,20 @@ namespace Sibelius.Web.Filters
                         { "controller", "Home" },
                         { "action", "Index" }
                     });
+            }
+            else
+            {
+                if (context.HttpContext.Request.Url.ToString().ToUpper().Contains("UNBAN"))
+                {
+                    if (context.HttpContext.Session["burl"] != null)
+                    {
+                        context.HttpContext.Response.Redirect(((Uri)context.HttpContext.Session["burl"]).AbsolutePath);
+                    }
+                }
+                else
+                {
+                    context.HttpContext.Session["burl"] = context.HttpContext.Request.Url;
+                }
             }
         }
     }

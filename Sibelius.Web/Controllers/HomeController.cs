@@ -25,11 +25,16 @@ namespace Sibelius.Web.Controllers
             };
             return View(result);
         }
+        
+        public ActionResult Unban()
+        {
+            return RedirectToAction("Index");
+        }
 
         public ActionResult Privacy()
         {
             return View();
-        }
+        }        
 
         [SkipBanFilter]
         public JsonResult LegalAccept()

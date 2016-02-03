@@ -52,7 +52,7 @@ namespace Sibelius.Web.Behavior
 
         public int GetPages()
         {
-            return (int)Math.Ceiling(unit.Questions.Count() / (double)PER_PAGE);
+            return (int)Math.Ceiling(unit.Questions.Where(q => q.Answered).Count() / (double)PER_PAGE);
         }
 
     }
