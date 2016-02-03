@@ -42,14 +42,14 @@
         @Articles.Headline(articles[0])
     </div>
     <div class="col-sm-4">
-        @Articles.Headline(articles[1])
+        @Custom.ImportantHeadline()
     </div>
 </div>
 
 <div class="row">
     <div class="col-sm-12">
         <div class="row">
-            @for (int i = 2; i < articles.Count; ++i)
+            @for (int i = 1; i < articles.Count; ++i)
             {
                 <div class="col-sm-6">
                     @Articles.Headline(articles[i])
