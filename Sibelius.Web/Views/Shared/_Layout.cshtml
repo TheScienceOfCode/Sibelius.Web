@@ -218,7 +218,7 @@
                         function(result) {
                             var string = window.location.href.toUpperCase(), substring = "HOME";
                             if(string.indexOf(substring) == -1)
-                                window.location.replace('@Url.Content("~/Home/Index")');
+                                var s = ('@Url.Content("~/Home/Index")'); //window.location.replace
                         }
                 });
                 $('#pubadv').show('slow');
