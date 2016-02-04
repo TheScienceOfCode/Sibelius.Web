@@ -49,7 +49,7 @@ namespace Sibelius.Web.Controllers
         {
             if (value)
             {
-                Session["pubadv"] = (int)Session["pubadv"] + 1;
+                Session["pubadv"] = (int)Session["pubadv"] /*+ 1*/;
             }
             else
             {
