@@ -35,7 +35,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a id="main-logo" class="navbar-brand" href="~/Home/Index">
+                <a id="main-logo" class="navbar-brand" href="~/Home">
                     <img src="~/Content/logo-science-code.png" alt="Logo The Science of Code" />
                 </a>
             </div>
@@ -44,15 +44,15 @@
                 string coursesClass = curUrl.Contains("COURSES") ? "class=active" : "";
                 string postsClass = curUrl.Contains("POSTS") ? "class=active" : "";
                 string aboutClass = curUrl.Contains("ABOUT") ? "class=active" : "";
-                string questionsClass = curUrl.Contains("QUESTIONS") ? "class=active" : "";
+                string articlesClass = curUrl.Contains("ARTICLES") ? "class=active" : "";
             }
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li @articlesClass>
+                        <a href="~/Home">REVISTA</a>
+                    </li>
                     <li @coursesClass>
                         <a href="~/Courses">CURSOS</a>
-                    </li>
-                    <li @questionsClass>
-                        <a href="~/Questions">PREGÚNTANOS</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -132,6 +132,7 @@
                 <div class="col-sm-3 small">
                     <h6>POSTMORTEM</h6>
                     <a href="~/Posts/">Posts</a><br />
+                    <a href="~/Questions">Pregúntanos</a>
                 </div>
                 <div class="col-sm-3 small">
                     <h6>LEGAL</h6>
