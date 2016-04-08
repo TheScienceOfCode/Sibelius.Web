@@ -42,20 +42,18 @@
         @Articles.Headline(articles[0])
     </div>
     <div class="col-sm-4">
-        @Articles.Headline(articles[1])
+        <div class="text-center" style="margin-top: 30px">
+            @Social.FbPage()
+        </div>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-sm-12">
-        <div class="row">
-            @for (int i = 2; i < articles.Count; ++i)
-            {
-                <div class="col-sm-6">
-                    @Articles.Headline(articles[i])
-                </div>
-            }
+    @for (int i = 1; i < articles.Count; ++i)
+    {
+        <div class="col-sm-8">
+            @Articles.Headline(articles[i])
         </div>
-    </div>
+    }
 </div>
 

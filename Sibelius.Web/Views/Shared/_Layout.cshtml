@@ -49,15 +49,15 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li @articlesClass>
-                        <a href="~/Home">REVISTA</a>
+                        <a href="~/Home">Revista</a>
                     </li>
                     <li @coursesClass>
-                        <a href="~/Courses">CURSOS</a>
+                        <a href="~/Courses">Cursos</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li @aboutClass>
-                        <a href="~/Home/About"><small>¿QUÉ ES ESTO?</small></a>
+                        <a href="~/Home/About"><small>¿Qué es esto?</small></a>
                     </li>
                     <li class="hidden-xs">
                         <a href="http://facebook.com/TheScienceOfCode" target="_blank"><small><i class="fa fa-facebook"></i></small></a>
@@ -72,10 +72,10 @@
     <!-- Left menu element -->
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left">
         <br /><br />
-        <a href="~/Courses"><small><span class="glyphicon glyphicon-book">&nbsp;</span> CURSOS</small></a>
-        <a href="~/Questions"><small><span class="glyphicon glyphicon-user">&nbsp;</span> PREGÚNTANOS</small></a>
-        <a href="~/Home/About"><small><span class="glyphicon glyphicon-question-sign">&nbsp;</span> ¿QUÉ ES ESTO?</small></a> 
-        <a class="toggle-menu menu-left push-body"><small><span class="glyphicon glyphicon-remove">&nbsp;</span> CERRAR</small></a>
+        <a href="~/Home"><small><span class="glyphicon glyphicon-book">&nbsp;</span> Revista</small></a>
+        <a href="~/Courses"><small><span class="glyphicon glyphicon-pencil">&nbsp;</span> Cursos</small></a>
+        <a href="~/Home/About"><small><span class="glyphicon glyphicon-question-sign">&nbsp;</span> ¿Qué es esto?</small></a> 
+        <a class="toggle-menu menu-left push-body"><small><span class="glyphicon glyphicon-remove">&nbsp;</span> Cerrar</small></a>
     </nav>
     <div class="container body-content">
         @if (Request.IsAuthenticated)
@@ -113,47 +113,46 @@
             </div>
         }
         @RenderBody()
-        <br /><br /><br />
-        <footer>
-            <hr />
+    </div>
+    <div class="bot-menu">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-3 small">
                     <h6>CONTENIDO</h6>
                     <a href="~/Home/" target="_blank">Portada</a><br />
                     <a href="~/Courses/" target="_blank">Cursos</a><br />
-                    <a href="~/Questions" target="_blank">Pregúntanos</a><br />
+                    <a href="~/Questions" target="_blank">Pregúntanos</a><br /><br />
                 </div>
                 <div class="col-sm-3 small">
                     <h6>SOCIAL</h6>
                     <a href="https://github.com/TheScienceOfCode/Sibelius.Web" target="_blank"><i class="fa fa-github"></i> Source code</a><br />
                     <a href="http://facebook.com/TheScienceOfCode" target="_blank">Facebook</a><br />
-                    <a href="https://twitter.com/ScienceOfCode" target="_blank">Twitter</a><br />                    
+                    <a href="https://twitter.com/ScienceOfCode" target="_blank">Twitter</a><br /><br />
                 </div>
                 <div class="col-sm-3 small">
                     <h6>POSTMORTEM</h6>
                     <a href="~/Posts/">Posts</a><br />
-                    <a href="~/Questions">Pregúntanos</a>
+                    <a href="~/Questions">Pregúntanos</a><br /><br />
                 </div>
                 <div class="col-sm-3 small">
                     <h6>LEGAL</h6>
-                    <a href="~/Home/Privacy">Privacidad</a><br />
+                    <a href="~/Home/Privacy">Privacidad</a><br /><br />
                 </div>
             </div>
-            <br />
-            <div class="row">
-                <div class="col-xs-12 text-center">
-                    <small>Apoyados por</small><br />
-                    <a href="http://thesmallapps.com" target="_blank">
-                        <img alt="The Small Apps - Crafting Big Dreams" style="border-width:0;  max-height: 80px;" src="~/Content/the-small-apps.png" />
-                    </a>
-                    <h5><i class="fa fa-cc"></i> 2013 - @DateTime.Now.Year. THE SCIENCE OF CODE. </h5>
-                    <br />
-                    <br />
-                    <br />
-                </div>
-            </div>
-        </footer>
+        </div>
     </div>
+    <footer>        
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <small>Apoyados por</small><br />
+                <a href="http://thesmallapps.com" target="_blank">
+                    <img alt="The Small Apps - Crafting Big Dreams" style="border-width:0;  max-height: 80px;" src="~/Content/the-small-apps.png" />
+                </a>
+                <h5><i class="fa fa-cc"></i> 2013 - @DateTime.Now.Year.</h5>
+                <br />
+            </div>
+        </div>
+    </footer>
     @{var legal = HttpContext.Current.Session["legal"];}
     @if (legal == null || (bool)legal != true)
     {
