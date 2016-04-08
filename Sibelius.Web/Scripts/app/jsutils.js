@@ -56,13 +56,13 @@ $(function () {
         if ($(window).scrollTop() > fixed_menu) {
             if (fixed_status) return;
             fixed_status = true;
-            $('#fixed-menu').slideDown('fast');
+            $('#fixed-menu').css("opacity", "1");
             $('a[data-toggle]').removeClass('btn-primary');
             $('a[data-toggle]').addClass('btn-default');
         } else {
             if (!fixed_status) return;
             fixed_status = false;
-            $('#fixed-menu').fadeOut('fast');
+            $('#fixed-menu').css("opacity", "0");
             $('a[data-toggle]').removeClass('btn-default');
             $('a[data-toggle]').addClass('btn-primary');
         }
