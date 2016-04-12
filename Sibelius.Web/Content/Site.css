@@ -8,7 +8,7 @@
     line-height: 1.8;
 }
 
-* {
+a {
     -webkit-transition: all 0.3s ease;
        -moz-transition: all 0.3s ease;
             transition: all 0.3s ease;
@@ -40,7 +40,7 @@
 }
 
 
-.navbar li.active > a {
+.navbar li.active > a, .navbar li > a:active {
     background-color: #464646 !important;
 }
 
