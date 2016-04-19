@@ -40,7 +40,7 @@ a {
 }
 
 
-.navbar li.active > a, .navbar li > a:active {
+.navbar li.active > a, .navbar li > a:focus {
     background-color: #464646 !important;
 }
 
