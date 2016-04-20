@@ -18,7 +18,7 @@ namespace Sibelius.Web.Models
         public DateTime Date { get; set; }
         public string Tags { get; set; }
         public string Language { get; set; }
-        public string Portrait { get; set; }
+        public int FrontPage { get; set; }
         public string ImageUrl { get; set; }
         public string Thumbnail { get; set; }
         public string BackgroundPosition { get; set; }
