@@ -31,7 +31,7 @@ namespace Sibelius.Web.Behavior
         {
             var articles = unit.Articles
                 .Where(c => c.Visible == true)
-                .OrderByDescending(c => c.Portrait)
+                .OrderByDescending(c => c.FrontPage)
                 .ThenByDescending(c => c.Date).ToList();
 
             licenseableBehavior.AddLicense(articles);
