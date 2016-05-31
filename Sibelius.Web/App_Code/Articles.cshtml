@@ -17,31 +17,13 @@
 var backgroundposition = article.BackgroundPosition != null ? article.BackgroundPosition : "center bottom";
 
     <div class="box">
+        <div class="sm-title">
+            <span><small>@article.Section</small></span>
+        </div> 
         <a href="~/Articles/Show/@article.Id">
             <div class="background-image" style="background-image: url(@article.ImageUrl); background-position: @backgroundposition;"></div>
-            <div class="headline">
-                <div class="col-xs-12 sm-title">
-                    <span><small>@article.Section.ToUpper()</small></span>
-                </div>
-                <div class="col-xs-12 md-title">
-                    @article.Title
-                </div>
-                <div class="sm-bottom col-xs-12">
-                    <div class="row text-center">
-                        @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", article.Id))
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 author">
-                            @article.Author
-                            <small style="float: right">
-                                @if (article.License != null)
-                                {    
-                                    @article.License.ShortName
-                                }
-                            </small>
-                        </div>
-                    </div>
-                </div>
+            <div class="headline">   
+                @article.Title
             </div>
         </a>
     </div>

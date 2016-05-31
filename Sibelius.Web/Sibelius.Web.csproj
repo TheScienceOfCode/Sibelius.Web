@@ -217,6 +217,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\logo-science-code.png" />
+    <Content Include="Content\the-small-apps-b.png" />
     <Content Include="Content\the-small-apps.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
