@@ -422,7 +422,7 @@ footer {
     padding-bottom: 50px;
 }
 
-.bot-menu a, h6 {
+.bot-menu a, .bot-menu h6 {
     color: #fff;
 
 }
