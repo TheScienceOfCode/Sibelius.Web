@@ -49,11 +49,25 @@
 </div>
 
 <div class="row">
-    @for (int i = 1; i < articles.Count; ++i)
-    {
-        <div class="col-sm-8">
-            @Articles.Headline(articles[i])
+    <div class="col-sm-8 no-limits">
+        @for (int i = 1; i < 5; ++i)
+        {
+            <div class="col-sm-6">
+                @Articles.Headline(articles[i])
+            </div>
+        }
+    </div>
+    <div class="col-sm-4">        
+        <div class="more-articles-group">
+            <span>Quizá te interese</span>
+            @for (int i = 5; i < articles.Count; ++i)
+            {
+                <a href="~/Articles/Show/@articles[i].Id">
+                    <span class="sm-section">@articles[i].Section</span><br />
+                    @articles[i].Title 
+                </a>
+            }
         </div>
-    }
+    </div>
 </div>
 
