@@ -2,7 +2,7 @@
     padding-top: 60px;
     font-family: 'Open Sans';
     /*font-size:18px;*/
-    color: #585858;
+    color: #2b2b2b;
     line-height: 1.6;
     font-size: 16px;
     line-height: 1.8;
@@ -59,8 +59,8 @@ a {
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
     background-color: #f5f5f5;
     padding-bottom: 150px;
 }
@@ -94,9 +94,18 @@ textarea {
 
 .article-text, .article-text-intro, .article-text ul li{
     text-align: justify;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.8;
 }
+
+    .article-text p {
+        margin-bottom: 30px;
+    }
+
+
+    .article-text p, .article-text h4 {
+        margin-left: 10px;
+    }
 
 .pre-fixed{
     float:right;
@@ -263,6 +272,10 @@ a:hover {
     background-repeat: no-repeat; 
     background-position: center bottom;
     height: 300px; 
+}
+
+.big {
+    height: 350px; 
 }
 
 .box .background-image {
@@ -467,4 +480,8 @@ footer {
     text-transform: uppercase;
     font-size: 10px;
     text-align: center;
+}
+
+h3 .badge {
+    font-size: 14px;
 }
