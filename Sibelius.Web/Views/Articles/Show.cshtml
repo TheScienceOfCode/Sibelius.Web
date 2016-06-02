@@ -35,42 +35,27 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-8">
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <div class="box-image">
-                    <div class="background-image" style="background-image: url(@Model.ImageUrl); background-position: @backgroundposition;"></div>
-                </div>
-                <div class="text-center">
-                    @Html.Raw(Model.HtmlImageFooter)
-                    <br />
-                </div>
-            </div>
+    <div class="col-xs-8 text-center">
+        <div class="box-image">
+            <div class="background-image big" style="background-image: url(@Model.ImageUrl); background-position: @backgroundposition;"></div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="col-xs-12" style="margin-bottom: 20px;">
-            <div class="text-center">
-                @Social.FbPage()
-            </div>
+        <div class="text-center">
+            @Html.Raw(Model.HtmlImageFooter)
+            <br />
         </div>
     </div>
 </div>
 <br />
 <div class="row">
-    <div class="col-md-8">       
+    <div class="col-md-8">
         <p class="article-text-intro">
             @Model.Intro
         </p>
-        <br />
-        <div class="row text-center">
-            @Articles.Stats(Model, "col-xs-12")
-            @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", Model.Id))
-        </div>
+        <hr />
         <br /><br />
         <div class="article-text">
             @Html.Raw(Model.Html)
-                        
+
             @if (Model.License != null)
             {
                 <small>@Html.Raw(Model.License.Html)</small>
@@ -79,24 +64,23 @@
         <div class="row text-center">
             <br />
             <h4>¿Te gustó el artículo?</h4>
-            @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", Model.Id))            
-            
+            @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", Model.Id))
+
         </div>
     </div>
+
     <div class="col-md-4 hidden-xs hidden-sm left-col">
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        <div class="btn-group btn-group-justified">
-            <a class="btn btn-primary" href="~/Home/Index">MÁS ARTÍCULOS</a>
-        </div>
-        @foreach (var article in ViewBag.Articles)
-        {
-            <div class="row">
-                <div class="col-xs-12">
-                    @Articles.Headline(article)
+        <div class="more-articles-group">
+            <span>Quizá te interese</span>
+            @foreach (var article in ViewBag.Articles)
+            {
+                <div class="row">
+                    <div class="col-xs-12">
+                        @Articles.Headline(article)
+                    </div>
                 </div>
-            </div>
-        }
-        
+            }
+        </div>
     </div>
 </div>
 <br />

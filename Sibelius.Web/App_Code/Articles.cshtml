@@ -1,13 +1,11 @@
 ﻿@helper Stats(Sibelius.Web.Models.Article article, string css = "col-sm-6")
-{   
-    <div class="@css stats">
-       <span class="glyphicon glyphicon-home"></span> @article.Visitas visitas aquí.
-    </div>
+{
+    <h4>@article.Visitas visitas aquí.</h4>
     if (article.TaringaUrl != null && article.TaringaUrl != string.Empty)
     {
-        <div class="@css taringa">
+        <h4>
             <a href="@article.TaringaUrl" target="_blank"> Taringa: @article.TaringaVisitas visitas</a>
-        </div>
+        </h4>
     }
 }
 
