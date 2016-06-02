@@ -94,16 +94,17 @@ textarea {
 
 .article-text, .article-text-intro, .article-text ul li{
     text-align: justify;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.8;
 }
 
     .article-text p {
         margin-bottom: 30px;
+        margin-left: 15px;
     }
 
 
-    .article-text p, .article-text h4 {
+    .article-text h4 {        
         margin-left: 10px;
     }
 
