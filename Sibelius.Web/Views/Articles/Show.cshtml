@@ -44,6 +44,9 @@
             <br />
         </div>
     </div>
+    <div class="col-xs-4">
+        @Social.FbPage()
+    </div>
 </div>
 <br />
 <div class="row">
@@ -52,14 +55,9 @@
             @Model.Intro
         </p>
         <hr />
-        <br /><br />
+        <br />
         <div class="article-text">
-            @Html.Raw(Model.Html)
-
-            @if (Model.License != null)
-            {
-                <small>@Html.Raw(Model.License.Html)</small>
-            }
+            @Html.Raw(Model.Html)            
         </div>
         <div class="row text-center">
             <br />
@@ -84,35 +82,29 @@
     </div>
 </div>
 <br />
-<div class="row">
-    <div class="col-md-8">
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- ArticlesBottom -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1426867402604645"
-             data-ad-slot="1810456816"
-             data-ad-format="auto"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-        <div class="pubdiv"></div>
-        <br />
-    </div>
-</div>
 
 
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-8">
         <h3>¿Qué piensas?</h3>
         <div id="disqus_thread"></div>
+    </div>   
+</div>
+<br /><br />
+<div class="row">
+    <div class="col-xs-8">
+        <h3>Licencia</h3>
+        @if (Model.License != null)
+        {
+            <small>@Html.Raw(Model.License.Html)</small>
+        }
     </div>
 </div>
-
-
 
 @section scripts{
     @Social.Disqus(
         Model.Title,
         string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", Model.Id))
 }
+
+
