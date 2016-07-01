@@ -164,6 +164,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Behavior\AssetBehavior.cs" />
     <Compile Include="Behavior\LicenseableBehavior.cs" />
     <Compile Include="Behavior\LicenseBehavior.cs" />
     <Compile Include="Behavior\QuestionBehavior.cs" />
@@ -174,6 +175,7 @@
     <Compile Include="Behavior\CourseBehavior.cs" />
     <Compile Include="Common\ExtendedMethods.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminAssetsController.cs" />
     <Compile Include="Controllers\AdminLicensesController.cs" />
     <Compile Include="Controllers\AdminQuestionsController.cs" />
     <Compile Include="Controllers\AdminCollaborators.cs" />
@@ -181,6 +183,7 @@
     <Compile Include="Controllers\AdminPostsController.cs" />
     <Compile Include="Controllers\AdminArticlesController.cs" />
     <Compile Include="Controllers\AdminCoursesController.cs" />
+    <Compile Include="Controllers\AssetsController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
@@ -195,6 +198,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Asset.cs" />
     <Compile Include="Models\Collaborator.cs" />
     <Compile Include="Models\LicenseableEntity.cs" />
     <Compile Include="Models\License.cs" />
@@ -344,6 +348,10 @@
     <Content Include="Views\AdminLicenses\Delete.cshtml" />
     <Content Include="Views\AdminLicenses\Edit.cshtml" />
     <Content Include="Views\AdminLicenses\Index.cshtml" />
+    <Content Include="Views\AdminAssets\Create.cshtml" />
+    <Content Include="Views\AdminAssets\Delete.cshtml" />
+    <Content Include="Views\AdminAssets\Edit.cshtml" />
+    <Content Include="Views\AdminAssets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

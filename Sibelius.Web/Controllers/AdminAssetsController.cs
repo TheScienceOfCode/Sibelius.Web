@@ -10,9 +10,9 @@ using System.Web.Mvc;
 namespace Sibelius.Web.Controllers
 {
     [Authorize]
-    public class AdminArticlesController : Controller
+    public class AdminAssetsController : Controller
     {
-        ArticleBehavior articleBehavior = new ArticleBehavior();
+        AssetBehavior assetBehavior = new AssetBehavior();
         LicenseBehavior licenseBehavior = new LicenseBehavior();
 
         private void DropdownLicenses()
@@ -22,7 +22,7 @@ namespace Sibelius.Web.Controllers
 
         public ActionResult Index()
         {            
-            return View(articleBehavior.GetAll());
+            return View(assetBehavior.GetAll());
         }
 
         public ActionResult Create()
@@ -33,7 +33,7 @@ namespace Sibelius.Web.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(Article article)
+        public ActionResult Create(Asset asset)
         {
             if (!ModelState.IsValid)
             {
@@ -41,7 +41,7 @@ namespace Sibelius.Web.Controllers
                 return View();
             }
 
-            articleBehavior.Insert(article);
+            assetBehavior.Insert(asset);
             return RedirectToAction("Index");
         }
 
@@ -50,25 +50,25 @@ namespace Sibelius.Web.Controllers
             if (id == null || id == string.Empty)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var article = articleBehavior.GetById(id);
-            if (article == null)
+            var asset = assetBehavior.GetById(id);
+            if (asset == null)
                 return HttpNotFound();
 
             DropdownLicenses();
-            return View(article);
+            return View(asset);
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(Article article)
+        public ActionResult Edit(Asset asset)
         {
             if (!ModelState.IsValid)
             {
                 DropdownLicenses();
-                return View(article);
+                return View(asset);
             }
 
-            articleBehavior.Update(article);
+            assetBehavior.Update(asset);
             return RedirectToAction("Index");
         }
 
@@ -77,20 +77,20 @@ namespace Sibelius.Web.Controllers
             if (id == null || id == string.Empty)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var course = articleBehavior.GetById(id);
-            if (course == null)
+            var asset = assetBehavior.GetById(id);
+            if (asset == null)
                 return HttpNotFound();
 
-            return View(course);
+            return View(asset);
         }
 
         [HttpPost]
-        public ActionResult Delete(Article article)
+        public ActionResult Delete(Asset asset)
         {
             if (!ModelState.IsValid)
                 return RedirectToAction("Index");
 
-            articleBehavior.Delete(article);
+            assetBehavior.Delete(asset);
 
             return RedirectToAction("Index");
         }

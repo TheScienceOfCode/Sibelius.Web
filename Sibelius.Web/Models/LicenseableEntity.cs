@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Sibelius.Web.Models
 {
-    [BsonKnownTypes(typeof(Article), typeof(Course))]
+    [BsonKnownTypes(typeof(Article), typeof(Course), typeof(Asset))]
     public class LicenseableEntity : Entity
     {
         public string LicenseId { get; set; }
