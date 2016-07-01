@@ -20,33 +20,67 @@ a {
 }
 
 #main-navbar li a {
-    max-height: 60px !important;
+    font-family: 'News Cycle';
+    font-weight: bold;
+    font-size: 14px;
+    padding-left: 30px;
+    padding-right: 30px;
+    max-height: 60px !important;    
+    text-transform: uppercase;   
 }
 
-#main-navbar li a:hover {
-    background-color: #262626 !important;
+    #main-navbar li a:not(.fb-top):not(.tw-top) {
+        color: #9c9c9c;
+        text-shadow: 2px 2px 3px #000;
+    }
+
+
+.fb-top {    
+    background-color: #3b5998 !important;
+    color: #fff !important;
+}
+
+.tw-top {
+    background-color: #1c9fef !important;
+    color: #fff !important;
+}
+
+
+.fb-top:hover {
+    background-color: #2d477e !important;
+}
+
+.tw-top:hover {
+    background-color: #1183c8 !important;
+}
+
+
+
+#main-navbar li a:hover:not(.fb-top):not(.tw-top)  {
+    color: #fff;
+    background-color: #171717 !important;
 }
 
 #main-navbar {
     box-shadow: 0px 2px 10px -4px #000000;
-    background-color: #161616;
-    border-bottom: 4px solid #464646;
+    background-color: #1f1f1f;
+    border-bottom: 2px solid #464646;
 }
 
 #main-logo{
-    margin: 0px;
     padding: 10px 10px 2px 10px;
     cursor: pointer;
-    background-color: #161616;
+    background-color: #1f1f1f;
 }
 
 #main-logo:hover{
-    background-color: #262626;
+    background-color: #171717;
 }
 
 
 .navbar li.active > a, .navbar li > a:focus {
-    background-color: #464646 !important;
+    color: #fff;
+    background-color: #171717 !important;
 }
 
 .light-body {
@@ -321,28 +355,29 @@ a:hover {
     position: absolute;
     bottom: 0px;
     padding: 1px 10px 10px 16px;
-    background-color: rgba(0, 0, 0, 0.99);
+    background-color: rgba(40, 40, 40, 0.95);
     max-height: 75px;
     font-size: 20px;    
-    font-weight: bold;
+    font-weight: lighter;
     font-family: 'News Cycle';        
     width: 100%; 
 }
 
 .sm-title {
     position: absolute;
-    top: 0px;
+    top: 2px;
     left: 0px;
     z-index: 1;
 }
 
 .sm-title span {
+    font-family: 'News Cycle';
     background-color: #f67930;
     color: #fff;
     padding: 3px 16px 6px 16px;
     width: unset;
-    font-weight: 100;
-    text-transform: uppercase; 
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 
@@ -429,7 +464,11 @@ a:hover {
     }
 
 footer {
-    background-color: #1d1d1d
+    background-color: #262626
+}
+
+footer {
+    color: #fff !important;
 }
 
     footer h5 {
@@ -443,7 +482,6 @@ footer {
 
 .bot-menu a, .bot-menu h6 {
     color: #fff;
-
 }
 
     .bot-menu a:hover, a:active {
@@ -460,7 +498,7 @@ footer {
     .more-articles-group > span {
         margin-top: 30px;
         display: block;
-        background-color: #000;
+        background-color: #262626;
         color: #fff;
         text-transform: uppercase;
         text-align: center;
@@ -472,6 +510,7 @@ footer {
         display: block;
         color: #000; 
         min-height: 85px;
+        padding: 3px;
     }
     .more-articles-group a:hover {
         color: #000; 
