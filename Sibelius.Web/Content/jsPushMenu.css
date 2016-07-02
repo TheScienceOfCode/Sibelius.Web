@@ -38,7 +38,7 @@
 
 /* Orientation-dependent styles for the content of the menu */
 .cbp-spmenu-vertical {
-    width: 240px;
+    width: 140px;
     height: 100%;
     top: 0;
     z-index: 1000;
@@ -109,7 +109,6 @@
 /* Push classes applied to the body */
 .push-body {
     overflow-x: hidden;
-    position: relative;
     left: 0;
 }
 
@@ -159,8 +158,15 @@
     .cbp-spmenu-right {
         right: -190px;
     }
+}
 
-    .push-body-toright {
-        left: 190px;
-    }
+/* FIX */
+.cbp-spmenu-vertical {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.push-body-toright {
+    margin-left: 140px;
+    overflow-x: scroll;
 }
