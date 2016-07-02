@@ -8,11 +8,11 @@
     line-height: 1.8;
 }
 
-a {
+/*a {
     -webkit-transition: all 0.3s ease;
        -moz-transition: all 0.3s ease;
             transition: all 0.3s ease;
-}
+}*/
 
 .no-limits {
     margin: 0;
@@ -335,6 +335,7 @@ a:hover {
 .box a {
     position: relative;
     display: block;
+    color: red;
 }
 
 .box-important {
@@ -372,6 +373,8 @@ a:hover {
     font-family: 'News Cycle';        
     width: 100%; 
 }
+
+
 
 .sm-title {
     position: absolute;
