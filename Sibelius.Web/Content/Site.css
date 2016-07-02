@@ -106,6 +106,7 @@ html {
     background-color: #f5f5f5;
     padding-bottom: 150px;
     width: 100vw;
+    max-width: 1170px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
