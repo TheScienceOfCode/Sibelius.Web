@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Sibelius.Web.Common;
+using MongoDB.Driver;
 
 namespace Sibelius.Web.Behavior
 {
@@ -49,6 +50,18 @@ namespace Sibelius.Web.Behavior
         public void Update(Article article)
         {
             unit.Articles.Update(article);
+        }
+
+        public void UpdateCounter(Article article)
+        {
+            MongoUrl url = new MongoUrl(Global.Connection);
+            MongoClient client = new MongoClient(url);
+            MongoServer server = client.GetServer();
+            MongoDatabase db = server.GetDatabase(url.DatabaseName);
+
+            var filter = MongoDB.Driver.Builders.Query<Article>.EQ(a => a.Id, article.Id);
+            var update = MongoDB.Driver.Builders.Update<Article>.Inc(a => a.Visitas, 1);
+            db.GetCollection<Article>("Article").Update(filter, update);
         }
 
         public void Delete(Article article)
