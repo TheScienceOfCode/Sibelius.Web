@@ -19,8 +19,11 @@ namespace Sibelius.Web.Controllers
             if (!Request.IsAuthenticated && Session[string.Format("articleid={0}", id)] == null)
             {
                 Session[string.Format("articleid={0}", id)] = true;
+
+                articleBehavior.UpdateCounter(article);
+
+                // Add +1 just to show to the user
                 article.Visitas++;
-                articleBehavior.Update(article);
             }
             var articles = articleBehavior.GetVisible().ToList();
 

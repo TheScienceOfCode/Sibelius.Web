@@ -43,6 +43,8 @@
             @Html.Raw(Model.HtmlImageFooter)
             <br />
         </div>
+        <hr />
+        @Articles.Stats(Model)
     </div>
     <div class="col-md-4">
         @Social.FbPage()
