@@ -147,7 +147,10 @@ textarea {
         margin-left: 15px;
     }
 
-
+    .article-text pre, .article-text .gist {
+        margin-left: 15px;
+    }
+    
     .article-text h4 {        
         margin-left: 10px;
     }
