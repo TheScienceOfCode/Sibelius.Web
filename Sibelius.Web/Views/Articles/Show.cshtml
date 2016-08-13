@@ -1,9 +1,10 @@
 ﻿@model  Sibelius.Web.Models.Article
 @{
     ViewBag.Title = Model.Title;
-    ViewBag.MetaDescription = Model.Title;
+    ViewBag.MetaDescription = Model.Intro;
     ViewBag.MetaKeywords = Model.Tags;
     ViewBag.MainImage = Model.ImageUrl;
+    ViewBag.ogUrl = "http://thescienceofcode.azurewebsites.net/articles/show/" + Model.Id;
 }
 
 @{ var backgroundposition = Model.BackgroundPosition != null ? Model.BackgroundPosition : "center bottom"; }
