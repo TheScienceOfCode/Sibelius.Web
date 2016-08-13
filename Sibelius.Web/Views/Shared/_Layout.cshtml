@@ -3,18 +3,26 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @if (ViewBag.MetaDescription != null)
-    {
-        <meta name="description" content="@ViewBag.MetaDescription" />
-    }
-    @if (ViewBag.MetaKeywords != null)
-    {
-        <meta name="keywords" content="@ViewBag.MetaKeywords" />
-    }
-    @if (ViewBag.MainImage != null)
-    {
-        <meta property="og:image" content="@ViewBag.MainImage" />
-    }
+@if (ViewBag.MetaDescription != null)
+{
+    <meta name="description" content="@ViewBag.MetaDescription" />
+    <meta property="og:description" content="@ViewBag.MetaDescription" />
+}
+@if (ViewBag.MetaKeywords != null)
+{
+    <meta name="keywords" content="@ViewBag.MetaKeywords" />
+}
+@if (ViewBag.MainImage != null)
+{
+    <meta property="og:image" content="@ViewBag.MainImage" />
+}
+@if (ViewBag.ogUrl != null)
+{
+    <meta property="og:url" content="@ViewBag.ogUrl" />
+}
+    <meta property="fb:app_id" content="770797393033687" />
+    <meta property="og:title" content="@ViewBag.Title" />
+
     <title>@ViewBag.Title - The Science of Code</title>
     @Styles.Render("~/Content/css")
     @if (Session["fonts"] != null)
@@ -63,18 +71,18 @@
                         <a class="fb-top" href="http://facebook.com/TheScienceOfCode" target="_blank"><small><i class="fa fa-facebook"></i></small></a>
                     </li>
                     <li class="hidden-xs">
-                        <a  class="tw-top" href="https://twitter.com/ScienceOfCode" target="_blank"><small><i class="fa fa-twitter"></i></small></a>
+                        <a class="tw-top" href="https://twitter.com/ScienceOfCode" target="_blank"><small><i class="fa fa-twitter"></i></small></a>
                     </li>
                 </ul>
             </div>
-        </div>        
+        </div>
     </div>
     <!-- Left menu element -->
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left">
         <br /><br />
         <a href="~/Home"><small><span class="glyphicon glyphicon-book">&nbsp;</span> Revista</small></a>
         <a href="~/Courses"><small><span class="glyphicon glyphicon-pencil">&nbsp;</span> Cursos</small></a>
-        <a href="~/Home/About"><small><span class="glyphicon glyphicon-question-sign">&nbsp;</span> ¿Qué es esto?</small></a> 
+        <a href="~/Home/About"><small><span class="glyphicon glyphicon-question-sign">&nbsp;</span> ¿Qué es esto?</small></a>
         <a class="toggle-menu menu-left push-body"><small><span class="glyphicon glyphicon-remove">&nbsp;</span> Cerrar</small></a>
     </nav>
     <div class="container body-content">
@@ -84,7 +92,7 @@
                 <div class="col-xs-12">
                     <div class="btn-group btn-group-justified">
                         @if (User.IsInRole("admin"))
-                        {                            
+                        {
                             <a class="btn btn-default" href="~/AdminArticles">
                                 ARTICLES
                             </a>
@@ -143,7 +151,7 @@
             </div>
         </div>
     </div>
-    <footer>        
+    <footer>
         <div class="row">
             <div class="col-xs-12 text-center">
                 <small>Apoyados por</small><br />
@@ -160,7 +168,7 @@
     {
         @Html.Partial("_LegalInfo")
     }
-    
+
     @Html.Partial("_Pubadv")
 
     @Scripts.Render("~/bundles/modernizr")
@@ -177,7 +185,7 @@
 
     <script>
         jQuery(document).ready(function($) {
-	        $('.toggle-menu').jPushMenu();
+            $('.toggle-menu').jPushMenu();
         });
     </script>
     <script>
@@ -191,9 +199,9 @@
         ga('create', 'UA-59510259-1', 'auto');
         ga('send', 'pageview');
     </script>
-    
+
     @{  var pubadv = HttpContext.Current.Session["pubadv"];
-        int timeout = 5000;    
+        int timeout = 5000;
     }
     @if ((int)pubadv > 0)
     {
@@ -206,7 +214,7 @@
                     $('#pubadv').hide();
                 });
                 setTimeout(checkAds, @timeout);
-            }            
+            }
         );
 
         function checkAds() {
@@ -216,7 +224,7 @@
                     type: 'post',
                     data: {'value':true},
                     url: '@Url.Content("~/Home/PubAdvAccept")',
-                    success: 
+                    success:
                         function(result) {
                             var string = window.location.href.toUpperCase(), substring = "HOME";
                             if(string.indexOf(substring) == -1)
