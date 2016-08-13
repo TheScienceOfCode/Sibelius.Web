@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="es">
+<html lang="es" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
     }
     @if (ViewBag.MainImage != null)
     {
-        <meta name="og:image" content="@ViewBag.MainImage" />
+        <meta property="og:image" content="@ViewBag.MainImage" />
     }
     <title>@ViewBag.Title - The Science of Code</title>
     @Styles.Render("~/Content/css")
