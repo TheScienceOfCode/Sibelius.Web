@@ -38,7 +38,7 @@
 
 /* Orientation-dependent styles for the content of the menu */
 .cbp-spmenu-vertical {
-    width: 140px;
+    width: 160px;
     height: 100%;
     top: 0;
     z-index: 1000;
@@ -167,6 +167,6 @@
 }
 
 .push-body-toright {
-    margin-left: 140px;
+    margin-left: 160px;
     overflow-x: scroll;
 }

@@ -370,14 +370,13 @@ a:hover {
     bottom: 0px;
     padding: 1px 10px 10px 16px;
     background-color: rgba(40, 40, 40, 0.95);
-    max-height: 75px;
-    font-size: 20px;    
-    font-weight: lighter;
+    max-height: 100%;
+    font-size: 21px;    
+    font-weight: bold;
     font-family: 'News Cycle';        
     width: 100%; 
+    display: block;
 }
-
-
 
 .sm-title {
     position: absolute;
@@ -515,7 +514,8 @@ footer {
 .more-articles-group {
     font-family: "News Cycle"; 
     font-weight: bolder;
-      
+    display: block;
+    margin-top: 15px;
 }
 
     .more-articles-group > span {

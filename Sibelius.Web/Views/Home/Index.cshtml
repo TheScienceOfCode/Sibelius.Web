@@ -7,6 +7,7 @@
 
     var articles = Model.Articles;
     var posts = Model.Posts;
+    int bigArticles = 5;
 }
 <br />
 @if ((int)Session["pubadv"] > 0)
@@ -50,24 +51,44 @@
 
 <div class="row">
     <div class="col-sm-8 no-limits">
-        @for (int i = 1; i < 5; ++i)
+        @for (int i = 1; i < bigArticles; ++i)
         {
             <div class="col-sm-6">
                 @Articles.Headline(articles[i])
             </div>
         }
-    </div>
-    <div class="col-sm-4">        
-        <div class="more-articles-group">
-            <span>Quizá te interese</span>
-            @for (int i = 5; i < articles.Count; ++i)
-            {
-                <a href="~/Articles/Show/@articles[i].Id">
-                    <span class="sm-section">@articles[i].Section</span><br />
-                    @articles[i].Title 
-                </a>
-            }
+        <br />
+        <br />
+        <div class="col-md-6">
+            <div class="more-articles-group">
+                @{ var mid = (articles.Count - bigArticles + 1) / 2; }
+                @for (int i = bigArticles; i < bigArticles + mid; ++i)
+                {
+                    <a href="~/Articles/Show/@articles[i].Id">
+                        <span class="sm-section">@articles[i].Section</span><br />
+                        @articles[i].Title
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="more-articles-group">
+                @for (int i = bigArticles + mid; i < articles.Count; ++i)
+                {
+                    <a href="~/Articles/Show/@articles[i].Id">
+                        <span class="sm-section">@articles[i].Section</span><br />
+                        @articles[i].Title
+                    </a>
+                }
+            </div>
         </div>
     </div>
+    <div class="col-sm-4" id="questions-list">
+        @{Html.RenderAction("List", "Questions"); }
+    </div>
 </div>
+
+@section Scripts {
+    <script src="~/Scripts/app/questions.js"></script>
+}
 
