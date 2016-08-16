@@ -1,6 +1,6 @@
 ﻿body {
     padding-top: 60px;
-    font-family: 'Open Sans';
+    font-family: 'Roboto';
     /*font-size:18px;*/
     color: #2b2b2b;
     line-height: 1.6;
@@ -92,18 +92,18 @@ html {
 }
 
 .light-body {
-    background-color: #eaeaea;
+    background-color: #edecec;
 }
 
 .dark-body body {    
-    background-color: #eaeaea;
+    background-color: #cccccc;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 30px;
     padding-right: 30px;
-    background-color: #f5f5f5;
+    background-color: #f6f6f6;
     padding-bottom: 150px;
     width: 100vw;
     max-width: 1170px;
@@ -138,7 +138,7 @@ textarea {
 
 .article-text, .article-text-intro, .article-text ul li{
     text-align: justify;
-    font-size: 17px;
+    font-size: 18px;
     line-height: 1.8;
 }
 
