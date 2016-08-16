@@ -50,36 +50,38 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-8 no-limits">
-        @for (int i = 1; i < bigArticles; ++i)
-        {
-            <div class="col-sm-6">
-                @Articles.Headline(articles[i])
-            </div>
-        }
-        <br />
-        <br />
-        <div class="col-md-6">
-            <div class="more-articles-group">
-                @{ var mid = (articles.Count - bigArticles + 1) / 2; }
-                @for (int i = bigArticles; i < bigArticles + mid; ++i)
-                {
-                    <a href="~/Articles/Show/@articles[i].Id">
-                        <span class="sm-section">@articles[i].Section</span><br />
-                        @articles[i].Title
-                    </a>
-                }
-            </div>
+    <div class="col-sm-8">
+        <div class="row">
+            @for (int i = 1; i < bigArticles; ++i)
+            {
+                <div class="col-sm-6">
+                    @Articles.Headline(articles[i])
+                </div>
+            }
         </div>
-        <div class="col-md-6">
-            <div class="more-articles-group">
-                @for (int i = bigArticles + mid; i < articles.Count; ++i)
-                {
-                    <a href="~/Articles/Show/@articles[i].Id">
-                        <span class="sm-section">@articles[i].Section</span><br />
-                        @articles[i].Title
-                    </a>
-                }
+        <div class="row">
+            <div class="col-md-6">
+                <div class="more-articles-group">
+                    @{ var mid = (articles.Count - bigArticles + 1) / 2; }
+                    @for (int i = bigArticles; i < bigArticles + mid; ++i)
+                    {
+                        <a href="~/Articles/Show/@articles[i].Id">
+                            <span class="sm-section">@articles[i].Section</span><br />
+                            @articles[i].Title
+                        </a>
+                    }
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="more-articles-group">
+                    @for (int i = bigArticles + mid; i < articles.Count; ++i)
+                    {
+                        <a href="~/Articles/Show/@articles[i].Id">
+                            <span class="sm-section">@articles[i].Section</span><br />
+                            @articles[i].Title
+                        </a>
+                    }
+                </div>
             </div>
         </div>
     </div>
