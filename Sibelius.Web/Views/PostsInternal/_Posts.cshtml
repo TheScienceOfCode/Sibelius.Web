@@ -1,9 +1,5 @@
 ﻿@model IEnumerable<Sibelius.Web.Models.Post>
 @{ var count = 0; }
-<div style="display:none;">
-    <span id="desc">Posts sobre computación, desarrollo de apps, videojuegos y mucho más.</span>
-    <span id="keywords">computación, apps, dev, videojuegos</span>
-</div>
 @foreach (var item in Model)
 {
     item.Html = null;

@@ -31,7 +31,14 @@
     </div>
     <div class="col-md-8">
         <div id="posts-body">
-            @{Html.RenderAction((string)ViewBag.Action, (string)ViewBag.Controller, (object[])ViewBag.routeValues);}
+            @if (ViewBag.Post == null)
+            {
+                Html.RenderAction((string)ViewBag.Action, (string)ViewBag.Controller, (object[])ViewBag.routeValues);
+            }
+            else
+            {
+                Html.RenderPartial("~/Views/PostsInternal/_Show.cshtml", (Sibelius.Web.Models.Post)ViewBag.Post);
+            }
         </div>
     </div>
 </div>

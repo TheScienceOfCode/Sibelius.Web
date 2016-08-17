@@ -103,6 +103,27 @@ $(function () {
     });
 });
 
+/// Gets default options
+function getDefaults(o) {
+    var options = o || {};
+    options.load = options.load || false;
+    options.push = options.push || false;
+    options.top = options.top || 0;
+    options.div = options.div || '';
+    options.func = options.func || defaultLoad;
+    options.precall = options.precall || undefined;
+    options.postcall = options.postcall || undefined;
+    options.method = options.method || 'POST';
+    options.contentType = options.contentType || 'text/html; charset=utf-8';
+    options.getCall = options.getCall || function (id) { return $(id).data('url'); };
+    options.updateMetadata = options.updateMetadata || updateMetadata;
+    options.metadataDesc = options.metadataDesc || '#desc';
+    options.metadataKeywords = options.metadataKeywords || '#keywords';
+    options.metadataTitle = options.metadataTitle || '#title';
+    options.metadataImageUrl = options.metadataImageUrl || '#mainImageUrl';
+    return options;
+}
+
 /// Sets on click for all a[data-url]    
 /// 
 /// options.load: determines if a gif is showed when loading (by default is a nested <img>).
@@ -120,22 +141,9 @@ $(function () {
 /// options.metadataKeywords: id that contains new keywords info.
 
 function setOnClickDataUrl(o) {
-    var options = o || {};
-    options.load = options.load || false;
-    options.push = options.push || false;
-    options.top = options.top || 0;
-    options.div = options.div || '';
-    options.func = options.func || defaultLoad;
-    options.precall = options.precall || undefined;
-    options.postcall = options.postcall || undefined;
-    options.method = options.method || 'POST';
-    options.contentType = options.contentType || 'text/html; charset=utf-8';
-    options.getCall = options.getCall || function (id) { return $(id).data('url'); };
-    options.updateMetadata = options.updateMetadata || updateMetadata;
-    options.metadataDesc = options.metadataDesc || '#desc';
-    options.metadataKeywords = options.metadataKeywords || '#keywords';
+    var options = getDefaults(o);
 
-    if (options.updateMetadata) {
+    if (options.push) {
         window.onpopstate = function (event) {
             // Trigger url load
             document.location = document.location;
@@ -190,8 +198,14 @@ function defaultLoad(e, options) {
             // Reconfigure buttons
             setOnClickDataUrl(options);
 
-            // History
-            if (options.push) options.updateMetadata(options.metadataDesc, options.metadataKeywords);
+            // History -> update metadata
+            if (options.push) {
+                var desc = $(options.metadataDesc).html();
+                var keywords = $(options.metadataKeywords).html();
+                var title = $(options.metadataTitle).html();
+                var img = $(options.metadataImageUrl).html();
+                options.updateMetadata(title, desc, keywords, img);
+            }
             // Hide loading gif
             if (options.load) jQuery(e).find("img").removeClass('visible');
 
@@ -205,15 +219,25 @@ function defaultLoad(e, options) {
     reqs.push(r);
 }
 
-function updateMetadata(desc, keywords) {
+function updateMetadata(title, desc, keywords, image) {
+    $('title').html(title);
+
     $('meta[name=description]').remove();
-    $('head').append('<meta name="description" content="' + $(desc).html() + '" />');
+    $('head').append('<meta name="description" content="' + desc + '" />');
     $('meta[name=keywords]').remove();
-    $('head').append('<meta name="keywords" content="' + $(keywords).html() + '" />');
+    $('head').append('<meta name="keywords" content="' + keywords + '" />');
+    
 
     // og
     $('meta[property="og:description"]').remove();
-    $('head').append('<meta property="og:description" content="' + $(desc).html() + '" />');
+    $('head').append('<meta property="og:description" content="' + desc + '" />');
+
+    $('meta[property="og:title"]').remove();
+    $('head').append('<meta property="og:title" content="' + title + '" />');   
+
+    $('meta[property="og:image"]').remove();
+    $('head').append('<meta property="og:url" content="' + image + '" />');
+    
 }
 
 // Smoth scrolling

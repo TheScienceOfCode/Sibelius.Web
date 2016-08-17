@@ -177,6 +177,7 @@
     <Compile Include="Behavior\ArticleBehavior.cs" />
     <Compile Include="Behavior\CourseBehavior.cs" />
     <Compile Include="Common\ExtendedMethods.cs" />
+    <Compile Include="Common\PostsMetadata.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminAssetsController.cs" />
     <Compile Include="Controllers\AdminLicensesController.cs" />
