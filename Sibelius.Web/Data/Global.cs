@@ -12,5 +12,7 @@ namespace Sibelius.Web.Data
              //"mongodb://localhost/tsoc";
 
         public static readonly string IdProperty = "Id";
+
+        public const string DefaultMainImg = "https://www.facebook.com/TheScienceOfCode/photos/a.352841624827797.1073741827.213321925446435/729301400515149/?type=1&theater";
     }
 }
