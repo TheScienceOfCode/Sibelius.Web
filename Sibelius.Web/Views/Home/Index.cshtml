@@ -55,7 +55,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="more-articles-group">
+                <div class="tsoc-group tsoc-group-big">
                     @{ var mid = (articles.Count - bigArticles + 1) / 2; }
                     @for (int i = bigArticles; i < bigArticles + mid; ++i)
                     {
@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="more-articles-group">
+                <div class="tsoc-group tsoc-group-big">
                     @for (int i = bigArticles + mid; i < articles.Count; ++i)
                     {
                        @Articles.HeadlineMore(articles[i])
@@ -79,10 +79,12 @@
                 <span class="section-span">
                     Últimos Posts
                 </span>
-                <div class="section-div more-articles-group">
+                <div class="section-div tsoc-group">
+                    @{ var img = true;}
                     @foreach (var post in posts)
                     {
-                        @Posts.Headline(post)
+                        @Posts.Headline(post, img)
+                        img = false;
                     }
                     <div class="row">
                         <div class="col-xs-12 text-right">
