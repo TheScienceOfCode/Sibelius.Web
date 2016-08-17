@@ -26,3 +26,11 @@ var backgroundposition = article.BackgroundPosition != null ? article.Background
         </a>
     </div>
 }
+
+@helper HeadlineMore(Sibelius.Web.Models.Article article)
+{
+    <a href="~/Articles/Show/@article.Id">
+        <span class="sm-section">@article.Section</span><br />
+        @article.Title
+    </a>
+}

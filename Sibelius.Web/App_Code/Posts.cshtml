@@ -1,12 +1,8 @@
 ﻿
 @helper Headline(Sibelius.Web.Models.Post post)
 {
-    <div class="post-headline">
-        <a href="~/Posts/Show/@post.Id">
-            <img class="img-responsive" src="@post.ImageUrl" />
-            <div class="sm-title">
-                @post.Title
-            </div>
-        </a>
-    </div>
+    <a href="~/Posts/Show/@post.Id">
+        <span class="sm-section">@post.Section</span><br />
+        @post.Title
+    </a>
 }

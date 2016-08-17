@@ -1,4 +1,4 @@
-﻿@model Sibelius.Web.Models.PortraitVM
+﻿@model Sibelius.Web.Models.MainpageVM
 @{
     ViewBag.Title = "Portada";
     ViewBag.MetaDescription = "Somos una comunidad dedicada a la enseñanza de las Ciencias de la Computación como Arte Liberal";
@@ -40,17 +40,11 @@
 
 <div class="row">
     <div class="col-sm-8">
-        @Articles.Headline(articles[0])
-    </div>
-    <div class="col-sm-4">
-        <div class="text-center" style="margin-top: 30px">
-            @Social.FbPage()
+        <div class="row">
+            <div class="col-xs-12">
+                @Articles.Headline(articles[0])
+            </div>
         </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-8">
         <div class="row">
             @for (int i = 1; i < bigArticles; ++i)
             {
@@ -65,10 +59,7 @@
                     @{ var mid = (articles.Count - bigArticles + 1) / 2; }
                     @for (int i = bigArticles; i < bigArticles + mid; ++i)
                     {
-                        <a href="~/Articles/Show/@articles[i].Id">
-                            <span class="sm-section">@articles[i].Section</span><br />
-                            @articles[i].Title
-                        </a>
+                        @Articles.HeadlineMore(articles[i])
                     }
                 </div>
             </div>
@@ -76,17 +67,36 @@
                 <div class="more-articles-group">
                     @for (int i = bigArticles + mid; i < articles.Count; ++i)
                     {
-                        <a href="~/Articles/Show/@articles[i].Id">
-                            <span class="sm-section">@articles[i].Section</span><br />
-                            @articles[i].Title
-                        </a>
+                       @Articles.HeadlineMore(articles[i])
                     }
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-4" id="questions-list">
-        @{Html.RenderAction("List", "Questions"); }
+    <div class="col-sm-4">
+        <div class="row">
+            <div class="col-xs-12">
+                <span class="section-span">
+                    Últimos Posts
+                </span>
+                <div class="section-div more-articles-group">
+                    @foreach (var post in posts)
+                    {
+                        @Posts.Headline(post)
+                    }
+                    <div class="row">
+                        <div class="col-xs-12 text-right">
+                            <a class="btn btn-link" href="~/Posts">Ver más Posts ></a>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+        <div class="row" id="questions-list">
+            <div class="col-xs-12">
+                @{Html.RenderAction("List", "Questions"); }
+            </div>
+        </div>        
     </div>
 </div>
 

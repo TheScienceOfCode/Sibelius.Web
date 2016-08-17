@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Sibelius.Web.Models
 {
-    public class PortraitVM
+    public class MainpageVM
     {
         public List<Article> Articles { get; set; }
 
