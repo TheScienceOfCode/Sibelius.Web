@@ -531,30 +531,35 @@ footer {
     margin-bottom: 30px;
 }
 
-.more-articles-group {
+.tsoc-group {
     font-family: "News Cycle"; 
     font-weight: bolder;
     display: block;
     margin-top: 15px;
 }
 
-    .more-articles-group a:not(.btn) {
+    .tsoc-group a:not(.btn) {
         border-bottom: 1px solid #cfcdcd;
         display: block;
-        color: #000; 
-        min-height: 85px;
+        color: #000;
+        min-height: 40px;
+        padding-bottom: 10px;        
     }
-    .more-articles-group a:hover:not(.btn),
-    .more-articles-group a:focus:not(.btn),
-    .more-articles-group a:active:not(.btn) {
+    .tsoc-group a:hover:not(.btn),
+    .tsoc-group a:focus:not(.btn),
+    .tsoc-group a:active:not(.btn) {
         color: #000; 
         text-decoration: none;
         background-color: #e2e2e2;
     }
 
-    .more-articles-group .btn {
+    .tsoc-group .btn {
         font-weight: bold;
     }
+
+.tsoc-group-big >  a:not(.btn) {
+    min-height: 85px;
+}
 
 .sm-section {
     background-color: #f67930;
