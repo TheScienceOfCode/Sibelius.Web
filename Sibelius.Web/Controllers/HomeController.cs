@@ -18,10 +18,10 @@ namespace Sibelius.Web.Controllers
         [SkipBanFilter]
         public ActionResult Index()
         {
-            var result = new PortraitVM()
+            var result = new MainpageVM()
             {
                 Articles = articleBehavior.GetVisible().ToList(),
-                Posts = postBehavior.GetAll(1).ToList()
+                Posts = postBehavior.GetAll(1).Take(3).ToList()
             };
             return View(result);
         }

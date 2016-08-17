@@ -97,8 +97,8 @@ html {
     background-color: #edecec;
 }
 
-.dark-body body {    
-    background-color: #cccccc;
+.dark-body {    
+    background-color: #ebebeb;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -347,24 +347,25 @@ a:hover {
     box-shadow: 0px 0px 25px 2px #f67930;
 }
 
+/* CHANGED STYLE
 .post-headline {
-    box-shadow: 0px 3px 12px -4px #000000;  
+    font-family: "News Cycle"; 
+    font-weight: bold;
     width: 100%;       
     margin-top: 30px;
     display: block;
 }
     .post-headline a, .post-headline a:hover {
         color: #fff;
-        text-decoration: none;
-    
+        text-decoration: none;    
     }
-    .post-headline .sm-title {
-        background-color: rgba(220, 220, 220, 1);
+
+    .post-headline .post-title {
+        background-color: #f67930;
         color: black;
         font-size: 14px;
-        font-weight: bold;
-        padding-left: 10px;
-    }
+        padding: 0 10px 0 10px;
+    }*/
 
 .headline {    
     color: #fff;            
@@ -481,10 +482,7 @@ a:hover {
     }
 
 footer {
-    background-color: #262626
-}
-
-footer {
+    background-color: #262626;
     color: #fff !important;
 }
 
@@ -513,6 +511,26 @@ footer {
             text-decoration: none;
         }
 
+
+
+.section-span {
+    font-family: "News Cycle"; 
+    font-weight: bolder;
+    margin-top: 30px;
+    display: block;
+    background-color: #262626;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 7px 0px 7px 0px;
+}
+
+.section-div {
+    padding: 10px;
+    background-color: #ededed;
+    margin-bottom: 30px;
+}
+
 .more-articles-group {
     font-family: "News Cycle"; 
     font-weight: bolder;
@@ -520,32 +538,28 @@ footer {
     margin-top: 15px;
 }
 
-    .more-articles-group > span {
-        margin-top: 30px;
-        display: block;
-        background-color: #262626;
-        color: #fff;
-        text-transform: uppercase;
-        text-align: center;
-        padding: 7px 0px 7px 0px;
-    }
-
-    .more-articles-group a {
+    .more-articles-group a:not(.btn) {
         border-bottom: 1px solid #cfcdcd;
         display: block;
         color: #000; 
         min-height: 85px;
     }
-    .more-articles-group a:hover {
+    .more-articles-group a:hover:not(.btn),
+    .more-articles-group a:focus:not(.btn),
+    .more-articles-group a:active:not(.btn) {
         color: #000; 
         text-decoration: none;
         background-color: #e2e2e2;
     }
 
+    .more-articles-group .btn {
+        font-weight: bold;
+    }
+
 .sm-section {
     background-color: #f67930;
     color: #fff;
-    padding: 0 15px 0 15px;
+    padding: 1px 15px 0px 15px;
     text-transform: uppercase;
     font-size: 10px;
     text-align: center;
