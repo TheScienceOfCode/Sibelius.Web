@@ -1,12 +1,17 @@
 ﻿@model Sibelius.Web.Models.Post
 @{
     Layout = null;
-    ViewBag.Title = Model.Title;
     ViewBag.bodyclass = "dark-body";
-    ViewBag.MetaDescription = Model.Title;
-    ViewBag.MetaKeywords = Model.Tags;
 }
-@Html.Partial("_Post", Model)
+
+<div style="display:none">
+    <span id="desc">@ViewBag.MetaDescription</span>
+    <span id="keywords">@ViewBag.MetaKeywords</span>
+    <span id="title">@ViewBag.Title</span>
+    <span id="mainImageUrl">@ViewBag.MainImage</span>
+</div>
+
+@Html.Partial("~/Views/PostsInternal/_Post.cshtml", Model)
 <div class="row">
     <div class="col-xs-12">
         <div class="panel">

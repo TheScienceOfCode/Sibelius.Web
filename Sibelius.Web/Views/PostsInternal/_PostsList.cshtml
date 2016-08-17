@@ -2,6 +2,13 @@
 
 @{  bool problems = ViewBag.Section != null && ViewBag.Section.ToUpper() == "PROBLEMAS"; }
 
+<div style="display:none">
+    <span id="desc">@ViewBag.MetaDescription</span>
+    <span id="keywords">@ViewBag.MetaKeywords</span>
+    <span id="title">@ViewBag.Title</span>
+    <span id="mainImageUrl">@ViewBag.MainImage</span>
+</div>
+
 @if (problems)
 {
     @Html.Partial("_Problems", Model);

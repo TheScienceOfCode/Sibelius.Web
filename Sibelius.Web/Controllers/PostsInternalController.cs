@@ -1,4 +1,6 @@
 ﻿using Sibelius.Web.Behavior;
+using Sibelius.Web.Common;
+using Sibelius.Web.Data;
 using Sibelius.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -25,9 +27,8 @@ namespace Sibelius.Web.Controllers
                 Url = url
             };
 
-            ViewBag.MetaDescription = "Posts cortos sobre computacion, videojuegos, gamedev, appdev, software y hardware.";
-            ViewBag.MetaKeywords = "computacion, software, programacion, desarrollo, software, hardware, crear videojuegos, gamedev, videojuegos indie, apps";
-
+            PostsMetadata.ForIndex(ViewBag);
+            
             return PartialView("_PostsList", posts);
         }
         
@@ -43,17 +44,16 @@ namespace Sibelius.Web.Controllers
                 Url = url + "&page={0}"
             };
 
-            ViewBag.Section = name;
-            ViewBag.MetaDescription = "Posts sobre " + name;
-            ViewBag.MetaKeywords = "posts, computación, artículos, tutoriales, " + name;
+            PostsMetadata.ForSection(ViewBag, name);
+
             return PartialView("_PostsList", post);
         }
         
         public ActionResult Show(string id)
         {
             var post = postBehavior.GetById(id);
-            ViewBag.MetaDescription = post.Title;
-            ViewBag.MetaKeywords = post.Tags;
+
+            PostsMetadata.ForPost(ViewBag, post);
 
             return View("_Show", post);
         }

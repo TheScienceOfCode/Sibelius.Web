@@ -1,4 +1,5 @@
 ﻿using Sibelius.Web.Behavior;
+using Sibelius.Web.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,6 @@ namespace Sibelius.Web.Controllers
 
         public ActionResult Index(int page=1)
         {
-            ViewBag.CallbackUrl = Url.Content("~/Posts/Index?page=" + page);
             ViewBag.Title = "Posts";
             ViewBag.Controller = "PostsInternal";
             ViewBag.Action = "Index";
@@ -24,7 +24,6 @@ namespace Sibelius.Web.Controllers
 
         public ActionResult Section(string name, int page = 1)
         {
-            ViewBag.CallbackUrl = Url.Content("~/Posts/Section?name=" + name + "&page=" + page);
             ViewBag.Title = "Posts";
             ViewBag.Controller = "PostsInternal";
             ViewBag.Action = "Section";
@@ -34,11 +33,10 @@ namespace Sibelius.Web.Controllers
 
         public ActionResult Show(string id)
         {
-            ViewBag.CallbackUrl = Url.Content("~/Posts/Show/" + id);
-            ViewBag.Title = "Posts";
-            ViewBag.Controller = "PostsInternal";
-            ViewBag.Action = "Show";
-            ViewBag.RouteValues = new object[] { id };
+            var post = postBehavior.GetById(id);
+            PostsMetadata.ForPost(ViewBag, post);
+
+            ViewBag.Post = post;
             return View("Index");
         }
     }
