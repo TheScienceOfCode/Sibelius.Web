@@ -210,6 +210,10 @@ function updateMetadata(desc, keywords) {
     $('head').append('<meta name="description" content="' + $(desc).html() + '" />');
     $('meta[name=keywords]').remove();
     $('head').append('<meta name="keywords" content="' + $(keywords).html() + '" />');
+
+    // og
+    $('meta[property="og:description"]').remove();
+    $('head').append('<meta property="og:description" content="' + $(desc).html() + '" />');
 }
 
 // Smoth scrolling
