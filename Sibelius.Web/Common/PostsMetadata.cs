@@ -29,7 +29,7 @@ namespace Sibelius.Web.Common
         public static void ForPost(dynamic ViewBag, Post post)
         {
             ViewBag.Title = post.Title;
-            ViewBag.MetaDescription = post.Title;
+            ViewBag.MetaDescription = post.IntroHtml.GetPlainText();
             ViewBag.MetaKeywords = post.Tags;
             ViewBag.MainImage = post.ImageUrl;
         }
