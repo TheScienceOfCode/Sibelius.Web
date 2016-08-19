@@ -9,9 +9,9 @@
     <table class="small table table-responsive table-striped">
         <thead>
             <tr>
-                <th>Tipo</th>
-                <th class="hidden-xs">Autor</th>
                 <th class="text-center">Problema y explicación</th>
+                <th>Tipo</th>                
+                <th class="hidden-xs">Autor</th>
                 <th class="text-center hidden-xs">Social</th>
             </tr>
         </thead>
@@ -19,16 +19,16 @@
             @foreach (var item in Model)
             {
                 var data = item.Title.Split('[');
-                var title = data.Length == 1 ? data[0] : data[1].Substring(0, data[1].IndexOf(']'));
+                var type = data.Length <= 1 ? string.Empty : data[1].Substring(0, data[1].IndexOf(']'));
+                var title = data.Length <= 2 ? "Problema" : data[2].Substring(0, data[2].IndexOf(']'));
                 <tr>
-                    <td>@title</td>
-                    <td class="hidden-xs">@item.Author</td>
                     <td class="text-center">
-                        <a class="btn btn-primary posts-btn" data-url="@Url.Content("~/Posts/Show/" +item.Id)">
-                            <span class="glyphicon glyphicon-folder-open"></span> <span class="hidden-xs">&nbsp;Abrir</span>
-                            <img src="~/Content/loading-sm.gif" style="display:none;" />
+                        <a class="btn btn-link btn-sm posts-btn" data-url="@Url.Content("~/Posts/Show/" +item.Id)">
+                            @title
                         </a>
                     </td>
+                    <td>@type</td>                    
+                    <td class="hidden-xs">@item.Author</td>                    
                     <td class="hidden-xs">
                         @Social.CleanBtn(string.Format("http://thescienceofcode.azurewebsites.net/Posts/Show/{0}", item.Id), "")
                     </td>
