@@ -1,20 +1,29 @@
 ﻿@model IEnumerable<Sibelius.Web.Models.Question>
 
-<div class="col-xs-12">
-    <h4><span class="glyphicon glyphicon-exclamation-sign"></span> ÚLTIMAS RESPUESTAS</h4>
-    <hr />
+
+<span class="section-span">
+    Últimas Respuestas
+</span>
+<div class="section-div tsoc-group">
     @foreach (var question in Model)
     {
-        <h4>
-            <a href="~/Questions/Show/@question.Id">@question.Title</a>
-        </h4>
-        <div class="row">
-            @Social.CleanBtn(string.Format("http://thescienceofcode.azurewebsites.net/Questions/Show/{0}", question.Id))
-        </div>
-        <hr />
+        <a href="~/Questions/Show/@question.Id">
+            <span class="text-content">
+                @question.Title
+            </span>
+        </a>
     }
+    @if (!ViewBag.ShowPagination)
+    {
+        <a class="section-btn-more" href="~/Questions">
+            Ver más preguntas >
+        </a>
+    }
+</div>
+@if (ViewBag.ShowPagination)
+{
     @Html.Partial("~/Views/Shared/_Pagination.cshtml",
-    (Sibelius.Web.Models.PaginationVM)ViewBag.PaginationVM)
+                (Sibelius.Web.Models.PaginationVM)ViewBag.PaginationVM)
     <div class="row">
         <div class="col-xs-12">
             <div class="btn-group-justified">
@@ -22,4 +31,5 @@
             </div>
         </div>
     </div>
-</div>
+}
+

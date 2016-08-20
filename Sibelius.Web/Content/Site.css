@@ -374,7 +374,7 @@ a:hover {
     padding: 1px 10px 10px 16px;
     background-color: rgba(40, 40, 40, 0.95);
     max-height: 100%;
-    font-size: 21px;    
+    font-size: 18px;    
     font-weight: bold;
     font-family: 'News Cycle';        
     width: 100%; 
@@ -528,7 +528,16 @@ footer {
 .section-div {
     padding: 10px;
     background-color: #ededed;
-    margin-bottom: 30px;
+    margin-bottom: 30px;    
+}
+
+.section-btn-more {
+    border-bottom: 0px !important;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 12px;
+    padding: 10px 0 10px 0;    
+    min-height: 0px !important;
 }
 
 .tsoc-group {
@@ -536,14 +545,19 @@ footer {
     font-weight: bolder;
     display: block;
     margin-top: 15px;
+    padding: 0px;
 }
+
+    .tsoc-group span.text-content {
+        padding: 10px;
+        display: block;
+    }
 
     .tsoc-group a:not(.btn) {
         border-bottom: 1px solid #cfcdcd;
         display: block;
         color: #000;
-        min-height: 40px;
-        padding-bottom: 10px;        
+        min-height: 40px;      
     }
     .tsoc-group a:hover:not(.btn),
     .tsoc-group a:focus:not(.btn),

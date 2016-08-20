@@ -29,7 +29,7 @@ namespace Sibelius.Web.Controllers
 
             PostsMetadata.ForIndex(ViewBag);
             
-            return PartialView("_PostsList", posts);
+            return PartialView("_PostsList", posts.ToList());
         }
         
         public ActionResult Section(string name, int page = 1)
@@ -46,7 +46,7 @@ namespace Sibelius.Web.Controllers
 
             PostsMetadata.ForSection(ViewBag, name);
 
-            return PartialView("_PostsList", post);
+            return PartialView("_PostsList", post.ToList());
         }
         
         public ActionResult Show(string id)

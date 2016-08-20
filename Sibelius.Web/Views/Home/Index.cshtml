@@ -67,7 +67,7 @@
                 <div class="tsoc-group tsoc-group-big">
                     @for (int i = bigArticles + mid; i < articles.Count; ++i)
                     {
-                       @Articles.HeadlineMore(articles[i])
+                        @Articles.HeadlineMore(articles[i])
                     }
                 </div>
             </div>
@@ -86,19 +86,16 @@
                         @Posts.Headline(post, img)
                         img = false;
                     }
-                    <div class="row">
-                        <div class="col-xs-12 text-right">
-                            <a class="btn btn-link" href="~/Posts">Ver más Posts ></a>
-                        </div>
-                    </div>
-                </div>                
+                    <a class="section-btn-more" href="~/Posts">Ver más Posts ></a>
+
+                </div>
+            </div>
+            <div class="row" id="questions-list">
+                <div class="col-xs-12">
+                    @{Html.RenderAction("List", "Questions", new { pagination = false }); }
+                </div>
             </div>
         </div>
-        <div class="row" id="questions-list">
-            <div class="col-xs-12">
-                @{Html.RenderAction("List", "Questions"); }
-            </div>
-        </div>        
     </div>
 </div>
 

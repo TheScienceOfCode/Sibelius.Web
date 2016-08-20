@@ -18,16 +18,22 @@ namespace Sibelius.Web.Controllers
             return View();
         }
 
-        public ActionResult List(int page = 1)
+        public ActionResult List(int page = 1, bool pagination = true)
         {
             ViewBag.Collaborators = collaboratorBehavior.GetAll();
             var questions = questionBehavior.GetAll(page);
-            ViewBag.PaginationVM = new PaginationVM()
+
+            if (pagination)
             {
-                Url = "~/Questions/List?page={0}",
-                CurPage = page,
-                Pages = questionBehavior.GetPages()
-            };
+                ViewBag.PaginationVM = new PaginationVM()
+                {
+                    Url = "~/Questions/List?page={0}",
+                    CurPage = page,
+                    Pages = questionBehavior.GetPages()
+                };               
+            }
+            ViewBag.ShowPagination = pagination;
+
             return PartialView("_List", questions);
         }
 
