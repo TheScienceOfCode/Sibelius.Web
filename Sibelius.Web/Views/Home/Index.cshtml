@@ -89,11 +89,11 @@
                     <a class="section-btn-more" href="~/Posts">Ver más Posts ></a>
 
                 </div>
-            </div>
-            <div class="row" id="questions-list">
-                <div class="col-xs-12">
-                    @{Html.RenderAction("List", "Questions", new { pagination = false }); }
-                </div>
+            </div>           
+        </div>
+        <div class="row" id="questions-list">
+            <div class="col-xs-12">
+                @{Html.RenderAction("List", "Questions", new { pagination = false }); }
             </div>
         </div>
     </div>
