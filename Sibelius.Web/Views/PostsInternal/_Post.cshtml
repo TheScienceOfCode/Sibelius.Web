@@ -24,9 +24,22 @@
                     {                        
                         <hr />
                         @Html.Raw(Model.Html)
+                        <hr />
+                        <div class="row text-center">
+                            @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Posts/Show/{0}", Model.Id))
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h6 class="ending">
+                                    Tags: @Model.Tags <br />
+                                    Posteado: @Model.Date.ToShortDateString()
+                                </h6>
+                            </div>
+                        </div>
                     }
                     else
-                    {                        
+                    {
                         <div class="btn-group-justified btn-group">
                             <a data-url="@Url.Content("~/Posts/Show/"+Model.Id)" class="btn btn-primary">
                                 <span class="glyphicon glyphicon-plus"></span>
@@ -35,19 +48,6 @@
                             </a>
                         </div>
                     }
-                </div>
-                <hr />
-                <div class="row text-center">
-                    @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Posts/Show/{0}", Model.Id))
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h6 class="ending">
-                            Tags: @Model.Tags <br />
-                            Posteado: @Model.Date.ToShortDateString()
-                        </h6>
-                    </div>
                 </div>
             </div>
         </div>

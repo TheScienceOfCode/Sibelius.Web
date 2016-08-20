@@ -1,10 +1,20 @@
-﻿@model IEnumerable<Sibelius.Web.Models.Post>
-@{ var count = 0; }
-@foreach (var item in Model)
-{
+﻿@model List<Sibelius.Web.Models.Post>
+
+@for (int i = 0; i < Model.Count; i += 2)
+{   
+    var item = Model[i];
     item.Html = null;
-    @Html.Partial("_Post", item)
-    if (count++ == 4)
+    <div class="row">
+        @Html.Partial("_Post", item)
+        @if (i + 1 < Model.Count)
+        {
+            item = Model[i + 1];
+            item.Html = null;
+            @Html.Partial("_Post", item)
+        }
+
+    </div>
+    if (i == 4)
     {
         <div class="row">
             <div class="col-xs-12">

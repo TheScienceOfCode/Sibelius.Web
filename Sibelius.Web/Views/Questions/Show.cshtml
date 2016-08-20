@@ -34,10 +34,6 @@
             <small>@nombre</small>
         </blockquote>
         <br />
-        <div class="row text-center">
-            @Social.DefaultBtn(string.Format("http://thescienceofcode.azurewebsites.net/Questions/Show/{0}",Model.Id))
-        </div>
-        <br />
         <div class="text-justify">
             @Html.Raw(Model.HtmlAnswer)
         </div>
