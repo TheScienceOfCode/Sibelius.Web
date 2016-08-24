@@ -1,4 +1,20 @@
-﻿@helper Img(string url, string alt="", string dataUrl=null)
+﻿@using System.Web.Mvc;
+@using System.Web.Mvc.Html;
+
+@functions
+{
+    private static new HtmlHelper<object> Html
+    {
+        get { return ((WebViewPage)CurrentPage).Html; }
+    }
+
+    private static UrlHelper Url
+    {
+        get { return ((WebViewPage)CurrentPage).Url; }
+    }
+}
+
+@helper Img(string url, string alt="", string dataUrl=null)
 {
     if (dataUrl != null)
     {
@@ -15,12 +31,25 @@
 
 @helper ReCaptcha()
 {
-    <div id="captcha_container" class="g-recaptcha" data-sitekey="@Sibelius.Web.Integration.ReCaptcha.PublicReCaptchaKey"></div>
+    <div id="captcha-container">        
+    </div>
+    <div id="captcha-loading">
+        @{Html.RenderPartial("~/Views/Shared/_Loading.cshtml", true);}
+    </div>
     <script>
-        function loadCaptcha() {
-            captchaContainer = grecaptcha.render('captcha_container', {
-                'sitekey': '@Sibelius.Web.Integration.ReCaptcha.PublicReCaptchaKey'
+        
+        var loadCaptcha = function () {            
+            grecaptcha.render('captcha-container', {
+                'sitekey': '@Sibelius.Web.Integration.ReCaptcha.PublicReCaptchaKey',
             });
+            $('#captcha-loading').hide();
         }
+    </script>
+}
+
+@helper ReloadReCaptcha()
+{
+    <script>
+        $(function () { loadCaptcha() });
     </script>
 }
