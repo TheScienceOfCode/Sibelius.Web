@@ -26,6 +26,7 @@ namespace Sibelius.Web.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(License license)
         {
             if (!ModelState.IsValid)
@@ -49,6 +50,7 @@ namespace Sibelius.Web.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(License license)
         {
             if (!ModelState.IsValid)
@@ -71,6 +73,7 @@ namespace Sibelius.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(License license)
         {
             if (!ModelState.IsValid)

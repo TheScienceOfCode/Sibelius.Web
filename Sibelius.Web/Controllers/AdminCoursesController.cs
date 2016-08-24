@@ -34,6 +34,7 @@ namespace Sibelius.Web.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Course course)
         {
             if (!ModelState.IsValid)
@@ -61,6 +62,7 @@ namespace Sibelius.Web.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Course course)
         {
             if (!ModelState.IsValid)
@@ -86,6 +88,7 @@ namespace Sibelius.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(Course course)
         {
             if (!ModelState.IsValid)

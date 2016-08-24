@@ -1,4 +1,5 @@
 ﻿using Sibelius.Web.Behavior;
+using Sibelius.Web.Filters;
 using Sibelius.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -56,16 +57,18 @@ namespace Sibelius.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult SendQuestion([Bind(Include ="Text,Name,SourceCodeUrl,Email")]Question question)
+        [ReCaptchaFilter]
+        [ValidateAntiForgeryToken]
+        public ActionResult SendQuestion([Bind(Include ="Text,Name,SourceCodeUrl,Email")]Question question, bool captcha)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid || !captcha)
             {
                 return PartialView(
                     "_SendResult", 
                     new QuestionResultVM
                     {
                         Error = true,
-                        Message = "No pudimos recibir la pregunta :(",
+                        Message = captcha ? "No pudimos recibir la pregunta :(" : "ReCaptcha incorrecto.",
                         Question = question
                     });
             }
@@ -73,7 +76,6 @@ namespace Sibelius.Web.Controllers
             {
                 question.Title = question.Text;
                 questionBehavior.Insert(question);
-                Session["question"] = true;
                 return PartialView(
                    "_SendResult",
                    new QuestionResultVM

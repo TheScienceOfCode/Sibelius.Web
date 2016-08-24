@@ -33,6 +33,7 @@ namespace Sibelius.Web.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Article article)
         {
             if (!ModelState.IsValid)
@@ -60,6 +61,7 @@ namespace Sibelius.Web.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Article article)
         {
             if (!ModelState.IsValid)
@@ -85,6 +87,7 @@ namespace Sibelius.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(Article article)
         {
             if (!ModelState.IsValid)
