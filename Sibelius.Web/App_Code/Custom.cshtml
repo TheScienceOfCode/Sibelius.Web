@@ -15,5 +15,12 @@
 
 @helper ReCaptcha()
 {
-    <div class="g-recaptcha" data-sitekey="@Sibelius.Web.Integration.ReCaptcha.PublicReCaptchaKey"></div>
+    <div id="captcha_container" class="g-recaptcha" data-sitekey="@Sibelius.Web.Integration.ReCaptcha.PublicReCaptchaKey"></div>
+    <script>
+        function loadCaptcha() {
+            captchaContainer = grecaptcha.render('captcha_container', {
+                'sitekey': '@Sibelius.Web.Integration.ReCaptcha.PublicReCaptchaKey'
+            });
+        }
+    </script>
 }
