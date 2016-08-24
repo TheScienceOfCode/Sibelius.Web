@@ -33,6 +33,7 @@ namespace Sibelius.Web.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Asset asset)
         {
             if (!ModelState.IsValid)
@@ -60,6 +61,7 @@ namespace Sibelius.Web.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Asset asset)
         {
             if (!ModelState.IsValid)
@@ -85,6 +87,7 @@ namespace Sibelius.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(Asset asset)
         {
             if (!ModelState.IsValid)

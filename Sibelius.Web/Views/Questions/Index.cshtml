@@ -32,38 +32,19 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-8">
         <div class="well well-sm">
             <div class="row">
                 <div class="col-xs-12" id="new-question">
                     <h4><span class="glyphicon glyphicon-bullhorn"></span> HAZ TU PREGUNTA</h4>
                     <hr />
                     <div id="questions-action">
-                        @if (Session["question"] == null)
-                        {
-                            @Html.Partial("_SendQuestion", new Sibelius.Web.Models.Question())
-                        }
-                        else
-                        {
-                            <h3>Pronto responderemos tu pregunta</h3>
-                            <h4>Gracias por hacer parte de The Science of Code</h4>
-                        }
+                        @Html.Partial("_SendQuestion", new Sibelius.Web.Models.Question())                        
                     </div>                    
                 </div>
             </div>            
         </div>       
-    </div>
-    <div class="col-md-3">
-        <div class="alert alert-info">
-            <h4>Importante</h4>
-            <ul>
-                <li>Sólo puedes enviar una pregunta por sesión (para evitar spammers).</li>
-                <li>No contestamos preguntas de temas que no estén relacionados con computación.</li>
-                <li>No nos envies virus o páginas de phishing. Esto lo revisa un profesional ;) </li>
-            </ul>
-            
-        </div>
-    </div>
+    </div>    
     <div class="col-md-4" id="questions-list">
             @{Html.RenderAction("List", "Questions", null);}
         </div>
