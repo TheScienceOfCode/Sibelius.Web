@@ -140,11 +140,16 @@ function getDefaults(o) {
 /// options.metadataDesc: id that contains new desc info.
 /// options.metadataKeywords: id that contains new keywords info.
 
+popped = false;
 function setOnClickDataUrl(o) {
     var options = getDefaults(o);
 
     if (options.push) {
         window.onpopstate = function (event) {
+            if (!popped) {
+                popped = true;
+                return;
+            }
             // Trigger url load
             document.location = document.location;
         };
