@@ -139,15 +139,13 @@ function getDefaults(o) {
 /// options.updateMetadata: a function to update metadata.
 /// options.metadataDesc: id that contains new desc info.
 /// options.metadataKeywords: id that contains new keywords info.
-var popped = ('state' in window.history && window.history.state !== null), initialURL = location.href;
+var firstHistory = true;
 function setOnClickDataUrl(o) {
     var options = getDefaults(o);
 
     if (options.push) {
         window.onpopstate = function (e) {
-            var initialPop = !popped && location.href == initialURL;
-            popped = true;
-            if (initialPop) return;
+            if (firstHistory) return;
 
             // Trigger url load
             document.location = document.location;            
@@ -158,7 +156,10 @@ function setOnClickDataUrl(o) {
     $('[data-url]').on('click', function (e) {
         e.preventDefault();
         // History
-        if (options.push) window.history.pushState({ js: true }, "", $(this).data('url'));
+        if (options.push) {
+            firstHistory = false;
+            window.history.pushState({ js: true }, "", $(this).data('url'));
+        }
         // Precall
         if (options.precall) options.precall();
 
