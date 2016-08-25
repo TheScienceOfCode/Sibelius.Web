@@ -140,16 +140,18 @@ function getDefaults(o) {
 /// options.metadataDesc: id that contains new desc info.
 /// options.metadataKeywords: id that contains new keywords info.
 
-popped = false;
+var popped = ('state' in window.history && window.history.state !== null)
+var initialURL = location.href;
+
 function setOnClickDataUrl(o) {
     var options = getDefaults(o);
 
     if (options.push) {
         window.onpopstate = function (event) {
-            if (!popped) {
-                popped = true;
-                return;
-            }
+            var initialPop = !popped && location.href == initialURL;
+            popped = true;
+            if (initialPop) return;
+
             // Trigger url load
             document.location = document.location;
         };
