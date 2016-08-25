@@ -140,7 +140,7 @@ function getDefaults(o) {
 /// options.metadataDesc: id that contains new desc info.
 /// options.metadataKeywords: id that contains new keywords info.
 
-var popped = ('state' in window.history && window.history.state !== null)
+var popped = ('state' in window.history && window.history.state !== null);
 var initialURL = location.href;
 
 function setOnClickDataUrl(o) {
