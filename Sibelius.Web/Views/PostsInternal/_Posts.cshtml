@@ -4,16 +4,15 @@
 {   
     var item = Model[i];
     item.Html = null;
-    <div class="row">
+    
+    @Html.Partial("_Post", item)
+    if (i + 1 < Model.Count)
+    {
+        item = Model[i + 1];
+        item.Html = null;
         @Html.Partial("_Post", item)
-        @if (i + 1 < Model.Count)
-        {
-            item = Model[i + 1];
-            item.Html = null;
-            @Html.Partial("_Post", item)
-        }
-
-    </div>
+    }
+    
     if (i == 4)
     {
         <div class="row">
