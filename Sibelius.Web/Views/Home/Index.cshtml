@@ -52,26 +52,7 @@
                     @Articles.Headline(articles[i])
                 </div>
             }
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="tsoc-group tsoc-group-big">
-                    @{ var mid = (articles.Count - bigArticles + 1) / 2; }
-                    @for (int i = bigArticles; i < bigArticles + mid; ++i)
-                    {
-                        @Articles.HeadlineMore(articles[i])
-                    }
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="tsoc-group tsoc-group-big">
-                    @for (int i = bigArticles + mid; i < articles.Count; ++i)
-                    {
-                        @Articles.HeadlineMore(articles[i])
-                    }
-                </div>
-            </div>
-        </div>
+        </div>        
     </div>
     <div class="col-sm-4">
         <div class="row">
@@ -87,13 +68,46 @@
                         img = false;
                     }
                     <a class="section-btn-more" href="~/Posts">Ver más Posts ></a>
-
                 </div>
             </div>           
         </div>
         <div class="row" id="questions-list">
             <div class="col-xs-12">
                 @{Html.RenderAction("List", "Questions", new { pagination = false }); }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="row">
+            <div class="col-xs-12">
+                <span class="section-span">
+                    Más artículos
+                </span>
+            </div>
+            <div class="col-md-4">
+                <div class="tsoc-group tsoc-group-big">
+                    @{ var mid = (articles.Count - bigArticles + 1) / 3; }
+                    @for (int i = bigArticles; i < bigArticles + mid; ++i)
+                    {
+                        @Articles.HeadlineMore(articles[i])
+                    }
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="tsoc-group tsoc-group-big">
+                    @for (int i = bigArticles + mid; i < bigArticles + mid * 2; ++i)
+                    {
+                        @Articles.HeadlineMore(articles[i])
+                    }
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="tsoc-group tsoc-group-big">
+                    @for (int i = bigArticles + mid * 2; i < articles.Count(); ++i)
+                    {
+                        @Articles.HeadlineMore(articles[i])
+                    }
+                </div>
             </div>
         </div>
     </div>
