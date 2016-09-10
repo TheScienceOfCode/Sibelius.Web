@@ -48,8 +48,7 @@
                 </a>
             </div>
             @{
-                string curUrl = Request.Url.AbsoluteUri.ToUpper();
-                string coursesClass = curUrl.Contains("COURSES") ? "class=active" : "";
+                string curUrl = Request.Url.AbsoluteUri.ToUpper();                
                 string postsClass = curUrl.Contains("POSTS") ? "class=active" : "";
                 string aboutClass = curUrl.Contains("ABOUT") ? "class=active" : "";
                 string articlesClass = curUrl.Contains("ARTICLES") ? "class=active" : "";
@@ -60,8 +59,8 @@
                     <li @articlesClass>
                         <a href="~/Home">Revista</a>
                     </li>
-                    <li @coursesClass>
-                        <a href="~/Courses">Cursos</a>
+                    <li @postsClass>
+                        <a href="~/Posts">Posts</a>
                     </li>
                     <li @questionsClass>
                         <a href="~/Questions">Pregúntanos</a>
@@ -85,7 +84,7 @@
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left">
         <br /><br />
         <a href="~/Home"><small><span class="glyphicon glyphicon-book">&nbsp;</span> Revista</small></a>
-        <a href="~/Courses"><small><span class="glyphicon glyphicon-pencil">&nbsp;</span> Cursos</small></a>
+        <a href="~/Posts"><small><span class="glyphicon glyphicon-flash">&nbsp;</span> Posts</small></a>
         <a href="~/Questions"><small><span class="glyphicon glyphicon-bullhorn">&nbsp;</span> Pregúntanos</small></a>
         <a href="~/Home/About"><small><span class="glyphicon glyphicon-question-sign">&nbsp;</span> ¿Qué es esto?</small></a>
         <a class="toggle-menu menu-left push-body"><small><span class="glyphicon glyphicon-remove">&nbsp;</span> Cerrar</small></a>
@@ -148,7 +147,7 @@
                     <a href="https://twitter.com/ScienceOfCode" target="_blank">Twitter</a><br /><br />
                 </div>
                 <div class="col-sm-3 small">
-                    <h6>POSTMORTEM</h6>
+                    <h6>EXTRA</h6>
                     <a href="~/Posts/">Posts</a><br /><br />
                 </div>
                 <div class="col-sm-3 small">
