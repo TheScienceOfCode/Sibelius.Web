@@ -254,7 +254,7 @@ $(document).ready(function () {
         var target = this.hash;
         var $target = $(target);
         $('html, body').stop().animate({
-            'scrollTop': $target.offset().top - 55 /* target - fixed menu*/
+            'scrollTop': $target.offset().top - 60 /* target - fixed menu*/
         }, 900, 'swing', function () {
             window.location.hash = target;
         });

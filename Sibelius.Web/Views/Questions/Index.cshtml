@@ -33,22 +33,17 @@
 </div>
 <div class="row">
     <div class="col-md-8">
-        <div class="well well-sm">
-            <div class="row">
-                <div class="col-xs-12" id="new-question">
-                    <h4><span class="glyphicon glyphicon-bullhorn"></span> HAZ TU PREGUNTA</h4>
-                    <hr />
-                    <div id="questions-action">
-                        @Html.Partial("_SendQuestion", new Sibelius.Web.Models.Question())                        
-                    </div>                    
-                </div>
-            </div>            
-        </div>       
-    </div>    
-    <div class="col-md-4" id="questions-list">
-            @{Html.RenderAction("List", "Questions", null);}
+        <div class="row" id="new-question">
+            <h3><span class="glyphicon glyphicon-bullhorn"></span> ¡TENGO UNA PREGUNTA!</h3>
+            <div id="questions-action">
+                @Html.Partial("_SendQuestion", new Sibelius.Web.Models.Question())
+            </div>
         </div>
     </div>
+    <div class="col-md-4" id="questions-list">
+        @{Html.RenderAction("List", "Questions", null);}
+    </div>
+</div>
 
 @section Scripts {
     <script src="~/Scripts/app/questions.js"></script>
