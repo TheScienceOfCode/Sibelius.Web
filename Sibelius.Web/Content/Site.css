@@ -232,7 +232,7 @@ textarea {
 }
 
 .panel, .well, .list-group, .pagination {
-    box-shadow: 0px 3px 12px -4px #000000;
+    /*box-shadow: 0px 3px 12px -4px #000000;*/
 }
 
 .problems-div{
@@ -266,9 +266,9 @@ a:hover {
 }
 
 #posts-menu-sm, #posts-menu-lg, #posts-menu-btn a {
-    font-family: 'Prompt';
+    font-family: 'News Cycle';
     font-weight: bold;
-    font-size: 18px;
+    font-size: 18px;    
 }
 
 #posts-menu-sm small, #posts-menu-lg small {
