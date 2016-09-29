@@ -329,6 +329,10 @@ a:hover {
     height: 300px; 
 }
 
+.sm .background-image {
+    height: 150px;
+}
+
 .big {
     height: 350px; 
 }
@@ -340,8 +344,7 @@ a:hover {
 .box a {
     position: relative;
     display: block;
-    color: red;
-}
+}   
 
 .box-important {
     box-shadow: 0px 0px 25px 2px #f67930;
@@ -371,15 +374,35 @@ a:hover {
     color: #fff;            
     position: absolute;
     bottom: 0px;
-    padding: 1px 10px 10px 16px;
+    padding: 1px 10px 10px 15px;
     background-color: rgba(40, 40, 40, 0.95);
     max-height: 100%;
-    font-size: 18px;    
-    font-weight: bold;
-    font-family: 'News Cycle';        
+    font-size: 17px;    
+    font-weight: lighter;
+    font-family: 'Roboto';        
     width: 100%; 
     display: block;
 }
+
+
+.sm .headline {
+    position: relative;
+    background-color: #ffffff;
+    color: #262626;    
+    font-size: 13px;
+}
+
+@media (min-width: 768px) {
+    .sm .headline {
+        min-height: 300px;
+    }
+}
+
+    .sm .headline p {
+        font-size: 14px;
+        font-weight: normal;
+        text-align: justify;
+    }
 
 .sm-title {
     position: absolute;
@@ -396,6 +419,19 @@ a:hover {
     width: unset;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.sm .sm-title {
+    font-size: 14px;
+}
+
+.box:hover .headline {
+    text-decoration: none;
+    color: #f67930 !important;
+}
+
+.box a:hover, .box a:focus, .box a:active, .box a:visited{
+    text-decoration: none;
 }
 
 
@@ -576,14 +612,36 @@ a:hover {
 }
 
 .sm-section {
-    background-color: #f67930;
-    color: #fff;
-    padding: 1px 15px 0px 15px;
+    color: #2b2b2b;
+    font-size: 12px;
+    font-weight: lighter;
+    text-align: right;
     text-transform: uppercase;
-    font-size: 10px;
-    text-align: center;
 }
 
 h3 .badge {
     font-size: 14px;
+}
+
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.row-no-margin {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.light {
+    background-color: #f6f6f6;
+    color: #868686;
+    border-top: 1px solid #dddddd;
+    border-bottom:1px solid #dddddd;
 }

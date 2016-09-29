@@ -38,7 +38,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row row-no-margin">
     <div class="col-sm-8">
         <div class="row">
             <div class="col-xs-12">
@@ -55,7 +55,7 @@
         </div>        
     </div>
     <div class="col-sm-4">
-        <div class="row">
+        <div class="row row-no-margin">
             <div class="col-xs-12">
                 <span class="section-span">
                     Últimos Posts
@@ -71,40 +71,31 @@
                 </div>
             </div>           
         </div>
-        <div class="row" id="questions-list">
+        <div class="row row-no-margin"" id="questions-list">
             <div class="col-xs-12">
                 @{Html.RenderAction("List", "Questions", new { pagination = false }); }
             </div>
         </div>
     </div>
-    <div class="col-sm-8">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="tsoc-group tsoc-group-big">
-                    @{ var mid = (articles.Count - bigArticles + 1) / 3; }
-                    @for (int i = bigArticles; i < bigArticles + mid; ++i)
-                    {
-                        @Articles.HeadlineMore(articles[i])
-                    }
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="tsoc-group tsoc-group-big">
-                    @for (int i = bigArticles + mid; i < bigArticles + mid * 2; ++i)
-                    {
-                        @Articles.HeadlineMore(articles[i])
-                    }
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="tsoc-group tsoc-group-big">
-                    @for (int i = bigArticles + mid * 2; i < articles.Count(); ++i)
-                    {
-                        @Articles.HeadlineMore(articles[i])
-                    }
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="section-span light">
+                Más artículos
+            </span>
         </div>
+    </div>
+    <div class="col-sm-12">        
+        @for (int i = bigArticles; i < articles.Count; i += 4)
+        {
+            <div class="row">
+                @for (int j = i; (j < i + 4) && (j < articles.Count); ++j)
+                {
+                <div class="col-sm-3">
+                    @Articles.Headline(articles[j], true)
+                </div>
+                }
+            </div>
+        }
     </div>
 </div>
 
