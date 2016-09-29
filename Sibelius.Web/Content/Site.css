@@ -390,6 +390,7 @@ a:hover {
     background-color: #ffffff;
     color: #262626;    
     font-size: 13px;
+    font-weight: bold;
 }
 
 @media (min-width: 768px) {
@@ -399,7 +400,7 @@ a:hover {
 }
 
     .sm .headline p {
-        font-size: 14px;
+        font-size: 13px;
         font-weight: normal;
         text-align: justify;
     }
