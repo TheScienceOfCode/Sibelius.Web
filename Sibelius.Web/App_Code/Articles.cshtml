@@ -1,36 +1,43 @@
 ﻿@helper Stats(Sibelius.Web.Models.Article article, string css = "col-sm-6")
 {
     <h4>@article.Visitas visitas aquí.</h4>
-    if (article.TaringaUrl != null && article.TaringaUrl != string.Empty)
-    {
+if (article.TaringaUrl != null && article.TaringaUrl != string.Empty)
+{
         <h4>
             <a href="@article.TaringaUrl" target="_blank"> Taringa: @article.TaringaVisitas visitas</a>
         </h4>
-    }
+}
 }
 
 
-@helper Headline(Sibelius.Web.Models.Article article)
+@helper Headline(Sibelius.Web.Models.Article article, bool sm = false)
 {
 var backgroundposition = article.BackgroundPosition != null ? article.BackgroundPosition : "center bottom";
+var smclass = sm ? "sm" : string.Empty;
 
-    <div class="box">
+    <div class="box @smclass">
         <div class="sm-title">
             <span><small>@article.Section</small></span>
-        </div> 
+        </div>
         <a href="~/Articles/Show/@article.Id">
             <div class="background-image" style="background-image: url(@article.ImageUrl); background-position: @backgroundposition;"></div>
-            <div class="headline">   
+            <div class="headline">
                 @article.Title
+                @if (sm && article.Intro != null)
+                {
+                    var maxchars = Math.Min(200, article.Intro.Count());
+                    <hr />
+                    <p>
+
+                        @article.Intro.Substring(0, maxchars)
+                        @if (maxchars < article.Intro.Count())
+                        {
+                            <span>(...)</span>
+                        }
+                    </p>
+                }
             </div>
         </a>
     </div>
 }
 
-@helper HeadlineMore(Sibelius.Web.Models.Article article)
-{
-    <a href="~/Articles/Show/@article.Id">
-        <span class="sm-section">@article.Section</span><br />
-        @article.Title
-    </a>
-}
