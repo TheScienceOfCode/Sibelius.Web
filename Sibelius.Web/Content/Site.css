@@ -109,6 +109,7 @@ html {
     padding-bottom: 150px;
     width: 100vw;
     max-width: 1170px;
+    min-height: calc(100vh - 181px - 60px - 65);
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
