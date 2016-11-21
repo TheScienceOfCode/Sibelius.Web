@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Sibelius.Web.Controllers
 {
+    [Authorize]
     public class CoursesController : Controller
     {
         CourseBehavior courseBehavior = new CourseBehavior();
