@@ -10,5 +10,11 @@
     "inputFiles": [
       "Content/bootstrap.min.css"
     ]
+  },
+  {
+    "outputFileName": "Scripts/jsPushMenu.min.js",
+    "inputFiles": [
+      "Scripts/jsPushMenu.js"
+    ]
   }
 ]

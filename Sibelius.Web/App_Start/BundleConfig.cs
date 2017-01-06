@@ -28,9 +28,7 @@ namespace Sibelius.Web
                       "~/Scripts/jsPushMenu.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/Site.css",
-                      "~/Content/jsPushMenu.css"));
+                      "~/Content/theme/theme.css"));
         }
     }
 }

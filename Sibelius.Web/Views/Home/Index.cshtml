@@ -7,19 +7,53 @@
 
     var articles = Model.Articles;
     var posts = Model.Posts;
-    int bigArticles = 5;
+    int bigArticles = 3;
 }
-<br />
-@if ((int)Session["pubadv"] > 0)
-{
-    <div class="row well">
-        <div class="col-xs-12">
-            No podrás navegar hasta que verifiquemos que has desactivado el AdBlock. <br />
-            Una vez lo desactives, <b>recarga la página y espera a que aparezca el Ad</b>, antes de hacer clic en el siguiente botón: <br /><br />
-            <a class="btn btn-primary" href="~/Home/Unban">Volver a dónde estaba</a>
+
+<div class="sl sl-top">
+    <div class="sl-over">
+        <div class="container">
+            <div class="row">
+                <img class="img-responsive" src="~/Content/img/the-science-of-code.png" alt="The Science of Code" />
+            </div>
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @Articles.Headline(articles[0])
+                        </div>
+                        @for (int i = 1; i < bigArticles; ++i)
+                        {
+                            <div class="col-sm-6">
+                                @Articles.Headline(articles[i])
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="news-headlines">
+                        <a href="~/Posts"><h1>Noticias <i class="fa fa-lightbulb-o" aria-hidden="true"></i></h1></a>
+                        <div class="news-group">
+                            @{ var img = true;}
+                            @foreach (var post in posts)
+                            {
+                                @Posts.Headline(post, img)
+                                img = false;
+                            }
+                            <a class="section-btn-more" href="~/Posts">Ver más Posts ></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-}
+</div>
+
+<div class="container">
+
+
+</div>
 <div class="row">
     <div class="col-xs-12">
         <center>
@@ -39,21 +73,7 @@
 </div>
 
 <div class="row row-no-margin">
-    <div class="col-sm-8">
-        <div class="row">
-            <div class="col-xs-12">
-                @Articles.Headline(articles[0])
-            </div>
-        </div>
-        <div class="row">
-            @for (int i = 1; i < bigArticles; ++i)
-            {
-                <div class="col-sm-6">
-                    @Articles.Headline(articles[i])
-                </div>
-            }
-        </div>        
-    </div>
+
     <div class="col-sm-4">
         <div class="row row-no-margin">
             <div class="col-xs-12">
@@ -61,7 +81,7 @@
                     Últimos Posts
                 </span>
                 <div class="section-div tsoc-group">
-                    @{ var img = true;}
+                   
                     @foreach (var post in posts)
                     {
                         @Posts.Headline(post, img)
@@ -69,9 +89,9 @@
                     }
                     <a class="section-btn-more" href="~/Posts">Ver más Posts ></a>
                 </div>
-            </div>           
+            </div>
         </div>
-        <div class="row row-no-margin"" id="questions-list">
+        <div class="row row-no-margin" " id="questions-list">
             <div class="col-xs-12">
                 @{Html.RenderAction("List", "Questions", new { pagination = false }); }
             </div>
@@ -84,15 +104,15 @@
             </span>
         </div>
     </div>
-    <div class="col-sm-12">        
+    <div class="col-sm-12">
         @for (int i = bigArticles; i < articles.Count; i += 4)
         {
             <div class="row">
                 @for (int j = i; (j < i + 4) && (j < articles.Count); ++j)
                 {
-                <div class="col-sm-3">
-                    @Articles.Headline(articles[j], true)
-                </div>
+                    <div class="col-sm-3">
+                        @Articles.Headline(articles[j], true)
+                    </div>
                 }
             </div>
         }
