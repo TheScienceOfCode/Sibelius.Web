@@ -55,28 +55,17 @@
                 string questionsClass = curUrl.Contains("QUESTIONS") ? "class=active" : "";
             }
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-right">
                     <li @articlesClass>
-                        <a href="~/Home">Revista</a>
+                        <a href="~/Home">Portada</a>
                     </li>
                     <li @postsClass>
-                        <a href="~/Posts">Posts</a>
+                        <a href="~/Posts">Noticias</a>
                     </li>
                     <li @questionsClass>
                         <a href="~/Questions">Pregúntanos</a>
                     </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li @aboutClass>
-                        <a href="~/Home/About"><small>¿Qué es esto?</small></a>
-                    </li>
-                    <li class="hidden-xs">
-                        <a class="fb-top" href="http://facebook.com/TheScienceOfCode" target="_blank"><small><i class="fa fa-facebook"></i></small></a>
-                    </li>
-                    <li class="hidden-xs">
-                        <a class="tw-top" href="https://twitter.com/ScienceOfCode" target="_blank"><small><i class="fa fa-twitter"></i></small></a>
-                    </li>
-                </ul>
+                </ul>                
             </div>
         </div>
     </div>
