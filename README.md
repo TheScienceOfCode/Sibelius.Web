@@ -1,10 +1,7 @@
 # Sibelius
-Our cool website!
+Welcome to the repo of our website http://thescienceofcode.com. 
 
-# Tech
-This site is hosted on Windows Azure: http://thescienceofcode.azurewebsites.net. Currently, I'm developing with ASP.NET MVC 5, Mongo DB, Bootstrap and JQuery.
-
-Sibelius is based on an architecture defined by Juan Felipe Cañizares. It is not strictly a common architecture with tons of patterns and components, but it gives us the right balance to have everything in order and work as fast as possible. ;)
+Currently, the site is being developed with ASP.NET MVC 5, Mongo DB, Bootstrap, Less and JQuery. We are planning to update and improve some components, but in general this is a pretty simple project (in dev terms) that does not require advanced technics or technologies, so we have tried to be as pragmatic as we can.
 
 # Roadmap and FAQ
 
