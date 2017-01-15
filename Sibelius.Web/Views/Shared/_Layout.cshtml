@@ -78,48 +78,47 @@
         <a href="~/Home/About"><small><span class="glyphicon glyphicon-question-sign">&nbsp;</span> ¿Qué es esto?</small></a>
         <a class="toggle-menu menu-left push-body"><small><span class="glyphicon glyphicon-remove">&nbsp;</span> Cerrar</small></a>
     </nav>
-    <div class="body-content">
-        @if (Request.IsAuthenticated)
-        {
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="btn-group btn-group-justified">
-                        @if (User.IsInRole("admin"))
-                        {
-                            <a class="btn btn-default" href="~/AdminArticles">
-                                ARTICLES
-                            </a>
-                            <a class="btn btn-default" href="~/AdminPosts">
-                                POSTS
-                            </a>
-                            <a class="btn btn-default" href="~/AdminCourses">
-                                COURSES
-                            </a>
-                            <a class="btn btn-default" href="~/AdminAssets">
-                                ASSETS
-                            </a>
-                            <a class="btn btn-default" href="~/AdminLicenses">
-                                LICENSES
-                            </a>
-                        }
-                        <a class="btn btn-default" href="~/AdminQuestions">
-                            QUESTIONS
-                        </a>
-                        <a class="btn btn-default" href="~/Account">
-                            USERS
-                        </a>
-                    </div>
-                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-                    {
-                        @Html.AntiForgeryToken()
 
-                        <a class="btn btn-primary" href="javascript:document.getElementById('logoutForm').submit()">Log out</a>
+    @if (Request.IsAuthenticated)
+    {
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="btn-group btn-group-justified">
+                    @if (User.IsInRole("admin"))
+                    {
+                        <a class="btn btn-default" href="~/AdminArticles">
+                            ARTICLES
+                        </a>
+                        <a class="btn btn-default" href="~/AdminPosts">
+                            POSTS
+                        </a>
+                        <a class="btn btn-default" href="~/AdminCourses">
+                            COURSES
+                        </a>
+                        <a class="btn btn-default" href="~/AdminAssets">
+                            ASSETS
+                        </a>
+                        <a class="btn btn-default" href="~/AdminLicenses">
+                            LICENSES
+                        </a>
                     }
+                    <a class="btn btn-default" href="~/AdminQuestions">
+                        QUESTIONS
+                    </a>
+                    <a class="btn btn-default" href="~/Account">
+                        USERS
+                    </a>
                 </div>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <a class="btn btn-primary" href="javascript:document.getElementById('logoutForm').submit()">Log out</a>
+                }
             </div>
-        }
-        @RenderBody()
-    </div>
+        </div>
+    }
+    @RenderBody()
     <div class="bot-menu">
         <div class="container">
             <div class="row text-center">

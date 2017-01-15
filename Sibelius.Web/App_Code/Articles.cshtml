@@ -15,14 +15,16 @@ if (article.TaringaUrl != null && article.TaringaUrl != string.Empty)
 var backgroundposition = article.BackgroundPosition != null ? article.BackgroundPosition : "center bottom";
 var smclass = sm ? "sm" : string.Empty;
 
-    <a class="box @smclass" href="~/Articles/Show/@article.Id" style="background-image: url(@article.ImageUrl); background-position: @backgroundposition;">
-        <div class="over"></div>
-        <span class="box-heading">@article.Section</span>
+    <a class="box @smclass" href="~/Articles/Show/@article.Id">
+        <div class="box-header" style="background-image: url(@article.ImageUrl); background-position: @backgroundposition;">
+            <div class="over"></div>
+            <span class="box-section">@article.Section</span>
+        </div>
+        
         <span class="box-title">@article.Title</span>
         @if (sm && article.Intro != null)
         {
             var maxchars = Math.Min(200, article.Intro.Count());
-            <hr />
             <p>
 
                 @article.Intro.Substring(0, maxchars)
