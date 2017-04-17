@@ -2,8 +2,9 @@
 
 /* General styles for all menus */
 .cbp-spmenu {
-    background: #424242;
-    position: fixed;
+    background: #121212;
+    position: fixed;    
+    box-shadow: 0 0 10px #000;
 }
 
 .cbp-spmenu h3 {
@@ -18,13 +19,14 @@
 .cbp-spmenu a {
     display: block;
     color: #fff;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: bold;
-    font-family: "News Cycle";
+    font-family: @tsoc-header-font;
+    text-transform: uppercase;
 }
 
 .cbp-spmenu a:hover {
-    background: #646464;
+    background: #1b1b1b;
     text-decoration: none;
 }
 
@@ -46,7 +48,7 @@
 }
 
 .cbp-spmenu-vertical a {
-    border-bottom: 1px solid #5b5b5b;
+    border-bottom: 1px solid #1b1b1b;
     padding: 15px;
 }
 
@@ -108,7 +110,6 @@
 
 /* Push classes applied to the body */
 .push-body {
-    overflow-x: hidden;
     left: 0;
 }
 

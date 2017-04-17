@@ -5,11 +5,14 @@
     ViewBag.MetaKeywords = "computación, software, programación, desarrollo, tutoriales, cursos";
     ViewBag.MainImage = Model.Articles[0].ImageUrl;
 
+    ViewBag.FixeableNavbar = true;
+
     var articles = Model.Articles;
     var posts = Model.Posts;
     int bigArticles = 3;
 }
 
+@section Top{
 <div class="sl sl-top">
     <div class="sl-over">
         <div class="container">
@@ -55,8 +58,9 @@
 <div class="sl sl-dark">
     <h1>¡Te escuchamos!</h1>
 </div>
+}
 
-<div class="container body-content">
+
     
     <div class="row">        
         <div class="row">
@@ -81,7 +85,6 @@
         </div>
     </div>
 
-</div>
 
 
 @section Scripts {

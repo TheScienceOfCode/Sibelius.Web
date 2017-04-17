@@ -18,7 +18,7 @@
 
 @tsoc-default-textlight: 0 0 15px #fff;
 
-@tsoc-nav-height: 64px;
+@tsoc-nav-height: 54px;
 @tsoc-box-height: 320px;
 @tsoc-default-margin-top: 30px;
 @tsoc-default-border-radius: 0px;
@@ -348,6 +348,9 @@ a:hover, a:focus, a:active, a:visited {
 /* END CUSTOM COMPONENTS */
 
 /* MAIN HTML COMPONENTS */
+html, body{
+    background-color: @body-bg;
+}
 
 body {
     font-family: 'Roboto';
@@ -360,15 +363,17 @@ body {
 }
 
 .body-content {
-    margin-top: 30px;
+    padding-top: 70px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    //.header-font()
+h1, h2, h3, h4, h5, h6 {    
+    font-family: @tsoc-header-font;
 }
 
 
-
+.box-image div {
+        height: 350px;
+}
 
 
 .top-light(@top) {
@@ -392,35 +397,52 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #main-navbar {
-    //box-shadow: 0px 2px 10px -4px #000000;
-    box-shadow: none;
-    background-color: transparent;
-    display: none;
+    box-shadow: 0px 2px 10px -4px #000000;
     max-width: 100vw;
-    max-height: @tsoc-nav-height;
+    min-height: @tsoc-nav-height;
+    max-height: @tsoc-nav-height;    
     border: none;
-    position:absolute;
     top: 0;
-
-    li a {
+    background: linear-gradient(#000 50%, #171717 100%);
+    
+    li a, a.navbar-brand {
         font-family: 'Prompt';
         font-weight: bold;
         font-size: 14px;
-        padding-left: 30px;
+        padding-top: 14px;
         padding-right: 30px;
         max-height: @tsoc-nav-height !important;
         text-transform: uppercase;
         position: relative;
-        color: #9c9c9c;
+        color: #fff;
 
         .top-light(0);
+
+        &:hover {
+            .top-light-hover(120px);
+        }
+    }  
+     
+    a.navbar-brand {
+        padding-bottom: 4px;
+        padding-top: 4px;
+        img {
+            max-height: calc(@tsoc-nav-height - 8px);
+        }
     }
 
-    
+    .navbar-toggle {
+        height: @tsoc-nav-height;
+        margin-top: 0;
+        .top-light(0);
+        &:hover {
+            .top-light-hover(120px);
+        }
 
-    li a:hover {
-        .top-light-hover(120px);
-    }    
+        .icon-bar {
+            background-color: #9c9c9c;        
+        }
+    }
 }
 
 #main-logo-big { 
@@ -434,6 +456,10 @@ h1, h2, h3, h4, h5, h6 {
 
 #main-logo-big:hover {
     .top-light-hover(200px);
+}
+
+.fixeable-navbar { 
+    display: none;
 }
 
 html {
@@ -755,7 +781,7 @@ a:hover {
 }
 
 .main-footer {
-    background-color: #262626;
+    background-color: #141414;
     color: #fff !important;
 }
 
@@ -764,7 +790,7 @@ a:hover {
 }
 
 .bot-menu {
-    background-color: #262626;
+    background-color: #141414;
     padding-bottom: 50px;
     font-family: 'News Cycle';
     font-weight: bolder;

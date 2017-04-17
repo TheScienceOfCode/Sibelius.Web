@@ -3,23 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-@if (ViewBag.MetaDescription != null)
-{
-    <meta name="description" content="@ViewBag.MetaDescription" />
-    <meta property="og:description" content="@ViewBag.MetaDescription" />
-}
-@if (ViewBag.MetaKeywords != null)
-{
-    <meta name="keywords" content="@ViewBag.MetaKeywords" />
-}
-@if (ViewBag.MainImage != null)
-{
-    <meta property="og:image" content="@ViewBag.MainImage" />
-}
-@if (ViewBag.ogUrl != null)
-{
-    <meta property="og:url" content="@ViewBag.ogUrl" />
-}
+    @if (ViewBag.MetaDescription != null)
+    {
+        <meta name="description" content="@ViewBag.MetaDescription" />
+        <meta property="og:description" content="@ViewBag.MetaDescription" />
+    }
+    @if (ViewBag.MetaKeywords != null)
+    {
+        <meta name="keywords" content="@ViewBag.MetaKeywords" />
+    }
+    @if (ViewBag.MainImage != null)
+    {
+        <meta property="og:image" content="@ViewBag.MainImage" />
+    }
+    @if (ViewBag.ogUrl != null)
+    {
+        <meta property="og:url" content="@ViewBag.ogUrl" />
+    }
     <meta property="fb:app_id" content="770797393033687" />
     <meta property="og:title" content="@ViewBag.Title" />
 
@@ -32,10 +32,11 @@
 </head>
 @{
     ViewBag.bodyclass = ViewBag.bodyclass == null ? "light-body" : ViewBag.bodyclass;
+    var cssFixeableNavbar = ViewBag.FixeableNavbar != null ? "fixeable-navbar" : "";
 }
 
 <body class="@ViewBag.bodyclass">
-    <div id="main-navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div id="main-navbar" class="navbar navbar-inverse navbar-fixed-top @cssFixeableNavbar">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle toggle-menu menu-left push-body" data-toggle="collapse" data-target=".navbar-collapse">
@@ -43,40 +44,33 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a id="main-logo" class="navbar-brand" href="~/Home">
-                    <img src="~/Content/img/Computadora-the-science.png" alt="Logo The Science of Code" />
+                <a class="navbar-brand" href="~/Home">
+                    <img src="~/Content/img/the-science-of-code.png" class="img-responsive" alt="Logo The Science of Code" />
                 </a>
             </div>
-            @{
-                string curUrl = Request.Url.AbsoluteUri.ToUpper();                
-                string postsClass = curUrl.Contains("POSTS") ? "class=active" : "";
-                string aboutClass = curUrl.Contains("ABOUT") ? "class=active" : "";
-                string articlesClass = curUrl.Contains("ARTICLES") ? "class=active" : "";
-                string questionsClass = curUrl.Contains("QUESTIONS") ? "class=active" : "";
-            }
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li @articlesClass>
+                <ul class="nav navbar-nav">
+                    <li>
                         <a href="~/Home">Portada</a>
                     </li>
-                    <li @postsClass>
+                    <li>
                         <a href="~/Posts">Noticias</a>
                     </li>
-                    <li @questionsClass>
+                    <li>
                         <a href="~/Questions">Pregúntanos</a>
                     </li>
-                </ul>                
+                </ul>
             </div>
         </div>
     </div>
     <!-- Left menu element -->
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left">
         <br /><br />
-        <a href="~/Home"><small><span class="glyphicon glyphicon-book">&nbsp;</span> Revista</small></a>
-        <a href="~/Posts"><small><span class="glyphicon glyphicon-flash">&nbsp;</span> Posts</small></a>
-        <a href="~/Questions"><small><span class="glyphicon glyphicon-bullhorn">&nbsp;</span> Pregúntanos</small></a>
-        <a href="~/Home/About"><small><span class="glyphicon glyphicon-question-sign">&nbsp;</span> ¿Qué es esto?</small></a>
-        <a class="toggle-menu menu-left push-body"><small><span class="glyphicon glyphicon-remove">&nbsp;</span> Cerrar</small></a>
+        <a href="~/Home">Portada</a>
+        <a href="~/Posts">Noticias</a>
+        <a href="~/Questions">Pregúntanos</a>
+        <a href="~/Home/About"> ¿Qué es esto?</a>
+        <a class="toggle-menu menu-left push-body"><span class="glyphicon glyphicon-remove">&nbsp;</span> Cerrar</a>
     </nav>
 
     @if (Request.IsAuthenticated)
@@ -118,7 +112,11 @@
             </div>
         </div>
     }
-    @RenderBody()
+
+    @RenderSection("Top", required: false)
+    <div class="container body-content">
+        @RenderBody()
+    </div>
     <div class="bot-menu">
         <div class="container">
             <div class="row text-center">
@@ -147,7 +145,7 @@
     </div>
     <footer class="main-footer">
         <div class="row">
-            <div class="col-xs-12 text-center">                
+            <div class="col-xs-12 text-center">
                 <h5><i class="fa fa-cc"></i> 2013 - @DateTime.Now.Year.</h5>
                 <br />
             </div>
@@ -174,7 +172,7 @@
     @RenderSection("scripts", required: false)
 
     <script>
-        jQuery(document).ready(function($) {
+        $(function() {
             $('.toggle-menu').jPushMenu();
         });
     </script>
@@ -191,7 +189,7 @@
     </script>
 
     @{  var pubadv = HttpContext.Current.Session["pubadv"];
-        int timeout = 5000;
+            int timeout = 5000;
     }
     @if ((int)pubadv > 0)
     {

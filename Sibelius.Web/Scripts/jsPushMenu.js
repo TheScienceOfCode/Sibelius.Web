@@ -17,7 +17,6 @@
 
         $(this).click(function (e) {
             e.stopPropagation();
-
             var target = '',
             push_direction = '';
 

@@ -22,8 +22,10 @@ $(function () {
         sendQuestion();
     });
 
+    var obj = $('#questions-list');
+    if(obj.length == 0) return;
     setOnClickDataUrl({
-        top: $('#questions-list').offset().top,
+        top: obj.offset().top,
         method: 'get', div: '#questions-list',
         load: false,
         push: false
