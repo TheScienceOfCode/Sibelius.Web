@@ -30,8 +30,10 @@
 @tsoc-dark2-color:  #171717;
 @tsoc-darker-color: #000;
 @tsoc-light-color: #eaeaea;
+@tsoc-light2-color: #b7b7b7;
 @tsoc-lighter-color: #fff;
 @tsoc-alt-color: #4d607b;
+@tsoc-primary-color: #f67930;
 
 @tsoc-transparent-color: rgba(194, 193, 193, 0.17);
 @tsoc-transparent-color-border: 1px solid #4d607b;
@@ -342,6 +344,50 @@ a:hover, a:focus, a:active, a:visited {
             padding: 5px;
         }
 
+    }
+}
+
+.questions-headlines {
+    padding-bottom: 60px;
+
+
+    h3 {
+        margin-bottom: 30px;
+    }
+
+    .question-btn {
+        .text-center;
+        box-shadow: @tsoc-default-shadow;
+        display: block;
+        color: @tsoc-light2-color;
+        background-color: @tsoc-dark2-color;
+        height: 100px;
+        margin-bottom: 20px;
+        position: relative;
+        font-size: 14px;
+
+        &:hover {
+            .light-hover;
+        }
+
+        & > div {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: block;
+            width: 100%;
+        }
+
+        .question-title {
+            font-family: 'News Cycle';
+            display: block;
+            font-size: 16px;
+        }
+    }
+
+    .primary {
+        background-color: @tsoc-primary-color;
+        color: @tsoc-lighter-color;
     }
 }
 
@@ -791,6 +837,7 @@ a:hover {
 
 .bot-menu {
     background-color: #141414;
+    padding-top: 30px;
     padding-bottom: 50px;
     font-family: 'News Cycle';
     font-weight: bolder;

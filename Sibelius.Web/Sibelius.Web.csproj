@@ -227,8 +227,6 @@
     <Content Include="Content\loading-sm.gif" />
     <Content Include="Content\loading.gif" />
     <Content Include="Content\logo-science-code.png" />
-    <Content Include="Content\the-small-apps-b.png" />
-    <Content Include="Content\the-small-apps.png" />
     <Content Include="Content\theme\theme.css">
       <DependentUpon>theme.less</DependentUpon>
     </Content>
@@ -334,7 +332,6 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="Content\theme\stars.css" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

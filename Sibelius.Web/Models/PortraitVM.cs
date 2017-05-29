@@ -10,5 +10,7 @@ namespace Sibelius.Web.Models
         public List<Article> Articles { get; set; }
 
         public List<Post> Posts { get; set; }
+
+        public List<Question> Questions { get; set; }
     }
 }

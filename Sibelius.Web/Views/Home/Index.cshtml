@@ -40,7 +40,7 @@
                     <div class="news-headlines">
                         <a href="~/Posts"><h1><i class="fa fa-newspaper-o" aria-hidden="true"></i> Noticias </h1></a>
                         <div class="news-group">
-                            @{ var img = true;}
+                            @{ var img = true; }
                             @foreach (var post in posts)
                             {
                                 @Posts.Headline(post, img)
@@ -55,37 +55,44 @@
     </div>
 </div>
 
-<div class="sl sl-dark">
-    <h1>¡Te escuchamos!</h1>
-</div>
-}
-
-
-    
-    <div class="row">        
+<div class="sl sl-dark questions-headlines">
+    <div class="container">
+        <h3 class="text-center">PREGUNTAS DE LA COMUNIDAD</h3>
         <div class="row">
-            <div class="col-xs-12">
-                <span class="section-span light">
-                    Más artículos
-                </span>
-            </div>
-        </div>
-        <div class="col-sm-12">
-            @for (int i = bigArticles; i < articles.Count; i += 4)
+            @foreach (var question in Model.Questions)
             {
-                <div class="row">
-                    @for (int j = i; (j < i + 4) && (j < articles.Count); ++j)
-                {
-                        <div class="col-sm-3">
-                            @Articles.Headline(articles[j], true)
+                <div class="col-sm-4">
+                    <a class="question-btn" href="~/Questions/Show/@question.Id">
+                        <div>
+                            <div class="question-title">
+                                @question.Title
+                            </div>
+                            @if (string.IsNullOrEmpty(question.Name))
+                            {
+                                <div><i class="fa fa-user-circle" aria-hidden="true"></i> Anónimo</div>
+                            }
+                            else
+                            {
+                                <i class="fa fa-user-circle" aria-hidden="true"></i> @question.Name
+                            }
                         </div>
-                    }
+                    </a>
                 </div>
             }
+            <div class="col-sm-4">
+                <a class="question-btn primary" href="~/Questions/">
+                    <div>
+                        <div class="question-title">
+                            VER MÁS
+                        </div>
+                    </div>
+                </a>
+
+            </div>
         </div>
     </div>
-
-
+</div>
+}
 
 @section Scripts {
     <script src="~/Scripts/app/questions.js"></script>
