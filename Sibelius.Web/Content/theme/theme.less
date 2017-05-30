@@ -136,6 +136,10 @@
     background-position: top left;
     background-size: cover;     
     background-attachment: fixed;
+
+    h1,h2,h3,h4,h5,h6{
+        color: #fff;
+    }
 }
 
 .sl-dark {
@@ -147,26 +151,23 @@
 .box {
     border-radius: @tsoc-default-border-radius;
     margin-top: @tsoc-default-margin-top;
-    box-shadow: @tsoc-default-shadow; 
+    box-shadow: @tsoc-default-shadow;
     background-color: @tsoc-dark-color;
     background-color: @tsoc-transparent-color;
-    height: auto;    
-
+    height: auto;
     display: block;
-    position: relative;    
+    position: relative;
     overflow: hidden;
     display: block;
     color: @tsoc-lighter-color;
-
     .default-transition;
 
-    .box-title {        
+    .box-title {
         .subheader-alt-font(@tsoc-lighter-color, @tsoc-big-fontsize);
         display: block;
         width: 100%;
         padding: 10px 20px 10px 20px;
-        text-shadow: 1px 1px #000000;        
-       
+        text-shadow: 1px 1px #000000;
     }
 
     .box-header {
@@ -176,14 +177,13 @@
         background-position: center bottom;
         position: relative;
 
-        .over {        
-            height:inherit;
-
+        .over {
+            height: inherit;
             width: 100%;
             background-color: rgba(30,30,30,.1);
         }
 
-        .box-section {              
+        .box-section {
             .header-font(@tsoc-light-color, @tsoc-bigger-fontsize);
             background-color: #f67930;
             text-shadow: 2px 2px #000000;
@@ -199,13 +199,14 @@
             &:after {
                 .skew-ending
             }
-        }    
+        }
     }
 
-    
 
-    &:hover {  
-        .light-hover;       
+
+    &:hover {
+        .light-hover;
+
         .box-title {
             .light-hover
         }
@@ -214,17 +215,42 @@
             .box-section {
                 .light-hover
             }
+
             .over {
                 background-color: transparent;
             }
         }
     }
 
-    
+    &-sm {
+        max-height: 428px;
+        min-height: 428px;
+    }
+
+    p {
+        padding: 20px;
+        font-size: 14px;
+    }
 }
 
+.more-articles {
+    margin-top: 30px;
+    background-color: none;
+    box-shadow: none;
+    color: #fff;
+
+    &:hover {
+        .light-hover;
+    }
+}
+
+
+a {
+    color: @tsoc-primary-color;
+}
 a:hover, a:focus, a:active, a:visited {
     text-decoration: none;
+    
 }
 
 @keyframes neonlight {
@@ -418,7 +444,8 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .box-image div {
-        height: 350px;
+    height: 350px;
+    background-size: cover;
 }
 
 

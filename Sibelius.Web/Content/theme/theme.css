@@ -7797,6 +7797,14 @@ input[type="checkbox"]:disabled:checked:after,
   background-size: cover;
   background-attachment: fixed;
 }
+.sl-top h1,
+.sl-top h2,
+.sl-top h3,
+.sl-top h4,
+.sl-top h5,
+.sl-top h6 {
+  color: #fff;
+}
 .sl-dark {
   background-color: #090909;
   color: #eaeaea;
@@ -7901,6 +7909,30 @@ input[type="checkbox"]:disabled:checked:after,
 }
 .box:hover .box-header .over {
   background-color: transparent;
+}
+.box-sm {
+  max-height: 428px;
+  min-height: 428px;
+}
+.box p {
+  padding: 20px;
+  font-size: 14px;
+}
+.more-articles {
+  margin-top: 30px;
+  background-color: none;
+  box-shadow: none;
+  color: #fff;
+}
+.more-articles:hover {
+  box-shadow: 0 0 70px 0px rgba(255, 255, 255, 0.5);
+  border-color: #fff;
+  text-shadow: none;
+  background-color: #fff;
+  color: #000;
+}
+a {
+  color: #f67930;
 }
 a:hover,
 a:focus,
@@ -8107,6 +8139,7 @@ h6 {
 }
 .box-image div {
   height: 350px;
+  background-size: cover;
 }
 #main-navbar {
   box-shadow: 0px 2px 10px -4px #000000;

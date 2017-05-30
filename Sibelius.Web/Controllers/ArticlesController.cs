@@ -13,6 +13,11 @@ namespace Sibelius.Web.Controllers
         ArticleBehavior articleBehavior = new ArticleBehavior();
         CollaboratorBehavior collaboratorBehavior = new CollaboratorBehavior();
 
+        public ActionResult Index()
+        {
+            return View(articleBehavior.GetVisible().ToList());
+        }
+
         public ActionResult Show(string id)
         {
             var article = articleBehavior.GetById(id);
