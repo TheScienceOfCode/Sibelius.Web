@@ -224,6 +224,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\computadora-the-science.png" />
+    <Content Include="Content\img\main-bg.jpg" />
+    <Content Include="Content\img\the-science-of-code.png" />
     <Content Include="Content\loading-sm.gif" />
     <Content Include="Content\loading.gif" />
     <Content Include="Content\logo-science-code.png" />
