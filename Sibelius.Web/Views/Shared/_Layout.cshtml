@@ -22,9 +22,9 @@
     }
     <meta property="fb:app_id" content="770797393033687" />
     <meta property="og:title" content="@ViewBag.Title" />
-
+    <link href="~/Content/theme/theme.min.css" rel="stylesheet" />
     <title>@ViewBag.Title - The Science of Code</title>
-    @Styles.Render("~/Content/css")
+    
     @if (Session["fonts"] != null)
     {
         @Html.Partial("_Fonts")
