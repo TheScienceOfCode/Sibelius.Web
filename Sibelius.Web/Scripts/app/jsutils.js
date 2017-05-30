@@ -1,4 +1,20 @@
-﻿// Hides elements if the result of the call is the expected
+﻿// Navbar fixeable
+$(function () { 
+    // Hide and show fixed menu!
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 100) {
+            var element = $('.fixeable-navbar');
+            if (!element.is(":visible"))
+                element.fadeIn();
+        } else {
+            var element = $('.fixeable-navbar');
+            if (element.is(":visible"))
+                element.fadeOut();
+        }
+    });
+});
+
+// Hides elements if the result of the call is the expected
 // Html use:
 //  Define an a element with:
 //      data-hideable: css selector indicating what are you going to hide     

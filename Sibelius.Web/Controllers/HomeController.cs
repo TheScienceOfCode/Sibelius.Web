@@ -14,6 +14,7 @@ namespace Sibelius.Web.Controllers
         ArticleBehavior articleBehavior = new ArticleBehavior();
         CourseBehavior courseBehavior = new CourseBehavior();
         PostBehavior postBehavior = new PostBehavior();
+        QuestionBehavior questionBehavior = new QuestionBehavior();
 
         [SkipBanFilter]
         public ActionResult Index()
@@ -21,7 +22,8 @@ namespace Sibelius.Web.Controllers
             var result = new MainpageVM()
             {
                 Articles = articleBehavior.GetVisible().ToList(),
-                Posts = postBehavior.GetAll(1).Take(3).ToList()
+                Posts = postBehavior.GetAll(1).Take(3).ToList(),
+                Questions = questionBehavior.GetAll(1).ToList()
             };
             return View(result);
         }

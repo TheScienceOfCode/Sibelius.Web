@@ -1,0 +1,27 @@
+﻿@model List<Sibelius.Web.Models.Article>
+@{
+    ViewBag.Title = "Index";
+    ViewBag.ContainerClass = "body-content";
+}
+
+
+@section Top {
+    <div class="sl sl-top">
+        <div class="sl-over">
+            <div class="container body-content">
+                <h2 class="text-center">ARTÍCULOS</h2>
+                @for (int i = 0; i < Model.Count; i += 2)
+                {
+                    <div class="row">
+                        @for (int j = i; (j < i + 2) && (j < Model.Count); ++j)
+                        {
+                            <div class="col-sm-6">
+                                @Articles.Headline(Model[j], true)
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}

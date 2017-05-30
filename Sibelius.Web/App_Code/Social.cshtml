@@ -1,4 +1,4 @@
-﻿@helper DefaultBtn(string url, string css = "col-sm-6")
+@helper DefaultBtn(string url, string css = "col-sm-6")
 {
     <div class="@css fb fb-default">
         <div class="fb-like" data-href="@url" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
@@ -98,4 +98,13 @@
 @helper FbPage()
 {
     <div class="fb-page" data-href="https://www.facebook.com/TheScienceOfCode/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/TheScienceOfCode/"><a href="https://www.facebook.com/TheScienceOfCode/">The Science of Code</a></blockquote></div></div>
+}
+
+@helper TwPage()
+{
+    <a class="twitter-timeline"
+       href="https://twitter.com/ScienceOfCode"
+       data-height="300">
+        Tweets by 
+    </a>
 }

@@ -4,10 +4,11 @@
     <a href="~/Posts/Show/@post.Id">
         @if (img)
         {
-            <img class="img-responsive" src="@post.ImageUrl" />
+            <img class="img-responsive hidden-xs" src="@post.ImageUrl"/>
+            <div class="over hidden-xs"></div>
         }
-        <span class="text-content">
+        <p class="text-content">
             @post.Title
-        </span>
+        </p>
     </a>
 }

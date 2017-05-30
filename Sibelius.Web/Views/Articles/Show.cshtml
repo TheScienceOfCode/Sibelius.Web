@@ -5,6 +5,7 @@
     ViewBag.MetaKeywords = Model.Tags;
     ViewBag.MainImage = Model.ImageUrl;
     ViewBag.ogUrl = "http://thescienceofcode.azurewebsites.net/articles/show/" + Model.Id;
+    ViewBag.ContainerClass = "body-content";
 }
 
 @{ var backgroundposition = Model.BackgroundPosition != null ? Model.BackgroundPosition : "center bottom"; }
@@ -30,7 +31,7 @@
 <br />
 <div class="row">
     <div class="col-md-12">
-        <h2>@Model.Title</h2>
+        <h3>@Model.Title</h3>
         <h4>@Model.Author</h4>
         <br />
     </div>
@@ -46,9 +47,6 @@
         </div>
         <hr />
         @Articles.Stats(Model)
-    </div>
-    <div class="col-md-4 text-center">
-        @Social.FbPage()
     </div>
 </div>
 <br />
@@ -71,17 +69,7 @@
     </div>
 
     <div class="col-md-4 hidden-xs hidden-sm left-col">
-        <div class="more-articles-group">
-            <span class="section-span">Quizá te interese</span>
-            @foreach (var article in ViewBag.Articles)
-            {
-                <div class="row">
-                    <div class="col-xs-12">
-                        @Articles.Headline(article)
-                    </div>
-                </div>
-            }
-        </div>
+       @Social.FbPage()
     </div>
 </div>
 <br />
@@ -113,5 +101,6 @@
         Model.Title,
         string.Format("http://thescienceofcode.azurewebsites.net/Articles/Show/{0}", Model.Id))
 }
+
 
 

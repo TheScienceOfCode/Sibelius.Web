@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "Content/theme/theme.css",
+    "inputFile": "Content/theme/theme.less"
+  },
+  {
+    "outputFile": "Content/theme/stars.css",
+    "inputFile": "Content/theme/stars.sass"
+  },
+  {
+    "outputFile": "Content/theme/stars.css",
+    "inputFile": "Content/theme/stars.scss"
+  }
+]

@@ -5,99 +5,97 @@
     ViewBag.MetaKeywords = "computación, software, programación, desarrollo, tutoriales, cursos";
     ViewBag.MainImage = Model.Articles[0].ImageUrl;
 
+    ViewBag.FixeableNavbar = true;
+
     var articles = Model.Articles;
     var posts = Model.Posts;
-    int bigArticles = 5;
+    int bigArticles = 3;
 }
-<br />
-@if ((int)Session["pubadv"] > 0)
-{
-    <div class="row well">
-        <div class="col-xs-12">
-            No podrás navegar hasta que verifiquemos que has desactivado el AdBlock. <br />
-            Una vez lo desactives, <b>recarga la página y espera a que aparezca el Ad</b>, antes de hacer clic en el siguiente botón: <br /><br />
-            <a class="btn btn-primary" href="~/Home/Unban">Volver a dónde estaba</a>
+
+@section Top{
+<div class="sl sl-top">
+    <div class="sl-over">
+        <div class="container">
+            <div class="row">
+                <a id="main-logo-big" href="~/Home">
+                    <img class="img-responsive" src="~/Content/img/the-science-of-code.png" alt="The Science of Code" />
+                </a>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @Articles.Headline(articles[0])
+                        </div>
+                        @for (int i = 1; i < bigArticles; ++i)
+                        {
+                            <div class="col-sm-6 hidden-xs">
+                                @Articles.Headline(articles[i])
+                            </div>
+                        }
+                        <div class="col-sm-6">
+                            <a class="btn more-articles" href="~/Articles/"><i class="fa fa-plus-square" aria-hidden="true"></i> Más artículos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="news-headlines">
+                        <a href="~/Posts"><h1><i class="fa fa-newspaper-o" aria-hidden="true"></i> Noticias </h1></a>
+                        <div class="news-group">
+                            @{ var img = true; }
+                            @foreach (var post in posts)
+                            {
+                                @Posts.Headline(post, img)
+                                img = false;
+                            }
+                            <a href="~/Posts">Más noticias <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-}
-<div class="row">
-    <div class="col-xs-12">
-        <center>
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- Main TSOC -->
-            <ins class="adsbygoogle"
-                 style="display:block;max-width:970px;width:100%;"
-                 data-ad-client="ca-pub-1426867402604645"
-                 data-ad-slot="7023487219"
-                 data-ad-format="auto"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-            <div class="pubdiv"></div>
-        </center>
     </div>
 </div>
 
-<div class="row row-no-margin">
-    <div class="col-sm-8">
+<div class="sl sl-dark questions-headlines">
+    <div class="container">
+        <h3 class="text-center">PREGUNTAS DE LA COMUNIDAD</h3>
         <div class="row">
-            <div class="col-xs-12">
-                @Articles.Headline(articles[0])
-            </div>
-        </div>
-        <div class="row">
-            @for (int i = 1; i < bigArticles; ++i)
+            @foreach (var question in Model.Questions)
             {
-                <div class="col-sm-6">
-                    @Articles.Headline(articles[i])
+                <div class="col-sm-4">
+                    <a class="question-btn" href="~/Questions/Show/@question.Id">
+                        <div>
+                            <div class="question-title">
+                                @question.Title
+                            </div>
+                            @if (string.IsNullOrEmpty(question.Name))
+                            {
+                                <div><i class="fa fa-user-circle" aria-hidden="true"></i> Anónimo</div>
+                            }
+                            else
+                            {
+                                <i class="fa fa-user-circle" aria-hidden="true"></i> @question.Name
+                            }
+                        </div>
+                    </a>
                 </div>
             }
-        </div>        
-    </div>
-    <div class="col-sm-4">
-        <div class="row row-no-margin">
-            <div class="col-xs-12">
-                <span class="section-span">
-                    Últimos Posts
-                </span>
-                <div class="section-div tsoc-group">
-                    @{ var img = true;}
-                    @foreach (var post in posts)
-                    {
-                        @Posts.Headline(post, img)
-                        img = false;
-                    }
-                    <a class="section-btn-more" href="~/Posts">Ver más Posts ></a>
-                </div>
-            </div>           
-        </div>
-        <div class="row row-no-margin"" id="questions-list">
-            <div class="col-xs-12">
-                @{Html.RenderAction("List", "Questions", new { pagination = false }); }
+            <div class="col-sm-4">
+                <a class="question-btn primary" href="~/Questions/">
+                    <div>
+                        <div class="question-title">
+                            VER MÁS
+                        </div>
+                    </div>
+                </a>
+
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <span class="section-span light">
-                Más artículos
-            </span>
-        </div>
-    </div>
-    <div class="col-sm-12">        
-        @for (int i = bigArticles; i < articles.Count; i += 4)
-        {
-            <div class="row">
-                @for (int j = i; (j < i + 4) && (j < articles.Count); ++j)
-                {
-                <div class="col-sm-3">
-                    @Articles.Headline(articles[j], true)
-                </div>
-                }
-            </div>
-        }
     </div>
 </div>
+}
 
 @section Scripts {
     <script src="~/Scripts/app/questions.js"></script>
