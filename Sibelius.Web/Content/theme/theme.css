@@ -8183,6 +8183,10 @@ h6 {
 #main-navbar a.navbar-brand:hover:after {
   box-shadow: 0 0 120px 10px #ffe4b9;
 }
+#main-navbar li a:focus,
+#main-navbar a.navbar-brand:focus {
+  background: linear-gradient(#000 50%, #171717 100%);
+}
 #main-navbar a.navbar-brand {
   padding-bottom: 4px;
   padding-top: 4px;
