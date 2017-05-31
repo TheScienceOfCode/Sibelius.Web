@@ -1,12 +1,13 @@
 ﻿@helper Stats(Sibelius.Web.Models.Article article, string css = "col-sm-6")
 {
     <h4>@article.Visitas visitas aquí.</h4>
-if (article.TaringaUrl != null && article.TaringaUrl != string.Empty)
-{
+    if (article.TaringaUrl != null && article.TaringaUrl != string.Empty)
+    {
         <h4>
             <a href="@article.TaringaUrl" target="_blank"> Taringa: @article.TaringaVisitas visitas</a>
         </h4>
-}
+    }
+    <h6>Publicado el @article.Date.ToString("dd") de @article.Date.ToString("MMMM") de @article.Date.ToString("yyyy").</h6>
 }
 
 
