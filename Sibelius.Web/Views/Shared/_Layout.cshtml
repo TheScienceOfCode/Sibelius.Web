@@ -142,13 +142,8 @@
             </div>
         </div>
     </div>
-    <footer class="main-footer">
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <h5><i class="fa fa-cc"></i> 2013 - @DateTime.Now.Year.</h5>
-                <br />
-            </div>
-        </div>
+    <footer id="main-footer">
+        <i class="fa fa-cc"></i> 2013 - @DateTime.Now.Year.        
     </footer>
     @{var legal = HttpContext.Current.Session["legal"];}
     @if (legal == null || (bool)legal != true)
