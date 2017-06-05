@@ -8509,12 +8509,10 @@ a:hover {
 .alert-red h3 {
   color: yellow;
 }
-.main-footer {
+#main-footer {
   background-color: #141414;
   color: #fff !important;
-}
-.main-footer h5 {
-  color: #fff;
+  text-align: center;
 }
 .bot-menu {
   background-color: #141414;
