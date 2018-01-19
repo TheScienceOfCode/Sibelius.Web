@@ -132,12 +132,13 @@
 }
 
 .sl-top {
-    background: url('../img/main-bg.jpg');
+    background-image: url('https://1.bp.blogspot.com/-Z-5SRm7QugY/WfOfXhwkGfI/AAAAAAAAA_g/Fh_e-tijyhQ2R0M_x_fzPnmPrUrNK_WewCLcBGAs/s1600/main-bg.jpg');
     background-position: top left;
-    background-size: cover;     
+    background-size: cover;
     background-attachment: fixed;
+    background-color: #000;
 
-    h1,h2,h3,h4,h5,h6{
+    h1, h2, h3, h4, h5, h6 {
         color: #fff;
     }
 }
@@ -152,7 +153,6 @@
     border-radius: @tsoc-default-border-radius;
     margin-top: @tsoc-default-margin-top;
     box-shadow: @tsoc-default-shadow;
-    background-color: @tsoc-dark-color;
     background-color: @tsoc-transparent-color;
     height: auto;
     display: block;
@@ -166,8 +166,17 @@
         .subheader-alt-font(@tsoc-lighter-color, @tsoc-big-fontsize);
         display: block;
         width: 100%;
-        padding: 10px 20px 10px 20px;
+        padding: 10px 20px 5px 20px;
         text-shadow: 1px 1px #000000;
+    }
+
+    .box-author {
+        display: block;
+        width: 100%;
+        padding: 2px 20px 2px 20px;
+        font-size: @tsoc-sm-fontsize;
+        font-weight: bolder;
+        background-color: rgba(0,0,0,0.1);
     }
 
     .box-header {
@@ -207,8 +216,8 @@
     &:hover {
         .light-hover;
 
-        .box-title {
-            .light-hover
+        .box-title, .box-author {
+            .text-nolight;
         }
 
         .box-header {
@@ -228,8 +237,10 @@
     }
 
     p {
-        padding: 20px;
-        font-size: 14px;
+        padding: 15px 20px 10px 20px;
+        font-size: 13px;
+        background-color: rgba(0,0,0,0.2);
+        height: @tsoc-box-height;
     }
 }
 

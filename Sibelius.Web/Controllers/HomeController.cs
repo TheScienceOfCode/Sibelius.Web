@@ -15,6 +15,7 @@ namespace Sibelius.Web.Controllers
         CourseBehavior courseBehavior = new CourseBehavior();
         PostBehavior postBehavior = new PostBehavior();
         QuestionBehavior questionBehavior = new QuestionBehavior();
+        CollaboratorBehavior collaboratorBehavior = new CollaboratorBehavior();
 
         [SkipBanFilter]
         public ActionResult Index()
@@ -62,7 +63,7 @@ namespace Sibelius.Web.Controllers
         
         public ActionResult About()
         {
-            return View();
+            return View(collaboratorBehavior.GetAll().ToList());
         } 
     }
 }

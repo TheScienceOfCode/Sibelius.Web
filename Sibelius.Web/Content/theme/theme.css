@@ -7792,10 +7792,11 @@ input[type="checkbox"]:disabled:checked:after,
   padding: 20px 20px 120px 20px;
 }
 .sl-top {
-  background: url('../img/main-bg.jpg');
+  background-image: url('https://1.bp.blogspot.com/-Z-5SRm7QugY/WfOfXhwkGfI/AAAAAAAAA_g/Fh_e-tijyhQ2R0M_x_fzPnmPrUrNK_WewCLcBGAs/s1600/main-bg.jpg');
   background-position: top left;
   background-size: cover;
   background-attachment: fixed;
+  background-color: #000;
 }
 .sl-top h1,
 .sl-top h2,
@@ -7814,7 +7815,6 @@ input[type="checkbox"]:disabled:checked:after,
   border-radius: 0px;
   margin-top: 30px;
   box-shadow: 0px 3px 12px -4px #000000;
-  background-color: #090909;
   background-color: rgba(194, 193, 193, 0.17);
   height: auto;
   position: relative;
@@ -7834,8 +7834,16 @@ input[type="checkbox"]:disabled:checked:after,
   text-transform: uppercase;
   display: block;
   width: 100%;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px 5px 20px;
   text-shadow: 1px 1px #000000;
+}
+.box .box-author {
+  display: block;
+  width: 100%;
+  padding: 2px 20px 2px 20px;
+  font-size: 14px;
+  font-weight: bolder;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .box .box-header {
   height: 212px;
@@ -7893,12 +7901,10 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #fff;
   color: #000;
 }
-.box:hover .box-title {
-  box-shadow: 0 0 70px 0px rgba(255, 255, 255, 0.5);
-  border-color: #fff;
+.box:hover .box-title,
+.box:hover .box-author {
   text-shadow: none;
-  background-color: #fff;
-  color: #000;
+  color: #171717;
 }
 .box:hover .box-header .box-section {
   box-shadow: 0 0 70px 0px rgba(255, 255, 255, 0.5);
@@ -7915,8 +7921,10 @@ input[type="checkbox"]:disabled:checked:after,
   min-height: 428px;
 }
 .box p {
-  padding: 20px;
-  font-size: 14px;
+  padding: 15px 20px 10px 20px;
+  font-size: 13px;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 320px;
 }
 .more-articles {
   margin-top: 30px;
