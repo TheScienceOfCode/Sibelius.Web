@@ -8265,10 +8265,10 @@ html {
   background-color: #171717 !important;
 }
 .light-body {
-  background-color: #edecec;
+  background-color: #fff;
 }
 .dark-body {
-  background-color: #ebebeb;
+  background-color: #fafafa;
 }
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
