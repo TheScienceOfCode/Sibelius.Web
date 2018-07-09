@@ -8307,6 +8307,348 @@ textarea {
 .article-text pre,
 .article-text .gist {
   margin-left: 15px;
+  /* Comment */
+  /* Error */
+  /* Generic */
+  /* Keyword */
+  /* Literal */
+  /* Name */
+  /* Operator */
+  /* Other */
+  /* Punctuation */
+  /* Comment.Multiline */
+  /* Comment.Preproc */
+  /* Comment.Single */
+  /* Comment.Special */
+  /* Generic.Deleted */
+  /* Generic.Emph */
+  /* Generic.Error */
+  /* Generic.Heading */
+  /* Generic.Inserted */
+  /* Generic.Output */
+  /* Generic.Prompt */
+  /* Generic.Strong */
+  /* Generic.Subheading */
+  /* Generic.Traceback */
+  /* Keyword.Constant */
+  /* Keyword.Declaration */
+  /* Keyword.Namespace */
+  /* Keyword.Pseudo */
+  /* Keyword.Reserved */
+  /* Keyword.Type */
+  /* Literal.Date */
+  /* Literal.Number */
+  /* Literal.String */
+  /* Name.Attribute */
+  /* Name.Builtin */
+  /* Name.Class */
+  /* Name.Constant */
+  /* Name.Decorator */
+  /* Name.Entity */
+  /* Name.Exception */
+  /* Name.Function */
+  /* Name.Label */
+  /* Name.Namespace */
+  /* Name.Other */
+  /* Name.Property */
+  /* Name.Tag */
+  /* Name.Variable */
+  /* Operator.Word */
+  /* Text.Whitespace */
+  /* Literal.Number.Float */
+  /* Literal.Number.Hex */
+  /* Literal.Number.Integer */
+  /* Literal.Number.Oct */
+  /* Literal.String.Backtick */
+  /* Literal.String.Char */
+  /* Literal.String.Doc */
+  /* Literal.String.Double */
+  /* Literal.String.Escape */
+  /* Literal.String.Heredoc */
+  /* Literal.String.Interpol */
+  /* Literal.String.Other */
+  /* Literal.String.Regex */
+  /* Literal.String.Single */
+  /* Literal.String.Symbol */
+  /* Name.Builtin.Pseudo */
+  /* Name.Variable.Class */
+  /* Name.Variable.Global */
+  /* Name.Variable.Instance */
+  /* Literal.Number.Integer.Long */
+}
+.article-text pre .c,
+.article-text .gist .c {
+  color: #00641c;
+}
+.article-text pre .err,
+.article-text .gist .err {
+  color: red;
+}
+.article-text pre .g,
+.article-text .gist .g {
+  color: #000;
+}
+.article-text pre .k,
+.article-text .gist .k {
+  color: blue;
+}
+.article-text pre .l,
+.article-text .gist .l {
+  color: #b31d15;
+}
+.article-text pre .n,
+.article-text .gist .n {
+  color: #000;
+}
+.article-text pre .o,
+.article-text .gist .o {
+  color: #000;
+}
+.article-text pre .x,
+.article-text .gist .x {
+  color: #000;
+}
+.article-text pre .p,
+.article-text .gist .p {
+  color: #000;
+}
+.article-text pre .cm,
+.article-text .gist .cm {
+  color: #586E75;
+}
+.article-text pre .cp,
+.article-text .gist .cp {
+  color: #00641c;
+}
+.article-text pre .c1,
+.article-text .gist .c1 {
+  color: gray;
+}
+.article-text pre .cs,
+.article-text .gist .cs {
+  color: #00641c;
+}
+.article-text pre .gd,
+.article-text .gist .gd {
+  color: #00641c;
+}
+.article-text pre .ge,
+.article-text .gist .ge {
+  color: #93A1A1;
+  font-style: italic;
+}
+.article-text pre .gr,
+.article-text .gist .gr {
+  color: #DC322F;
+}
+.article-text pre .gh,
+.article-text .gist .gh {
+  color: #CB4B16;
+}
+.article-text pre .gi,
+.article-text .gist .gi {
+  color: #859900;
+}
+.article-text pre .go,
+.article-text .gist .go {
+  color: #93A1A1;
+}
+.article-text pre .gp,
+.article-text .gist .gp {
+  color: #93A1A1;
+}
+.article-text pre .gs,
+.article-text .gist .gs {
+  color: #93A1A1;
+  font-weight: bold;
+}
+.article-text pre .gu,
+.article-text .gist .gu {
+  color: #CB4B16;
+}
+.article-text pre .gt,
+.article-text .gist .gt {
+  color: #93A1A1;
+}
+.article-text pre .kc,
+.article-text .gist .kc {
+  color: #CB4B16;
+}
+.article-text pre .kd,
+.article-text .gist .kd {
+  color: #000;
+}
+.article-text pre .kn,
+.article-text .gist .kn {
+  color: blue;
+}
+.article-text pre .kp,
+.article-text .gist .kp {
+  color: blue;
+}
+.article-text pre .kr,
+.article-text .gist .kr {
+  color: blue;
+}
+.article-text pre .kt,
+.article-text .gist .kt {
+  color: blue;
+}
+.article-text pre .ld,
+.article-text .gist .ld {
+  color: blue;
+}
+.article-text pre .m,
+.article-text .gist .m {
+  color: #000;
+}
+.article-text pre .s,
+.article-text .gist .s {
+  color: #b31d15;
+}
+.article-text pre .na,
+.article-text .gist .na {
+  color: #93A1A1;
+}
+.article-text pre .nb,
+.article-text .gist .nb {
+  color: #B58900;
+}
+.article-text pre .nc,
+.article-text .gist .nc {
+  color: #268BD2;
+}
+.article-text pre .no,
+.article-text .gist .no {
+  color: blue;
+}
+.article-text pre .nd,
+.article-text .gist .nd {
+  color: blue;
+}
+.article-text pre .ni,
+.article-text .gist .ni {
+  color: #000;
+}
+.article-text pre .ne,
+.article-text .gist .ne {
+  color: #000;
+}
+.article-text pre .nf,
+.article-text .gist .nf {
+  color: #000;
+}
+.article-text pre .nl,
+.article-text .gist .nl {
+  color: #000;
+}
+.article-text pre .nn,
+.article-text .gist .nn {
+  color: #000;
+}
+.article-text pre .nx,
+.article-text .gist .nx {
+  color: #000;
+}
+.article-text pre .py,
+.article-text .gist .py {
+  color: #000;
+}
+.article-text pre .nt,
+.article-text .gist .nt {
+  color: #000;
+}
+.article-text pre .nv,
+.article-text .gist .nv {
+  color: #000;
+}
+.article-text pre .ow,
+.article-text .gist .ow {
+  color: #000;
+}
+.article-text pre .w,
+.article-text .gist .w {
+  color: #000;
+}
+.article-text pre .mf,
+.article-text .gist .mf {
+  color: #000;
+}
+.article-text pre .mh,
+.article-text .gist .mh {
+  color: #000;
+}
+.article-text pre .mi,
+.article-text .gist .mi {
+  color: #000;
+}
+.article-text pre .mo,
+.article-text .gist .mo {
+  color: #000;
+}
+.article-text pre .sb,
+.article-text .gist .sb {
+  color: #000;
+}
+.article-text pre .sc,
+.article-text .gist .sc {
+  color: #b31d15;
+}
+.article-text pre .sd,
+.article-text .gist .sd {
+  color: #b31d15;
+}
+.article-text pre .s2,
+.article-text .gist .s2 {
+  color: #b31d15;
+}
+.article-text pre .se,
+.article-text .gist .se {
+  color: #b31d15;
+}
+.article-text pre .sh,
+.article-text .gist .sh {
+  color: #b31d15;
+}
+.article-text pre .si,
+.article-text .gist .si {
+  color: #b31d15;
+}
+.article-text pre .sx,
+.article-text .gist .sx {
+  color: #b31d15;
+}
+.article-text pre .sr,
+.article-text .gist .sr {
+  color: #DC322F;
+}
+.article-text pre .s1,
+.article-text .gist .s1 {
+  color: #2AA198;
+}
+.article-text pre .ss,
+.article-text .gist .ss {
+  color: #b31d15;
+}
+.article-text pre .bp,
+.article-text .gist .bp {
+  color: #b31d15;
+}
+.article-text pre .vc,
+.article-text .gist .vc {
+  color: #000;
+}
+.article-text pre .vg,
+.article-text .gist .vg {
+  color: #000;
+}
+.article-text pre .vi,
+.article-text .gist .vi {
+  color: #000;
+}
+.article-text pre .il,
+.article-text .gist .il {
+  color: #000;
 }
 .article-text h4 {
   margin-left: 10px;
