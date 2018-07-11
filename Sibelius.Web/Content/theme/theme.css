@@ -1461,7 +1461,7 @@ blockquote {
   padding: 11.5px 23px;
   margin: 0 0 23px;
   font-size: 16.25px;
-  border-left: 5px solid #eeeeee;
+  border-left: 5px solid #2196F3;
 }
 blockquote p:last-child,
 blockquote ul:last-child,
@@ -1485,7 +1485,7 @@ blockquote .small:before {
 blockquote.pull-right {
   padding-right: 15px;
   padding-left: 0;
-  border-right: 5px solid #eeeeee;
+  border-right: 5px solid #2196F3;
   border-left: 0;
   text-align: right;
 }
@@ -8975,4 +8975,7 @@ h3 .badge {
 }
 .tw-top:hover {
   background-color: #1183c8 !important;
+}
+blockquote {
+  background-color: #efefef;
 }
