@@ -8294,6 +8294,7 @@ textarea {
 }
 .article-top h3 {
   font-weight: normal;
+  margin-top: 0;
 }
 .article-top h1 {
   margin-top: 0;
@@ -8665,6 +8666,7 @@ textarea {
 .article-text h1 {
   margin-left: 0;
   margin-bottom: 30px;
+  margin-top: 40px;
 }
 .pre-fixed {
   float: right;
