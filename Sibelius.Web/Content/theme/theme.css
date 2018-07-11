@@ -8143,7 +8143,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Prompt';
+  font-family: 'Roboto';
 }
 .box-image div {
   height: 350px;
@@ -8296,7 +8296,7 @@ textarea {
 .article-text-intro,
 .article-text ul li {
   text-align: justify;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.8;
 }
 .article-text .videoWrapper,
@@ -8513,11 +8513,11 @@ textarea {
 }
 .article-text pre .nb,
 .article-text .gist .nb {
-  color: #B58900;
+  color: #000;
 }
 .article-text pre .nc,
 .article-text .gist .nc {
-  color: #268BD2;
+  color: blue;
 }
 .article-text pre .no,
 .article-text .gist .no {
