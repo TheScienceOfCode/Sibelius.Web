@@ -1247,27 +1247,27 @@ h6 .small,
 }
 h1,
 .h1 {
-  font-size: 56px;
+  font-size: 34px;
 }
 h2,
 .h2 {
-  font-size: 45px;
+  font-size: 24px;
 }
 h3,
 .h3 {
-  font-size: 34px;
+  font-size: 20px;
 }
 h4,
 .h4 {
-  font-size: 24px;
+  font-size: 18px;
 }
 h5,
 .h5 {
-  font-size: 20px;
+  font-size: 17px;
 }
 h6,
 .h6 {
-  font-size: 14px;
+  font-size: 16px;
 }
 p {
   margin: 0 0 11.5px;
