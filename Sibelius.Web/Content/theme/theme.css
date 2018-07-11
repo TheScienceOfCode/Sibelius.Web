@@ -1075,7 +1075,7 @@ body {
   font-size: 13px;
   line-height: 1.846;
   color: #666;
-  background-color: #141414;
+  background-color: #fff;
 }
 input,
 button,
@@ -1113,7 +1113,7 @@ img {
 .img-thumbnail {
   padding: 4px;
   line-height: 1.846;
-  background-color: #141414;
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 3px;
   -webkit-transition: all 0.2s ease-in-out;
@@ -2273,7 +2273,7 @@ th {
   border-top: 2px solid #ddd;
 }
 .table .table {
-  background-color: #141414;
+  background-color: #fff;
 }
 .table-condensed > thead > tr > th,
 .table-condensed > tbody > tr > th,
@@ -4057,7 +4057,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .nav-tabs.nav-justified > .active > a,
   .nav-tabs.nav-justified > .active > a:hover,
   .nav-tabs.nav-justified > .active > a:focus {
-    border-bottom-color: #141414;
+    border-bottom-color: #fff;
   }
 }
 .nav-pills > li {
@@ -4125,7 +4125,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .nav-tabs-justified > .active > a,
   .nav-tabs-justified > .active > a:hover,
   .nav-tabs-justified > .active > a:focus {
-    border-bottom-color: #141414;
+    border-bottom-color: #fff;
   }
 }
 .tab-content > .tab-pane {
@@ -4976,7 +4976,7 @@ a.badge:focus {
   padding: 4px;
   margin-bottom: 23px;
   line-height: 1.846;
-  background-color: #141414;
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 3px;
   -webkit-transition: border 0.2s ease-in-out;
@@ -8123,7 +8123,7 @@ a:visited {
 /* MAIN HTML COMPONENTS */
 html,
 body {
-  background-color: #141414;
+  background-color: #fff;
 }
 body {
   font-family: 'Roboto';
@@ -8291,6 +8291,13 @@ textarea {
 }
 .min-h-content {
   min-height: 2000px;
+}
+.article-top h4,
+.article-top h3 {
+  font-weight: bold;
+}
+.article-top h3 {
+  margin-top: 0;
 }
 .article-text,
 .article-text-intro,
