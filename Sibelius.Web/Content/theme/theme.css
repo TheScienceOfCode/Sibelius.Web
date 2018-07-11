@@ -1167,7 +1167,7 @@ h6,
 .h5,
 .h6 {
   font-family: inherit;
-  font-weight: 400;
+  font-weight: bold;
   line-height: 1.1;
   color: #444;
 }
@@ -8292,11 +8292,10 @@ textarea {
 .min-h-content {
   min-height: 2000px;
 }
-.article-top h4,
 .article-top h3 {
-  font-weight: bold;
+  font-weight: normal;
 }
-.article-top h3 {
+.article-top h1 {
   margin-top: 0;
 }
 .article-text,
