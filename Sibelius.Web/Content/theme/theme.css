@@ -7828,7 +7828,7 @@ input[type="checkbox"]:disabled:checked:after,
 }
 .box .box-title {
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Prompt';
   font-weight: 700;
   text-transform: uppercase;
@@ -7859,7 +7859,7 @@ input[type="checkbox"]:disabled:checked:after,
 }
 .box .box-header .box-section {
   color: #eaeaea;
-  font-size: 22px;
+  font-size: 18px;
   font-family: 'Prompt';
   font-weight: 700;
   text-transform: uppercase;
@@ -8005,7 +8005,7 @@ a:visited {
   transition: all 0.2s ease-out, background-position 2s linear;
 }
 .news-headlines a h1 {
-  font-size: 22px;
+  font-size: 18px;
   font-family: 'Prompt';
   font-weight: 700;
   text-transform: uppercase;
