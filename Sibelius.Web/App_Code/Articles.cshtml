@@ -7,7 +7,7 @@
             <a href="@article.TaringaUrl" target="_blank"> Taringa: @article.TaringaVisitas visitas</a>
         </h4>
     }
-    <h6>Publicado el @article.Date.ToString("dd") de @article.Date.ToString("MMMM") de @article.Date.ToString("yyyy").</h6>
+    <h6>Publicado el @article.Date.ToString("dd") de @article.Date.ToString("MMMM", new System.Globalization.CultureInfo("es-ES")) de @article.Date.ToString("yyyy").</h6>
 }
 
 
