@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -198,7 +199,6 @@
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Data\Global.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
-    <Compile Include="Filters\BanFilter.cs" />
     <Compile Include="Filters\ReCaptchaFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -355,9 +355,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="sitemap.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="Content\theme\jsPushMenu.less" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -443,7 +440,6 @@
     <Content Include="Views\Shared\_Fonts.cshtml" />
     <Content Include="Views\Shared\_Pagination.cshtml" />
     <Content Include="Views\Shared\_LegalInfo.cshtml" />
-    <Content Include="Views\Shared\_Pubadv.cshtml" />
     <Content Include="App_Code\Social.cshtml" />
     <Content Include="Views\AdminLicenses\Create.cshtml" />
     <Content Include="Views\AdminLicenses\Delete.cshtml" />
