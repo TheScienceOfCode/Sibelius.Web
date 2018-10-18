@@ -17,7 +17,6 @@ namespace Sibelius.Web.Controllers
         QuestionBehavior questionBehavior = new QuestionBehavior();
         CollaboratorBehavior collaboratorBehavior = new CollaboratorBehavior();
 
-        [SkipBanFilter]
         public ActionResult Index()
         {
             var result = new MainpageVM()
@@ -39,28 +38,12 @@ namespace Sibelius.Web.Controllers
             return View();
         }        
 
-        [SkipBanFilter]
         public JsonResult LegalAccept()
         {
             Session["legal"] = true;
             return Json("ok");
         }
-
-        [HttpPost]
-        [SkipBanFilter]
-        public JsonResult PubAdvAccept(bool value)
-        {
-            if (value)
-            {
-                Session["pubadv"] = (int)Session["pubadv"] /*+ 1*/;
-            }
-            else
-            {
-                Session["pubadv"] = 0;
-            }
-            return Json("ok");
-        }      
-        
+               
         public ActionResult About()
         {
             return View(collaboratorBehavior.GetAll().ToList());

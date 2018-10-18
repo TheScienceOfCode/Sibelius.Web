@@ -185,49 +185,5 @@
         ga('create', 'UA-59510259-1', 'auto');
         ga('send', 'pageview');
     </script>
-
-    @{  var pubadv = HttpContext.Current.Session["pubadv"];
-            int timeout = 5000;
-    }
-    @if ((int)pubadv > 0)
-    {
-        timeout = 1000;
-    }
-    <script>
-        $(document).ready(
-            function() {
-                $('#pubadv-accept').on('click', function(){
-                    $('#pubadv').hide();
-                });
-                setTimeout(checkAds, @timeout);
-            }
-        );
-
-        function checkAds() {
-            var ad = document.querySelector("ins.adsbygoogle");
-            if (ad && ad.innerHTML.replace('/\s / g', "").length == 0) {
-                $.ajax({
-                    type: 'post',
-                    data: {'value':true},
-                    url: '@Url.Content("~/Home/PubAdvAccept")',
-                    success:
-                        function(result) {
-                            var string = window.location.href.toUpperCase(), substring = "HOME";
-                            if(string.indexOf(substring) == -1)
-                                var s = ('@Url.Content("~/Home/Index")'); //window.location.replace
-                        }
-                });
-                $('#pubadv').show('slow');
-                $('.pubdiv').html('<div class="alert alert-red"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4>¡Importante!</h4><h4>Queremos seguir prestando un servicio gratuito y compartiendo el conocimiento, pero AdBlock está arruinando internet libre. <br/>No queremos cobrar membresías, a cambio te pedimos desactivar tu AdBlock.</h4></div>');
-            }
-            else{
-                $.ajax({
-                    type: 'post',
-                    data: {'value':false},
-                    url: '@Url.Content("~/Home/PubAdvAccept")'
-                });
-            }
-        }
-    </script>
 </body>
 </html>
