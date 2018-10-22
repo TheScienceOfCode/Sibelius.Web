@@ -30,7 +30,7 @@ var smclass = sm ? "sm" : string.Empty;
             {
                 intro = intro.Substring(0, intro.IndexOf(' ', 200));
             }
-            <span class="box-author">Por @article.Author - @article.Date.Year</span>
+            <span class="box-author">@article.Author (@article.Date.Year - @article.Visitas visitas)</span>
             <p>
                 @intro
                 @if (intro.Count() > 200)
