@@ -223,6 +223,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\img\computadora-the-science.png" />
     <Content Include="Content\img\main-bg.jpg" />
@@ -249,6 +253,15 @@
       <Link>Documentation\MongoRepository.chm</Link>
     </Content>
     <None Include="bundleconfig.json" />
+    <Content Include="Content\bootstrap\scaffolding.less" />
+    <Content Include="Content\bootstrap\bootstrap.less" />
+    <Content Include="Content\theme\variables.less" />
+    <Content Include="Content\theme\bootswatch.less" />
+    <Content Include="Content\theme\theme.less" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
@@ -261,7 +274,6 @@
     <Content Include="Content\bootstrap\thumbnails.less" />
     <Content Include="Content\bootstrap\theme.less" />
     <Content Include="Content\bootstrap\tables.less" />
-    <Content Include="Content\bootstrap\scaffolding.less" />
     <Content Include="Content\bootstrap\responsive-utilities.less" />
     <Content Include="Content\bootstrap\responsive-embed.less" />
     <Content Include="Content\bootstrap\progress-bars.less" />
@@ -321,20 +333,16 @@
     <Content Include="Content\bootstrap\buttons.less" />
     <Content Include="Content\bootstrap\button-groups.less" />
     <Content Include="Content\bootstrap\breadcrumbs.less" />
-    <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\theme\variables.less" />
-    <Content Include="Content\theme\bootswatch.less" />
-    <Content Include="Content\theme\theme.less" />
-    <None Include="compilerconfig.json" />
-    <None Include="compilerconfig.json.defaults">
-      <DependentUpon>compilerconfig.json</DependentUpon>
-    </None>
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
