@@ -4,8 +4,8 @@ THIS REPO IS CURRENTLY ON LEGACY MODE. WE ARE PLANNING TO START A BRAND NEW "THE
 
 Welcome to the repo of our website http://thescienceofcode.com. 
 
-The site has been developed with ASP.NET MVC 5, Mongo DB, Bootstrap, Less and JQuery. This was a pretty simple project (in dev terms) that didn't require advanced techniques or technologies at the moment that it was done.
+New project:
 
-# Roadmap and FAQ
+* Frontend repo: https://github.com/TheScienceOfCode/Blaster
 
-Check our Wiki: https://github.com/TheScienceOfCode/Sibelius.Web/wiki
+* Backend repo: https://github.com/TheScienceOfCode/Spectrum
