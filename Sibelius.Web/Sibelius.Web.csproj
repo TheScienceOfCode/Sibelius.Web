@@ -241,6 +241,7 @@
       <DependentUpon>theme.css</DependentUpon>
     </Content>
     <Content Include="favicon.ico" />
+    <Content Include="ads.txt" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
