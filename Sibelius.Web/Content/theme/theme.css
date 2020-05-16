@@ -8385,7 +8385,6 @@ textarea {
 .article-text,
 .article-text-intro,
 .article-text ul li {
-  text-align: justify;
   font-size: 15px;
   line-height: 1.8;
 }
