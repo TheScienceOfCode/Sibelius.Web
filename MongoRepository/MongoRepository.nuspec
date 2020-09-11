@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>MongoRepository</id>
+    <title>MongoRepository</title>
+    <version>1.6.11</version>
+    <authors>tgeek, RobIII</authors>
+    <owners>tgeek</owners>
+    <licenseUrl>https://raw.githubusercontent.com/RobThree/MongoRepository/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/RobThree/MongoRepository</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This easy to use library implements the repository pattern on top of Official MongoDB C# driver.</description>
+    <tags>mongo mongodb repository</tags>
+    <iconUrl>https://raw.githubusercontent.com/RobThree/MongoRepository/master/mongorepositorylogo.png</iconUrl>
+    <releaseNotes>
+      * Updated to MongoCSharp driver 1.11
+    </releaseNotes>
+    <summary>
+      Provides a repository pattern on top of 10gen's MongoDB C# driver.
+    </summary>
+    <language>en-US</language>
+    <dependencies>
+      <dependency id="mongocsharpdriver" version="[1.11]" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="\MongoRepository\bin\Release\MongoRepository.Net35.dll" target="lib\net35" />
+    <file src="\MongoRepository\bin\Release\MongoRepository.Net35.XML" target="lib\net35" />
+    <file src="\MongoRepository\bin\Release\MongoRepository.Net40.dll" target="lib\net40" />
+    <file src="\MongoRepository\bin\Release\MongoRepository.Net40.XML" target="lib\net40" />
+    <file src="\MongoRepository\bin\Release\MongoRepository.Net45.dll" target="lib\net45" />
+    <file src="\MongoRepository\bin\Release\MongoRepository.Net45.XML" target="lib\net45" />
+    <file src="\MongoRepository\app.config.transform" target="content" />
+    <file src="\MongoRepository\web.config.transform" target="content" />
+    <file src="\Help\Output\MongoRepository.chm" target="" />
+    <file src="install.ps1" target="tools\install.ps1" />
+    <file src="uninstall.ps1" target="tools\uninstall.ps1" />
+  </files>
+</package>
