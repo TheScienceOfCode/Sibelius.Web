@@ -25,6 +25,20 @@ namespace Sibelius.Web.Controllers
             return View(articleBehavior.GetAll());
         }
 
+        //
+        // To be used locally
+        // public ActionResult PatchArticleUrls() 
+        // {
+        //     var articles = articleBehavior.GetAll();
+        //     foreach (var article in articles)
+        //     {
+        //         article.ImageUrl = article.ImageUrl.Replace("//dacanizares.github.io/", "//dacanizares.github.io/legacyblog/");
+        //         article.Html = article.Html.Replace("//dacanizares.github.io/", "//dacanizares.github.io/legacyblog/");
+        //         articleBehavior.Update(article);
+        //     }
+        //     return null;
+        // }
+
         public ActionResult Create()
         {
             DropdownLicenses();
