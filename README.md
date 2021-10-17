@@ -1,11 +1,7 @@
 # Sibelius
 
-THIS REPO IS CURRENTLY ON LEGACY MODE. WE ARE PLANNING TO START A BRAND NEW "THE SCIENCE OF CODE".
+THIS REPO IS CURRENTLY ON LEGACY MODE.
 
-Welcome to the repo of our website http://thescienceofcode.com. 
+Welcome to the repo of our legacy website https://thescienceofcode.azurewebsites.net/. 
 
-New project:
-
-* Frontend repo: https://github.com/TheScienceOfCode/Blaster
-
-* Backend repo: https://github.com/TheScienceOfCode/Spectrum
+New project: https://github.com/TheScienceOfCode/thescienceofcode.github.io
