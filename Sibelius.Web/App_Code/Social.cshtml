@@ -6,6 +6,8 @@
     <div class="@css tw tw-default">
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="@url" data-via="ScienceOfCode">Tweet</a>
     </div>
+
+    @Custom.Pub()
 }
 
 @helper CleanBtn(string url, string css = "col-sm-6")
@@ -16,6 +18,8 @@
     <div class="@css tw">
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="@url" data-via="ScienceOfCode">Tweet</a>
     </div>
+
+    @Custom.Pub()
 }
 
 @helper Disqus(string title, string url)
@@ -26,13 +30,13 @@
      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
      */
-    
+
     var disqus_config = function () {
         this.page.url = '@url';  // Replace PAGE_URL with your page's canonical URL variable
     };
-    
+
     (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
-        
+
 
         var d = document, s = d.createElement('script');
 
@@ -60,7 +64,7 @@
                 <tr>
                     <td>Nombre completo</td>
                     <td><strong>@collaborator.Fullname</strong></td>
-                </tr>                
+                </tr>
                 <tr>
                     <td>
                         Social
@@ -97,7 +101,7 @@
 
 @helper FbPage()
 {
-        <div class="fb-page" data-href="https://www.facebook.com/TheScienceOfCode/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/TheScienceOfCode/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TheScienceOfCode/">The Science of Code</a></blockquote></div>
+    <div class="fb-page" data-href="https://www.facebook.com/TheScienceOfCode/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/TheScienceOfCode/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TheScienceOfCode/">The Science of Code</a></blockquote></div>
 }
 
 @helper TwPage()
@@ -105,6 +109,6 @@
     <a class="twitter-timeline"
        href="https://twitter.com/ScienceOfCode"
        data-height="300">
-        Tweets by 
+        Tweets by
     </a>
 }
